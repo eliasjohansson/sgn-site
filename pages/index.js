@@ -19,10 +19,11 @@ export const TEST_QUERY = gql`
   }
 `;
 
-const Index = () => (
+const Index = props => (
   <StyledIndex>
     <Query query={TEST_QUERY}>
       {({ loading, error, data, fetchMore }) => {
+        console.log(props);
         return (
           <div>
             {data.posts.edges.map(({ node }) => {
@@ -34,5 +35,15 @@ const Index = () => (
     </Query>
   </StyledIndex>
 );
+
+Index.getInitialProps = async ({ req }) => {
+  const apiToken =
+    
+  const res = await fetch(
+    `https://graph.facebook.com/v3.2/421066311976162/events?access_token=${process.env.FB_ACCESS_TOKEN}`
+  );
+  const json = await res.json();
+  return { events: json };
+};
 
 export default Index;

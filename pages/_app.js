@@ -4,8 +4,11 @@ import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
+import dotenv from 'dotenv';
 import GlobalStyles from '../styles/GlobalStyles';
 import Theme from '../styles/Theme';
+
+dotenv.config();
 
 class MyApp extends App {
   render() {
