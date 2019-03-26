@@ -1,9 +1,14 @@
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
+
+const StyledIndex = styled.div`
+  background-color: dodgerblue;
+`;
 
 export const TEST_QUERY = gql`
   query testQuery {
-    posts {
+    posts(where: { lang: "SV" }) {
       edges {
         node {
           title
@@ -15,7 +20,7 @@ export const TEST_QUERY = gql`
 `;
 
 const Index = () => (
-  <div>
+  <StyledIndex>
     <Query query={TEST_QUERY}>
       {({ loading, error, data, fetchMore }) => {
         return (
@@ -27,7 +32,7 @@ const Index = () => (
         );
       }}
     </Query>
-  </div>
+  </StyledIndex>
 );
 
 export default Index;

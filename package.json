@@ -18,6 +18,10 @@
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-apollo": "^2.5.2",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.0"
   }
 }
