@@ -9,7 +9,7 @@ const StyledIndex = styled.div`
 
 export const TEST_QUERY = gql`
   query testQuery {
-    posts(where: { lang: "SV" }) {
+    posts(where: { lang: "EN" }) {
       edges {
         node {
           title
@@ -27,6 +27,13 @@ const Index = props => (
         console.log(props);
         return (
           <div>
+           {props.events.data.map(singlePost => {
+              return <div> 
+                <h1> {singlePost.name} </h1>
+                <img src={singlePost.cover.source}/>
+                <h1> {singlePost.description} </h1>
+              </div>
+            })}
             {data.posts.edges.map(({ node }) => {
               return <p>{node.title}</p>;
             })}
