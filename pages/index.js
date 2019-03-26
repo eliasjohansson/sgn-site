@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 
 const StyledIndex = styled.div`
-  background-color: dodgerblue;
+  background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const TEST_QUERY = gql`
