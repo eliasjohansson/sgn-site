@@ -37,10 +37,10 @@ const Index = props => (
 );
 
 Index.getInitialProps = async ({ req }) => {
-  const apiToken =
-    
   const res = await fetch(
-    `https://graph.facebook.com/v3.2/421066311976162/events?access_token=${process.env.FB_ACCESS_TOKEN}`
+    `https://graph.facebook.com/v3.2/421066311976162/events?access_token=${
+      process.env.FB_ACCESS_TOKEN
+    }`
   );
   const json = await res.json();
   return { events: json };
