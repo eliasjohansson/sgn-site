@@ -1,4 +1,5 @@
 import App, { Container } from 'next/app';
+import Link from 'next/link';
 import React from 'react';
 import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
@@ -21,6 +22,17 @@ class MyApp extends App {
             <GlobalStyles />
 
             <ApolloProvider client={apolloClient}>
+              <nav>
+                <Link href="/">Home</Link>
+                <Link href="/branches">Branches</Link>
+                <Link href="/collaborations">Collaborations</Link>
+                <Link href="/news">News</Link>
+                <Link href="/membership">Membership</Link>
+                <Link href="/donations">Donations</Link>
+                <Link as="/branch/1337" href="/branch?id=1337">
+                  Branch 1337
+                </Link>
+              </nav>
               <Component {...pageProps} />
             </ApolloProvider>
           </>

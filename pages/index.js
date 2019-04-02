@@ -7,14 +7,11 @@ const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
-export const TEST_QUERY = gql`
-  query testQuery {
-    posts(where: { lang: "EN" }) {
-      edges {
-        node {
-          title
-          date
-        }
+export const HOME_QUERY = gql`
+  query homeQuery {
+    homepage: pageBy(uri: "home") {
+      sections {
+        title
       }
     }
   }
@@ -22,21 +19,23 @@ export const TEST_QUERY = gql`
 
 const Index = props => (
   <StyledIndex>
-    <Query query={TEST_QUERY}>
+    <Query query={HOME_QUERY}>
       {({ loading, error, data, fetchMore }) => {
-        console.log(props);
+        console.log(data);
         return (
           <div>
-           {props.events.data.map(singlePost => {
-              return <div> 
-                <h1> {singlePost.name} </h1>
-                <img src={singlePost.cover.source}/>
-                <h1> {singlePost.description} </h1>
-              </div>
-            })}
-            {data.posts.edges.map(({ node }) => {
-              return <p>{node.title}</p>;
-            })}
+            {/*props.events.data.map(singlePost => {
+              return (
+                <div>
+                  <h1> {singlePost.name} </h1>
+                  <img src={singlePost.cover.source} />
+                  <h1> {singlePost.description} </h1>
+                </div>
+              );
+            })*/}
+            {data.homepage.sections.map(section => (
+              <p>{section.title}</p>
+            ))}
           </div>
         );
       }}
@@ -44,7 +43,7 @@ const Index = props => (
   </StyledIndex>
 );
 
-Index.getInitialProps = async ({ req }) => {
+/* Index.getInitialProps = async ({ req }) => {
   const params = {
     access_token: process.env.FB_ACCESS_TOKEN,
     fields: [
@@ -66,6 +65,6 @@ Index.getInitialProps = async ({ req }) => {
   );
   const json = await res.json();
   return { events: json };
-};
+}; */
 
 export default Index;
