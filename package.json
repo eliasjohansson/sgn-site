@@ -21,6 +21,7 @@
     "init": "^0.1.2",
     "isomorphic-unfetch": "^3.0.0",
     "next": "latest",
+    "next-routes": "^1.4.2",
     "query-string": "^6.4.0",
     "react": "^16.8.4",
     "react-apollo": "^2.5.2",
@@ -30,12 +31,12 @@
     "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
-    "@storybook/react": "^5.0.6",
+    "@babel/core": "^7.4.0",
     "@storybook/addon-actions": "^5.0.6",
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addons": "^5.0.6",
-    "@babel/core": "^7.4.0",
-    "babel-loader": "^8.0.5"
+    "@storybook/react": "^5.0.6",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0"
   }
 }

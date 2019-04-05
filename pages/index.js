@@ -33,9 +33,8 @@ const Index = props => (
                 </div>
               );
             })*/}
-            {data.homepage.sections.map(section => (
-              <p>{section.title}</p>
-            ))}
+            {!loading &&
+              data.homepage.sections.map(section => <p>{section.title}</p>)}
           </div>
         );
       }}

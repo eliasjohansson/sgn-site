@@ -23,16 +23,29 @@ class MyApp extends App {
 
             <ApolloProvider client={apolloClient}>
               <nav>
-                <Link href="/">Home</Link>
-                <Link href="/branches">Branches</Link>
-                <Link href="/collaborations">Collaborations</Link>
-                <Link href="/news">News</Link>
-                <Link href="/membership">Membership</Link>
-                <Link href="/donations">Donations</Link>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+                <Link href="/branches">
+                  <a>Branches</a>
+                </Link>
+                <Link href="/collaborations">
+                  <a>Collaborations</a>
+                </Link>
+                <Link href="/news">
+                  <a>News</a>
+                </Link>
+                <Link href="/membership">
+                  <a>Membership</a>
+                </Link>
+                <Link href="/donations">
+                  <a>Donations</a>
+                </Link>
                 <Link as="/branch/1337" href="/branch?id=1337">
-                  Branch 1337
+                  <a>Branch 1337</a>
                 </Link>
               </nav>
+
               <Component {...pageProps} />
             </ApolloProvider>
           </>
