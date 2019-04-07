@@ -1,9 +1,7 @@
 import React from "react";
-import styled, {
-  css
-} from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledButton = styled.button `
+const StyledButton = styled.button`
   width: 343px;
   height: 48px;
   border-style: none;
@@ -38,9 +36,7 @@ const StyledButton = styled.button `
   }
 `;
 const Button = props => {
-  return <StyledButton {
-    ...props
-  } > CTA < /StyledButton>;
+  return <StyledButton {...props}> CTA </StyledButton>;
 };
 
 export default Button;

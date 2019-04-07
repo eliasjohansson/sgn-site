@@ -1,9 +1,9 @@
 const Theme = {
-  white: 'white',
-  lightGrey: '#F6F6F7',
-  Grey: '#F6F6F7',
-  darkGrey: '#393939',
-  primary: '#1BB9A6',
+  colorPrimary: '#1BB9A6',
+  colorWhite: '#fff',
+  colorLightGrey: '#F6F6F7',
+  colorGrey: '#D2D2D2',
+  colorDarkGrey: '#393939'
 };
 
 export default Theme;
