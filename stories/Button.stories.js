@@ -15,5 +15,6 @@ storiesOf("Button", module).add("CTA", () => (
     <Button onClick={action("clicked")} />
     <Button primary onClick={action("clicked")} />
     <Button outlined onClick={action("clicked")} />
+    <Button primary small onClick={action("clicked")} />
   </div>
 ));
