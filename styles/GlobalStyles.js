@@ -1,11 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
+import {
+  createGlobalStyle
+} from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle `
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
   *,*::before,*::after {
     box-sizing: border-box;
   }
   body {
-    background-color: rebeccapurple;
+    font-family: Roboto, sans-serif;
   }
 `;
 
