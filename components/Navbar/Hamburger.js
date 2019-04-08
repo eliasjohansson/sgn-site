@@ -2,29 +2,40 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHamburger = styled.div`
-  height: 20px;
+  max-height: 20px;
   width: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
+  -webkit-backface-visibility: hidden;
 
   span {
-    position: absolute;
-    width: 100%;
+    -webkit-backface-visibility: hidden;
+    width: 32px;
     height: 3px;
-    background-color: ${({ theme }) => theme.colorDarkGrey};
-    transition: 0.3s ease;
-  }
+    background-color: ${({ color }) => color || '#000'};
 
+    transition: ${({ cross }) => {
+      return cross
+        ? 'top 0.2s ease, bottom 0.2s ease, transform 0.2s ease 0.2s'
+        : 'top 0.2s ease 0.2s, bottom 0.2s ease 0.2s, transform 0.2s ease ';
+    }};
+    position: absolute;
+  }
   span:nth-child(1) {
-    transform: ${({ cross }) =>
-      cross ? 'translateY(9px) rotateZ(-45deg)' : 'translateY(0px)'};
+    top: ${({ cross }) => (cross ? '9px' : '0px')};
+    transform: ${({ cross }) => (cross ? 'rotateZ(45deg)' : 'rotateZ(0deg)')};
   }
   span:nth-child(2) {
-    transform: ${({ cross }) =>
-      cross ? 'translateY(9px) scaleX(0)' : 'translateY(9px)'};
+    top: 9px;
+    transform: ${({ cross }) => (cross ? 'scaleX(0)' : 'scaleX(1)')};
+    transition: 0;
   }
   span:nth-child(3) {
-    transform: ${({ cross }) =>
-      cross ? 'translateY(9px) rotateZ(45deg)' : 'translateY(17px)'};
+    top: ${({ cross }) => (cross ? '9px' : '17px')};
+    transform: ${({ cross }) => (cross ? 'rotateZ(-45deg)' : 'rotateZ(0deg)')};
   }
 
   @media screen and (min-width: 900px) {
