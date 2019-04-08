@@ -5,21 +5,20 @@ const StyledButton = styled.button`
   width: 343px;
   height: 48px;
   border-style: none;
-  margin: 8px;
   border-radius: 5px;
   ${props =>
     props.primary
-      ? `background-color: ${props.theme.primary}
-         color: ${props.theme.white}
+      ? `background-color: ${props.theme.colorPrimary}
+         color: ${props.theme.colorWhite}
       `
-      : `background-color: ${props.theme.white} 
-          color: ${props.theme.darkGrey}`};
+      : `background-color: ${props.theme.colorWhite} 
+          color: ${props.theme.colorDarkGrey}`};
   ${props =>
     props.outlined &&
     `
-    border: solid 4px ${props.theme.primary}
+    border: solid 4px ${props.theme.colorPrimary}
     background-color: transparent;
-    color: ${props.theme.primary};
+    color: ${props.theme.colorPrimary};
     `}
   ${props =>
     props.small &&
