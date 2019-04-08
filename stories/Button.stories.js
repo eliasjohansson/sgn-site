@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 import { configure, addDecorator } from "@storybook/react";
 
-import Button from "../Components/Button.js";
+import Button from "../components/Button.js";
 
 addDecorator(storyFn => (
   <div style={{ height: "100vh", backgroundColor: "#e5e5e5" }}>{storyFn()}</div>
