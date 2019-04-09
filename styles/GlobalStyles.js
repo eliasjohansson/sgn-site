@@ -1,8 +1,6 @@
-import {
-  createGlobalStyle
-} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
 
   *,*::before,*::after {
@@ -14,41 +12,24 @@ const GlobalStyle = createGlobalStyle `
     background-color: ${({ theme }) => theme.colorLightGrey};
   }
 
-  h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: bold;
-  }
-
-  h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: normal;
-  }
-
-  b {
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  small {
-    font-size: 11px;
-  }
+  h1 { font: ${({ theme }) => theme.fontMobileH1}; }
+  h2 { font: ${({ theme }) => theme.fontMobileH2}; }
+  h3 { font: ${({ theme }) => theme.fontMobileH3}; }
+  h4 { font: ${({ theme }) => theme.fontMobileH4}; }
+  p { font: ${({ theme }) => theme.fontMobileP}; }
+  b { font: ${({ theme }) => theme.fontMobilePBold}; }
+  small { font: ${({ theme }) => theme.fontSmall}; }
 
   ul {
     margin: 0;
     padding: 0;
+    list-style: none;
+  }
+
+  @media screen and (min-width: 900px) {
+    h1 { font: ${({ theme }) => theme.fontDesktopH1}; }
+    p { font: ${({ theme }) => theme.fontDesktopP}; }
+    b { font: ${({ theme }) => theme.fontDesktopP}; font-weight: bold; }
   }
 
 `;
