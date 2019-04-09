@@ -9,11 +9,10 @@ import Container from '../components/Container';
 import Input from '../components/Input.js';
 import Button from '../components/Button';
 
-addDecorator(storyFn => (
-  <Container style={{ paddingTop: '2rem' }}>{storyFn()}</Container>
-));
-
 storiesOf('Forms', module)
+  .addDecorator(storyFn => (
+    <Container style={{ paddingTop: '2rem' }}>{storyFn()}</Container>
+  ))
   .add('input', () => <Input />)
   .add('input with label', () => <Input label="First Name" />)
   .add('input with description', () => (
