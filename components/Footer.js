@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
     grid-template-rows: repeat(3, max-content);
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 900px) {
     ${Container} {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -39,7 +39,7 @@ const Contact = styled.div`
     font-style: normal;
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 900px) {
     grid-row: 2 / 3;
     text-align: center;
     h2 {
@@ -60,7 +60,7 @@ const Social = styled.div`
     }
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 900px) {
     flex-direction: row;
     grid-row: 1 / 2;
     justify-content: center;
@@ -101,7 +101,7 @@ const Nav = styled.nav`
     }
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 900px) {
     grid-row: 3 / 4;
     padding-top: 4rem;
   }
@@ -119,7 +119,7 @@ const Copyright = styled.div`
     margin-bottom: 3px;
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 900px) {
     grid-row: 4 / 5;
   }
 `;
