@@ -25,6 +25,6 @@ storiesOf('Forms', module)
       <Input label="Email" type="email" />
       <Input label="Subject" />
       <Input textarea label="Message" />
-      <Button>Send</Button>
+      <Button primary>Send</Button>
     </div>
   ));
