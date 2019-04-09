@@ -14,6 +14,7 @@ const StyledNavbar = styled.div`
   height: 64px;
   width: 100%;
   background-color: ${({ theme }) => theme.colorWhite};
+  z-index: 100;
 
   > ${Container} {
     display: flex;

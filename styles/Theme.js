@@ -15,7 +15,7 @@ const Theme = {
   fontMobilePBold: "bold 16px/120% 'Roboto', sans-serif",
   fontMobileP: "16px/120% 'Roboto', sans-serif",
   fontDesktopH1: "bold 40px/100% 'Montserrat', sans-serif",
-  fontDesktopP: "bold 18px/130% 'Roboto', sans-serif",
+  fontDesktopP: "18px/130% 'Roboto', sans-serif",
   fontSmall: "11px/100% 'Roboto', sans-serif"
 };
 
