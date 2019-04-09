@@ -22,8 +22,8 @@ const StyledNavbar = styled.div`
   }
 `;
 
-const Navbar = props => {
-  const [menuOpen, setMenuOpen] = useState(true);
+const Navbar = ({ open }) => {
+  const [menuOpen, setMenuOpen] = useState(open || false);
   return (
     <StyledNavbar>
       <Container>
