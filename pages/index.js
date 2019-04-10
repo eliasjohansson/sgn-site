@@ -1,4 +1,5 @@
 import { Query } from 'react-apollo';
+import { withRouter } from 'next/router';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import qs from 'query-string';
@@ -8,23 +9,32 @@ const StyledIndex = styled.div`
 `;
 
 export const HOME_QUERY = gql`
-  query homeQuery {
-    homepage: pageBy(uri: "home") {
-      sections {
-        title
+  query homeQuery($lang: String!) {
+    homepage: pages(where: { title: "Home", lang: $lang }) {
+      edges {
+        node {
+          title
+          acf {
+            hero {
+              title
+            }
+          }
+        }
       }
     }
   }
 `;
 
-const Index = props => (
-  <StyledIndex>
-    <Query query={HOME_QUERY}>
-      {({ loading, error, data, fetchMore }) => {
-        console.log(data);
-        return (
-          <div>
-            {/*props.events.data.map(singlePost => {
+const Index = props => {
+  const { lang } = props;
+  return (
+    <StyledIndex>
+      <Query query={HOME_QUERY} variables={{ lang: lang }}>
+        {({ loading, error, data, fetchMore }) => {
+          const homepage = data.homepage.edges[0].node;
+          return (
+            <div>
+              {/*props.events.data.map(singlePost => {
               return (
                 <div>
                   <h1> {singlePost.name} </h1>
@@ -33,14 +43,14 @@ const Index = props => (
                 </div>
               );
             })*/}
-            {!loading &&
-              data.homepage.sections.map(section => <p>{section.title}</p>)}
-          </div>
-        );
-      }}
-    </Query>
-  </StyledIndex>
-);
+              {!loading && <p>{homepage.acf.hero.title}</p>}
+            </div>
+          );
+        }}
+      </Query>
+    </StyledIndex>
+  );
+};
 
 /* Index.getInitialProps = async ({ req }) => {
   const params = {

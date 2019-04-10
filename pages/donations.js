@@ -7,6 +7,7 @@ const Donations = props => {
   return (
     <StyledDonations>
       <h1>Donations</h1>
+      <p>{props.lang}</p>
     </StyledDonations>
   );
 };

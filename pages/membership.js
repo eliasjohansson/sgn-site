@@ -7,6 +7,7 @@ const Membership = props => {
   return (
     <StyledMembership>
       <h1>Membership</h1>
+      <p>{props.lang}</p>
     </StyledMembership>
   );
 };

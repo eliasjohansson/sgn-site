@@ -7,6 +7,7 @@ const Branches = props => {
   return (
     <StyledBranches>
       <h1>Branches</h1>
+      <p>{props.lang}</p>
     </StyledBranches>
   );
 };

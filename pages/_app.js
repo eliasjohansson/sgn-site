@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app';
+import { withRouter } from 'next/router';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
@@ -13,6 +14,8 @@ dotenv.config();
 
 class MyApp extends App {
   render() {
+    let { lang } = this.props.router.query;
+    lang = lang ? lang.toUpperCase() : 'EN';
     const { Component, pageProps, apolloClient } = this.props;
     return (
       <Container>
@@ -46,7 +49,7 @@ class MyApp extends App {
                 </Link>
               </nav>
 
-              <Component {...pageProps} />
+              <Component {...pageProps} lang={lang} />
             </ApolloProvider>
           </>
         </ThemeProvider>
@@ -55,4 +58,4 @@ class MyApp extends App {
   }
 }
 
-export default withApolloClient(MyApp);
+export default withRouter(withApolloClient(MyApp));
