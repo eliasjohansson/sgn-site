@@ -7,6 +7,7 @@ const Collaborations = props => {
   return (
     <StyledCollaborations>
       <h1>Collaborations</h1>
+      <p>{props.lang}</p>
     </StyledCollaborations>
   );
 };

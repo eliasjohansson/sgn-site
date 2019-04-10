@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 import Container from '../components/Container';
 
 storiesOf('Layout', module)
-  .add('Layout', () => (
+  .add('default', () => (
     <Layout>
       <Container>
         <p>Content</p>
@@ -17,7 +17,7 @@ storiesOf('Layout', module)
     </Layout>
   ))
   .add(
-    'Layout mobile',
+    'mobile',
     () => (
       <Layout>
         <Container>
