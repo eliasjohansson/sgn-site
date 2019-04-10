@@ -27,7 +27,7 @@ const ContentWrapper = styled.div`
 `;
 const StyledCard = styled.div`
   width: 100%;
-  margin-top: 5rem;
+  margin: 5rem 0;
   display: grid;
   grid-gap: 1.5rem;
   grid-template-rows: repeat(2, auto);
