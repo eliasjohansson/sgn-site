@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle `
 
   *,*::before,*::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
   }
   
   body {
@@ -16,7 +19,7 @@ const GlobalStyle = createGlobalStyle `
 
   h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
   }
 
@@ -28,11 +31,17 @@ const GlobalStyle = createGlobalStyle `
 
   h3 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  h4 {
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: bold;
   }
 
-  p {
+  p, a {
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: normal;
   }
