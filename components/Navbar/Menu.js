@@ -79,32 +79,32 @@ const Menu = ({ open }) => {
     <StyledMenu open={open}>
       <ul>
         <li>
-          <Link route="home">
+          <Link route="index" params={{ lang: 'en' }}>
             <a>Home</a>
           </Link>
         </li>
         <li>
-          <Link route="branches">
+          <Link route="branches" params={{ lang: 'en' }}>
             <a>Branches</a>
           </Link>
         </li>
         <li>
-          <Link route="collaborations">
+          <Link route="collaborations" params={{ lang: 'en' }}>
             <a>Collab</a>
           </Link>
         </li>
         <li>
-          <Link route="news">
+          <Link route="news" params={{ lang: 'en' }}>
             <a>News</a>
           </Link>
         </li>
         <li>
-          <Link route="donate">
+          <Link route="donate" params={{ lang: 'en' }}>
             <a>Donate</a>
           </Link>
         </li>
         <li>
-          <Link route="membership">
+          <Link route="membership" params={{ lang: 'en' }}>
             <a>Membership</a>
           </Link>
         </li>

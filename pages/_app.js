@@ -9,6 +9,7 @@ import { Normalize } from 'styled-normalize';
 import dotenv from 'dotenv';
 import GlobalStyles from '../styles/GlobalStyles';
 import Theme from '../styles/Theme';
+import Layout from '../components/Layout';
 
 dotenv.config();
 
@@ -25,31 +26,9 @@ class MyApp extends App {
             <GlobalStyles />
 
             <ApolloProvider client={apolloClient}>
-              <nav>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-                <Link href="/branches">
-                  <a>Branches</a>
-                </Link>
-                <Link href="/collaborations">
-                  <a>Collaborations</a>
-                </Link>
-                <Link href="/news">
-                  <a>News</a>
-                </Link>
-                <Link href="/membership">
-                  <a>Membership</a>
-                </Link>
-                <Link href="/donations">
-                  <a>Donations</a>
-                </Link>
-                <Link as="/branch/1337" href="/branch?id=1337">
-                  <a>Branch 1337</a>
-                </Link>
-              </nav>
-
-              <Component {...pageProps} lang={lang} />
+              <Layout>
+                <Component {...pageProps} lang={lang} />
+              </Layout>
             </ApolloProvider>
           </>
         </ThemeProvider>

@@ -31,7 +31,10 @@ const Index = props => {
     <StyledIndex>
       <Query query={HOME_QUERY} variables={{ lang: lang }}>
         {({ loading, error, data, fetchMore }) => {
-          const homepage = data.homepage.edges[0].node;
+          let homepage;
+          if (!loading) {
+            homepage = data.homepage.edges[0].node;
+          }
           return (
             <div>
               {/*props.events.data.map(singlePost => {
