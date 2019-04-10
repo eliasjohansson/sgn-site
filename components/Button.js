@@ -2,8 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
-  width: 343px;
-  height: 48px;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  height: 3rem;
+  font: ${({ theme }) => theme.fontMobileP};
   border-style: none;
   border-radius: 5px;
   ${props =>
@@ -26,8 +28,6 @@ const StyledButton = styled.button`
     width: 122px;
     `}
 
-  font-family: Roboto;
-  font-weight: bold;
   outline: inherit;
   transition: 0.15s ease-in-out;
   &:active {
