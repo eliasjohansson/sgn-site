@@ -4,7 +4,8 @@ import { Link } from '../../routes';
 import Container from '../Container';
 import Logo from '../Logo';
 import Hamburger from './Hamburger';
-import Language from './Language';
+import DesktopLanguage from './Language';
+import Menu from './Menu';
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -13,95 +14,26 @@ const StyledNavbar = styled.div`
   height: 64px;
   width: 100%;
   background-color: ${({ theme }) => theme.colorWhite};
+  z-index: 100;
 
   > ${Container} {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
-  nav {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    ul {
-      height: 100%;
-      list-style: none;
-      display: none;
-      li {
-        height: 100%;
-        margin-left: 2rem;
-        a {
-          color: ${({ theme }) => theme.colorDarkGrey};
-          text-decoration: none;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-    }
-  }
-
-  @media screen and (min-width: 900px) {
-    nav {
-      padding-right: 5rem;
-      ul {
-        display: flex;
-      }
-    }
-  }
 `;
 
-const Navbar = props => {
-  const [menuOpen, setMenuOpen] = useState(true);
+const Navbar = ({ open }) => {
+  const [menuOpen, setMenuOpen] = useState(open || false);
   return (
     <StyledNavbar>
       <Container>
         <Logo />
 
-        <nav>
-          <Hamburger cross={menuOpen} onClick={() => setMenuOpen(!menuOpen)} />
-
-          <ul>
-            <li>
-              <Link route="home">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link route="branches">
-                <a>Branches</a>
-              </Link>
-            </li>
-            <li>
-              <Link route="collaborations">
-                <a>Collab</a>
-              </Link>
-            </li>
-            <li>
-              <Link route="news">
-                <a>News</a>
-              </Link>
-            </li>
-            <li>
-              <Link route="donate">
-                <a>Donate</a>
-              </Link>
-            </li>
-            <li>
-              <Link route="membership">
-                <a>Membership</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <Hamburger cross={menuOpen} onClick={() => setMenuOpen(!menuOpen)} />
+        <Menu open={menuOpen} />
       </Container>
-
-      <Language>SWE</Language>
+      <DesktopLanguage>English</DesktopLanguage>
     </StyledNavbar>
   );
 };

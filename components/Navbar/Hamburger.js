@@ -2,41 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHamburger = styled.div`
-  max-height: 20px;
-  width: 32px;
   height: 100%;
+  width: 64px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  -webkit-backface-visibility: hidden;
-
-  span {
-    -webkit-backface-visibility: hidden;
-    width: 32px;
-    height: 3px;
-    background-color: ${({ color }) => color || '#000'};
-
-    transition: ${({ cross }) => {
-      return cross
-        ? 'top 0.2s ease, bottom 0.2s ease, transform 0.2s ease 0.2s'
-        : 'top 0.2s ease 0.2s, bottom 0.2s ease 0.2s, transform 0.2s ease ';
-    }};
-    position: absolute;
-  }
-  span:nth-child(1) {
-    top: ${({ cross }) => (cross ? '9px' : '0px')};
-    transform: ${({ cross }) => (cross ? 'rotateZ(45deg)' : 'rotateZ(0deg)')};
-  }
-  span:nth-child(2) {
-    top: 9px;
-    transform: ${({ cross }) => (cross ? 'scaleX(0)' : 'scaleX(1)')};
-    transition: 0;
-  }
-  span:nth-child(3) {
-    top: ${({ cross }) => (cross ? '9px' : '17px')};
-    transform: ${({ cross }) => (cross ? 'rotateZ(-45deg)' : 'rotateZ(0deg)')};
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
   @media screen and (min-width: 900px) {
     display: none;
@@ -44,11 +18,47 @@ const StyledHamburger = styled.div`
 `;
 
 const Hamburger = props => {
+  const { cross } = props;
   return (
     <StyledHamburger {...props}>
-      <span />
-      <span />
-      <span />
+      {cross ? (
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 23 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="3"
+            y="1"
+            width="28"
+            height="3"
+            transform="rotate(45 3 1)"
+            fill="#393939"
+          />
+          <rect
+            x="23"
+            y="3"
+            width="28"
+            height="3"
+            transform="rotate(135 23 3)"
+            fill="#393939"
+          />
+        </svg>
+      ) : (
+        <svg
+          width="28"
+          height="25"
+          viewBox="0 0 28 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="28" height="3" fill="#393939" />
+          <rect y="10.5446" width="28" height="3" fill="#393939" />
+          <rect y="21.0892" width="28" height="3" fill="#393939" />
+        </svg>
+      )}
     </StyledHamburger>
   );
 };

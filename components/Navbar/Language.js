@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 
-const Lang = styled.div`
+const DesktopLang = styled.div`
+  border-top: none;
+  padding: 0 2rem;
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
+  width: auto;
   height: 64px;
-  padding: 0 1rem;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Montserrat';
+  color: ${({ theme }) => theme.colorDarkGrey};
 
-  @media screen and (min-width: 900px) {
-    display: flex;
+  @media screen and (max-width: 900px) {
+    display: none;
   }
 `;
 
-export default Lang;
+export default DesktopLang;
