@@ -4,19 +4,39 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import qs from 'query-string';
 
+// Components
+import Card from '../components/Card';
+import Banner from '../components/Banner';
+import Button from '../components/Button';
+
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 export const HOME_QUERY = gql`
   query homeQuery($lang: String!) {
-    homepage: pages(where: { title: "Home", lang: $lang }) {
+    page: pages(where: { title: "Home", lang: $lang }) {
       edges {
         node {
-          title
-          acf {
-            hero {
+          home {
+            header {
               title
+              image
+            }
+            card1 {
+              image {
+                url
+              }
+              title
+              text
+            }
+            quote
+            card2 {
+              image {
+                url
+              }
+              title
+              text
             }
           }
         }
@@ -31,23 +51,42 @@ const Index = props => {
     <StyledIndex>
       <Query query={HOME_QUERY} variables={{ lang: lang }}>
         {({ loading, error, data, fetchMore }) => {
-          let homepage;
+          let page;
           if (!loading) {
-            homepage = data.homepage.edges[0].node;
+            page = data.page.edges[0].node.home;
           }
+
           return (
-            <div>
-              {/*props.events.data.map(singlePost => {
-              return (
-                <div>
-                  <h1> {singlePost.name} </h1>
-                  <img src={singlePost.cover.source} />
-                  <h1> {singlePost.description} </h1>
-                </div>
-              );
-            })*/}
-              {!loading && <p>{homepage.acf.hero.title}</p>}
-            </div>
+            <>
+              <Card />
+
+              <Banner dark>
+                <h1>Banner</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+                  et blanditiis minus esse! Doloremque blanditiis consectetur
+                  aut deserunt officiis quas consequuntur alias distinctio
+                  laboriosam, velit tempore repudiandae aspernatur delectus
+                  ducimus.
+                </p>
+                <Button>CTA</Button>
+              </Banner>
+
+              <Card />
+
+              <Banner primary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+                  et blanditiis minus esse! Doloremque blanditiis consectetur
+                  aut deserunt officiis quas consequuntur alias distinctio
+                  laboriosam, velit tempore repudiandae aspernatur delectus
+                  ducimus.
+                </p>
+              </Banner>
+              <Banner>
+                <h1>Im White</h1>
+              </Banner>
+            </>
           );
         }}
       </Query>
