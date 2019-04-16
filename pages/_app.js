@@ -16,8 +16,9 @@ dotenv.config();
 class MyApp extends App {
   render() {
     let { lang } = this.props.router.query;
-    lang = lang ? lang.toUpperCase() : 'EN';
+    lang = lang ? lang : 'en';
     const { Component, pageProps, apolloClient } = this.props;
+
     return (
       <Container>
         <ThemeProvider theme={Theme}>
@@ -26,7 +27,7 @@ class MyApp extends App {
             <GlobalStyles />
 
             <ApolloProvider client={apolloClient}>
-              <Layout>
+              <Layout lang={lang}>
                 <Component {...pageProps} lang={lang} />
               </Layout>
             </ApolloProvider>

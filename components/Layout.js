@@ -11,14 +11,14 @@ const StyledLayout = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, lang }) => {
   return (
     <StyledLayout>
-      <Navbar />
+      <Navbar lang={lang} />
 
       <main>{children}</main>
 
-      <Footer />
+      <Footer lang={lang} />
     </StyledLayout>
   );
 };
