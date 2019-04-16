@@ -6,7 +6,7 @@ import { linkTo } from '@storybook/addon-links';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
 
-storiesOf('Banner', module)
+storiesOf('Shared | Banner', module)
   .add('basic', () => (
     <Banner>
       <h1>Banner</h1>

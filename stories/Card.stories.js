@@ -10,7 +10,7 @@ import Button from "../components/Button.js";
 // addDecorator(storyFn => (
 //   <div style={{ height: "100vh", backgroundColor: "#e5e5e5" }}>{storyFn()}</div>
 // ));
-storiesOf("Card", module)
+storiesOf("Shared | Card", module)
   .add("with cta", () => (
     <Card withCta>
       <Button primary onClick={action("clicked")} />
