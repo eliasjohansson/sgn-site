@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app';
 import { withRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import React, { useState } from 'react';
 import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
@@ -22,6 +23,12 @@ class MyApp extends App {
 
     return (
       <Container>
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700"
+          />
+        </Head>
         <ThemeProvider theme={Theme}>
           <>
             <Normalize />
