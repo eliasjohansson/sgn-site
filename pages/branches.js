@@ -63,13 +63,23 @@ const Branches = props => {
                 <h1>{page.header.title}</h1>
                 <p>{page.header.text}</p>
               </Header>
-              <ul>
-                {branches.edges.map(({ node: branch }) => (
-                  <li onClick={() => setSelectedBranch(branch.title)}>
-                    {branch.title}
-                  </li>
-                ))}
-              </ul>
+              <Container style={{ marginBottom: '2rem' }}>
+                <ul>
+                  {branches.edges.map(({ node: branch }) => (
+                    <li
+                      onClick={() => setSelectedBranch(branch.title)}
+                      style={{
+                        marginBottom: '1rem',
+                        textDecoration: 'underline',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {branch.title}
+                    </li>
+                  ))}
+                </ul>
+              </Container>
+
               {selectedBranch && (
                 <SelectedBranch lang={lang} selectedBranch={selectedBranch} />
               )}

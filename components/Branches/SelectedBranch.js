@@ -5,7 +5,8 @@ import { Query } from 'react-apollo';
 
 // Components
 import Container from '../Container';
-import Activity from '../Branches/Activity';
+import Activity from './Activity';
+import Event from './Event';
 
 export const BRANCH_QUERY = gql`
   query branchQuery($lang: String!, $branch: String!) {
@@ -29,7 +30,7 @@ export const BRANCH_QUERY = gql`
 
 const StyledSelectedBranch = styled.div``;
 
-const Activities = styled.div`
+export const Activities = styled.div`
   padding: 5rem 0;
   background-color: ${({ theme }) => theme.colorWhite};
 
@@ -55,7 +56,29 @@ const Activities = styled.div`
     }
   }
 `;
-const Events = styled.div``;
+
+export const Events = styled.div`
+  padding: 5rem 0;
+
+  ${Container} {
+    > div {
+      margin-top: 5rem;
+      display: grid;
+      grid-template-rows: repeat(auto-fill, max-content);
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 1.5rem;
+      column-gap: 1.5rem;
+
+      > div {
+        justify-self: center;
+      }
+
+      @media screen and (min-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+`;
 
 const SelectedBranch = ({ lang, selectedBranch }) => {
   let branch;
@@ -93,32 +116,32 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
                     ) : (
                       <p>No activities available for this branch</p>
                     )}
-                    {/* <Activity
-                      image="https://via.placeholder.com/160"
-                      title="Welcome Gatherings"
-                      description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-                    />
-                    <Activity
-                      image="https://via.placeholder.com/160"
-                      title="Welcome Gatherings"
-                      description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-                    />
-                    <Activity
-                      image="https://via.placeholder.com/160"
-                      title="Welcome Gatherings"
-                      description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-                    />
-                    <Activity
-                      image="https://via.placeholder.com/160"
-                      title="Welcome Gatherings"
-                      description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-                    /> */}
                   </div>
                 </Container>
               </Activities>
               <Events>
                 <Container>
                   <h1>Upcoming events</h1>
+                  <div>
+                    <Event
+                      image="https://via.placeholder.com/600x300"
+                      date="2019-08-25 11:00:00"
+                      title="Eid Al-Adha dag"
+                      link="https://www.facebook.com/events/330053544400045/"
+                    />
+                    <Event
+                      image="https://via.placeholder.com/600x300"
+                      date="2019-08-25 11:00:00"
+                      title="Eid Al-Adha dag"
+                      link="https://www.facebook.com/events/330053544400045/"
+                    />
+                    <Event
+                      image="https://via.placeholder.com/600x300"
+                      date="2019-08-25 11:00:00"
+                      title="Eid Al-Adha dag"
+                      link="https://www.facebook.com/events/330053544400045/"
+                    />
+                  </div>
                 </Container>
               </Events>
             </>
