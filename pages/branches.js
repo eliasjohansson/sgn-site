@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Container from '../components/Container';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+
+// Components
+import Container from '../components/Container';
 import SelectedBranch from '../components/Branches/SelectedBranch';
+import Dropdown from '../components/Branches/Dropdown';
 
 export const BRANCHES_QUERY = gql`
   query branchesQuery($lang: String!) {
@@ -64,7 +67,7 @@ const Branches = props => {
                 <p>{page.header.text}</p>
               </Header>
               <Container style={{ marginBottom: '2rem' }}>
-                <ul>
+                {/* <ul>
                   {branches.edges.map(({ node: branch }) => (
                     <li
                       onClick={() => setSelectedBranch(branch.title)}
@@ -77,7 +80,13 @@ const Branches = props => {
                       {branch.title}
                     </li>
                   ))}
-                </ul>
+                </ul> */}
+
+                <Dropdown
+                  branches={branches.edges}
+                  selectedBranch={selectedBranch}
+                  setSelectedBranch={setSelectedBranch}
+                />
               </Container>
 
               {selectedBranch && (
