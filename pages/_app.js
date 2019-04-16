@@ -15,9 +15,10 @@ dotenv.config();
 
 class MyApp extends App {
   render() {
+    const { Component, pageProps, apolloClient } = this.props;
+
     let { lang } = this.props.router.query;
     lang = lang ? lang : 'en';
-    const { Component, pageProps, apolloClient } = this.props;
 
     return (
       <Container>

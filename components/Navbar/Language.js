@@ -31,14 +31,21 @@ export const DesktopLang = withRouter(({ lang, router }) => {
       <ul>
         <li>
           <Link
-            route={router.route.slice(1) /* Slice to remove "/" */}
+            route={
+              router.route === '/'
+                ? 'index'
+                : router.route.slice(1) /* Slice to remove "/" */
+            }
             params={{ lang: 'en' }}
           >
             <a>Eng</a>
           </Link>
         </li>
         <li>
-          <Link route={router.route.slice(1)} params={{ lang: 'sv' }}>
+          <Link
+            route={router.route === '/' ? 'index' : router.route.slice(1)}
+            params={{ lang: 'sv' }}
+          >
             <a>Swe</a>
           </Link>
         </li>
