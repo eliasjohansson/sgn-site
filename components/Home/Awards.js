@@ -6,9 +6,11 @@ import Section from '../Section';
 
 export const StyledAwards = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
+  padding-bottom: 4rem;
   > div {
     overflow-x: hidden;
     > div {
+      padding-bottom: 1rem;
       margin-top: 5rem;
       display: grid;
       grid-template-rows: repeat(auto-fill, max-content);

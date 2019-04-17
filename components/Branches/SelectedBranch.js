@@ -106,11 +106,11 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
                   <h1>Activities</h1>
                   <div>
                     {activities.length > 0 ? (
-                      activities.map(ImageListItem => (
+                      activities.map(activity => (
                         <ImageListItem
-                          image={ImageListItem.image}
-                          title={ImageListItem.title}
-                          description={ImageListItem.description}
+                          image={activity.image}
+                          title={activity.title}
+                          description={activity.description}
                         />
                       ))
                     ) : (

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 // @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
 const GlobalStyle = createGlobalStyle`
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   h4 { font: ${({ theme }) => theme.fontMobileH4}; }
   p { font: ${({ theme }) => theme.fontMobileP}; }
   b { font: ${({ theme }) => theme.fontMobilePBold}; }
-  small { font: ${({ theme }) => theme.fontSmall}; }
+  small { font: ${({ theme }) => theme.fontMini}; }
 
   ul {
     margin: 0;
