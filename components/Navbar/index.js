@@ -17,6 +17,7 @@ const StyledNavbar = styled.div`
   z-index: 100;
 
   > ${Container} {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +25,7 @@ const StyledNavbar = styled.div`
 `;
 
 const Navbar = ({ open, lang }) => {
-  const [menuOpen, setMenuOpen] = useState(open || false);
+  const [menuOpen, setMenuOpen] = useState(open || true);
   return (
     <StyledNavbar>
       <Container>
