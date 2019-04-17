@@ -61,7 +61,7 @@ const Card = props => {
   return (
     <Container fluid>
       <StyledCard>
-        <img src="https://dummyimage.com/1024x720/fff/aaa" alt="" />
+        <img src="https://dummyimage.com/1024x1720/fff/aaa" alt="" />
         <ContentWrapper>
           <h1>H1 Headline</h1>
           <p>

@@ -1,13 +1,10 @@
 import React from "react";
-import styled, {
-  css
-} from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledButton = styled.button `
-  width: calc(100% - 2rem);
-  margin-left: 1rem;
+const StyledButton = styled.button`
+  width: 100%;
   height: 3rem;
-  max-width:343px;
+  max-width: 343px;
   font: ${({ theme }) => theme.fontMobileP};
   border-style: none;
   border-radius: 5px;
@@ -38,9 +35,7 @@ const StyledButton = styled.button `
   }
 `;
 const Button = props => {
-  return <StyledButton {
-    ...props
-  } > CTA < /StyledButton>;
+  return <StyledButton {...props}> CTA </StyledButton>;
 };
 
 export default Button;
