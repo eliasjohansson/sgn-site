@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "./Container";
+import React from 'react';
+import styled from 'styled-components';
+import Container from './Container';
 
 const Wrapper = styled.div`
   margin-bottom: 2rem;
