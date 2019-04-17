@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledInput = styled.div`
   margin-bottom: 1rem;
@@ -32,6 +32,7 @@ const StyledInput = styled.div`
     border: 1px solid ${({ theme }) => theme.colorGrey};
     outline: 0;
     padding: 1rem;
+    resize: none;
   }
 `;
 
@@ -44,9 +45,9 @@ const Input = props => {
           {label}:{description && <small>{description}</small>}
         </label>
       )}
-      {!textarea && <input name={name} type={type || 'text'} />}
+      {!textarea && <input name={name} type={type || "text"} />}
       {textarea && (
-        <textarea name={name} cols={cols || '30'} rows={rows || '10'} />
+        <textarea name={name} cols={cols || "30"} rows={rows || "10"} />
       )}
     </StyledInput>
   );
