@@ -26,7 +26,7 @@ class MyApp extends App {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Cute+Font:400,700|Roboto:400,700"
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700"
           />
         </Head>
         <ThemeProvider theme={Theme}>
