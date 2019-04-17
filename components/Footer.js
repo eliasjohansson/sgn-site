@@ -124,7 +124,7 @@ const Copyright = styled.div`
   }
 `;
 
-const Footer = props => {
+const Footer = ({ lang }) => {
   return (
     <StyledFooter>
       <Container>

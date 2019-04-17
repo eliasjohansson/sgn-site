@@ -5,20 +5,20 @@ import Footer from './Footer';
 
 const StyledLayout = styled.div`
   main {
-    padding-top: calc(64px + 1rem);
+    padding-top: calc(64px);
     min-height: 75vh;
     position: relative;
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, lang }) => {
   return (
     <StyledLayout>
-      <Navbar />
+      <Navbar lang={lang} />
 
       <main>{children}</main>
 
-      <Footer />
+      <Footer lang={lang} />
     </StyledLayout>
   );
 };

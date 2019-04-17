@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import Navbar from '../components/Navbar';
 
-storiesOf('Navbar', module)
+storiesOf('Shared | Navbar', module)
   .add('default', () => <Navbar />)
   .add('mobile', () => <Navbar />, {
     viewport: { defaultViewport: 'iphonex' }

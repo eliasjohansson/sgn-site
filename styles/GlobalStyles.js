@@ -1,9 +1,7 @@
-import {
-  createGlobalStyle
-} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle `
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
+const GlobalStyle = createGlobalStyle`
 
   *,*::before,*::after {
     box-sizing: border-box;

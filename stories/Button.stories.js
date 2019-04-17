@@ -7,7 +7,7 @@ import { configure, addDecorator } from "@storybook/react";
 
 import Button from "../components/Button.js";
 
-storiesOf("Button", module)
+storiesOf("Shared | Button", module)
   .addDecorator(storyFn => (
     <div
       style={{

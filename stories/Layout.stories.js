@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 import Container from '../components/Container';
 
-storiesOf('Layout', module)
+storiesOf('Shared | Layout', module)
   .add('default', () => (
     <Layout>
       <Container>

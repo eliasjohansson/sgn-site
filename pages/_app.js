@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app';
 import { withRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import React, { useState } from 'react';
 import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
@@ -15,18 +16,26 @@ dotenv.config();
 
 class MyApp extends App {
   render() {
-    let { lang } = this.props.router.query;
-    lang = lang ? lang.toUpperCase() : 'EN';
     const { Component, pageProps, apolloClient } = this.props;
+
+    let { lang } = this.props.router.query;
+    lang = lang ? lang : 'en';
+
     return (
       <Container>
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700"
+          />
+        </Head>
         <ThemeProvider theme={Theme}>
           <>
             <Normalize />
             <GlobalStyles />
 
             <ApolloProvider client={apolloClient}>
-              <Layout>
+              <Layout lang={lang}>
                 <Component {...pageProps} lang={lang} />
               </Layout>
             </ApolloProvider>

@@ -1,6 +1,6 @@
 const Theme = {
   // Color
-  colorPrimary: '#1BB9A6',
+  colorPrimary: '#008484',
   colorDarkPrimary: '#005550',
   colorWhite: '#fff',
   colorLightGrey: '#F1F1F2',
@@ -15,9 +15,10 @@ const Theme = {
   fontMobilePBold: "bold 16px/120% 'Roboto', sans-serif",
   fontMobileP: "16px/120% 'Roboto', sans-serif",
 
-  fontMini: "11px/100% 'Roboto', sans-serif",
   fontDesktopH1: "bold 40px/100% 'Montserrat', sans-serif",
-  fontDesktopP: "18px/130% 'Roboto', sans-serif"
+  fontDesktopH4: "bold 15px/100% 'Montserrat', sans-serif",
+  fontDesktopP: "18px/130% 'Roboto', sans-serif",
 
-}
+  fontMini: "11px/100% 'Roboto', sans-serif"
+};
 export default Theme;

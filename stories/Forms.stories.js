@@ -9,7 +9,7 @@ import Container from '../components/Container';
 import Input from '../components/Input.js';
 import Button from '../components/Button';
 
-storiesOf('Forms', module)
+storiesOf('Shared | Forms', module)
   .addDecorator(storyFn => (
     <Container style={{ paddingTop: '2rem' }}>{storyFn()}</Container>
   ))
