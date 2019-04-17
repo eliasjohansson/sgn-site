@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledInput = styled.div`
   margin-bottom: 1rem;
-
+  flex: 1;
   label {
     display: block;
     color: #767676;
