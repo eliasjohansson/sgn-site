@@ -7,7 +7,7 @@ const StyledButton = styled.button`
   max-width: 343px;
   font: ${({ theme }) => theme.fontMobileP};
   border-style: none;
-  border-radius: 5px;
+  border-radius: 2px;
   ${props =>
     props.primary
       ? `background-color: ${props.theme.colorPrimary}
