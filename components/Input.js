@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledInput = styled.div`
   margin-bottom: 1rem;
-
+  flex: 1;
   label {
     display: block;
     color: #767676;
@@ -37,7 +37,18 @@ const StyledInput = styled.div`
 `;
 
 const Input = props => {
-  const { textarea, type, label, name, description, cols, rows } = props;
+  const {
+    textarea,
+    type,
+    label,
+    name,
+    description,
+    cols,
+    rows,
+    required,
+    placeholder,
+    pattern
+  } = props;
   return (
     <StyledInput>
       {label && (
@@ -45,7 +56,15 @@ const Input = props => {
           {label}:{description && <small>{description}</small>}
         </label>
       )}
-      {!textarea && <input name={name} type={type || "text"} />}
+      {!textarea && (
+        <input
+          placeholder={placeholder}
+          required={required}
+          pattern={pattern}
+          name={name}
+          type={type || "text"}
+        />
+      )}
       {textarea && (
         <textarea name={name} cols={cols || "30"} rows={rows || "10"} />
       )}

@@ -15,7 +15,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colorLightGrey};
     overflow-x: hidden;
   }
-
+a, a:visited {
+  text-decoration: none;
+  color: ${({ theme }) => theme.colorPrimary}
+  p { font: ${({ theme }) => theme.fontMobileP}; }
+}
   h1 { font: ${({ theme }) => theme.fontMobileH1}; }
   h2 { font: ${({ theme }) => theme.fontMobileH2}; }
   h3 { font: ${({ theme }) => theme.fontMobileH3}; }
@@ -34,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
     h1 { font: ${({ theme }) => theme.fontDesktopH1}; }
     p { font: ${({ theme }) => theme.fontDesktopP}; }
     b { font: ${({ theme }) => theme.fontDesktopP}; font-weight: bold; }
+    a {
+  p { font: ${({ theme }) => theme.fontDesktopP}; }
+}
   }
 
 `;
