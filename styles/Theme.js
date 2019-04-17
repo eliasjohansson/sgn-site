@@ -6,12 +6,13 @@ const Theme = {
   colorLightGrey: '#F1F1F2',
   colorGrey: '#D2D2D2',
   colorDarkGrey: '#393939',
+  colorBlack: '#000000',
 
   // Font
   fontMobileH1: "bold 28px/95% 'Montserrat', sans-serif",
   fontMobileH2: "bold 22px/110% 'Montserrat', sans-serif",
   fontMobileH3: "bold 18px/100% 'Montserrat', sans-serif",
-  fontMobileH4: "bold 12px/100% 'Roboto', sans-serif",
+  fontMobileH4: "bold 12px/110% 'Roboto', sans-serif",
   fontMobilePBold: "bold 16px/120% 'Roboto', sans-serif",
   fontMobileP: "16px/120% 'Roboto', sans-serif",
 
