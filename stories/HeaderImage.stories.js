@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { linkTo } from "@storybook/addon-links";
-import { configure, addDecorator } from "@storybook/react";
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+import { configure, addDecorator } from '@storybook/react';
 
-import HeaderImage from "../components/HeaderImage.js";
+import HeaderImage from '../components/HeaderImage.js';
 
-storiesOf("HeaderImage", module).add("Full", () => (
+storiesOf('Shared | HeaderImage', module).add('Full', () => (
   <div
     style={{
-      display: "grid",
-      gridGap: "1rem"
+      display: 'grid',
+      gridGap: '1rem'
     }}
   >
-    <HeaderImage onClick={action("clicked")} />
+    <HeaderImage onClick={action('clicked')} />
   </div>
 ));

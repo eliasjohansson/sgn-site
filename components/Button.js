@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
   width: 100%;
@@ -18,7 +18,7 @@ const StyledButton = styled.button`
   ${props =>
     props.outlined &&
     `
-    border: solid 4px ${props.theme.colorPrimary}
+    border: solid 1px ${props.theme.colorPrimary}
     background-color: transparent;
     color: ${props.theme.colorPrimary};
     `}

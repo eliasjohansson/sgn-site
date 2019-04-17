@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 
 // Components
 import Container from '../Container';
-import Activity from './Activity';
+import ImageListItem from '../ImageListItem';
 import Event from './Event';
 
 export const BRANCH_QUERY = gql`
@@ -106,11 +106,11 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
                   <h1>Activities</h1>
                   <div>
                     {activities.length > 0 ? (
-                      activities.map(activity => (
-                        <Activity
-                          image={activity.image}
-                          title={activity.title}
-                          description={activity.description}
+                      activities.map(ImageListItem => (
+                        <ImageListItem
+                          image={ImageListItem.image}
+                          title={ImageListItem.title}
+                          description={ImageListItem.description}
                         />
                       ))
                     ) : (

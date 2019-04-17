@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'next/router';
 import { Link } from '../../routes';
+import Icon from '../Icons';
 
 const StyledDesktopLang = styled.button`
   padding: 0 2rem;
@@ -71,7 +72,7 @@ const StyledDesktopLang = styled.button`
 `;
 
 export const DesktopLang = withRouter(({ lang, router }) => {
-  const [focused, setFocused] = useState(true);
+  const [focused, setFocused] = useState(false);
   return (
     <StyledDesktopLang
       onFocus={() => setFocused(true)}
@@ -105,35 +106,105 @@ export const DesktopLang = withRouter(({ lang, router }) => {
   );
 });
 
-export const MobileLang = styled.div`
-  border: none;
-  border-top: 1px solid ${({ theme }) => theme.colorGrey};
-  font: ${({ theme }) => theme.fontMobileP};
+const StyledMobileLang = styled.div`
   width: 100%;
 
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  button {
     border: none;
-    background: none;
+    border-top: 1px solid ${({ theme }) => theme.colorGrey};
+    font: ${({ theme }) => theme.fontMobileP};
     width: 100%;
-    height: 100%;
-    border-radius: 0;
-    padding: 1rem;
-    display: flex;
+    height: 50px;
+    background-color: ${({ theme }) => theme.colorWhite};
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    display: flex; 
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    outline: none;
-    text-align: center;
+
+    svg {
+      margin-right: .5rem;
+    }
   }
 
-  svg {
-    margin-right: 0.5rem;
+  ul {
+    background-color: ${({ theme }) => theme.colorWhite};
+    border-radius: 2px;
+   /*  border: 1px solid ${({ theme }) => theme.colorGrey}; */
+    border-top: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    transform-origin: bottom;
+    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
+    transition: 0.3s ease;
+    
+
+    li {
+      border-top: 1px solid ${({ theme }) => theme.colorGrey};
+      cursor: pointer;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: auto;
+      color: ${({ theme }) => theme.colorDarkGrey};
+      font: ${({ theme }) => theme.fontMobileP};
+      &:hover {
+        background-color: ${({ theme }) => theme.colorPrimary};
+        color: ${({ theme }) => theme.colorWhite};
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        width: 100%;
+        display: inline-block;
+        padding: 1rem 1rem;
+      }
+    }
   }
 
   @media screen and (min-width: 900px) {
     display: none;
   }
 `;
+
+export const MobileLang = withRouter(({ lang, router }) => {
+  const [focused, setFocused] = useState(false);
+  return (
+    <StyledMobileLang
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      focused={focused}
+    >
+      <button>
+        <Icon symbol="globe" />
+        <span>English</span>
+      </button>
+
+      <ul>
+        <li>
+          <Link
+            route={
+              router.route === '/'
+                ? 'index'
+                : router.route.slice(1) /* Slice to remove "/" */
+            }
+            params={{ lang: 'en' }}
+          >
+            <a>English</a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            route={router.route === '/' ? 'index' : router.route.slice(1)}
+            params={{ lang: 'sv' }}
+          >
+            <a>Svenska</a>
+          </Link>
+        </li>
+      </ul>
+    </StyledMobileLang>
+  );
+});

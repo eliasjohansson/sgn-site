@@ -7,6 +7,7 @@ import { Query } from 'react-apollo';
 import Container from '../components/Container';
 import SelectedBranch from '../components/Branches/SelectedBranch';
 import Dropdown from '../components/Branches/Dropdown';
+import HeaderImage from '../components/HeaderImage';
 
 export const BRANCHES_QUERY = gql`
   query branchesQuery($lang: String!) {
@@ -37,8 +38,14 @@ const StyledBranches = styled.div``;
 
 const Header = styled(Container)`
   margin-bottom: 2rem;
-  > * {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  > p,
+  h1 {
     max-width: 800px;
+  }
+  p {
+    margin-bottom: 3rem;
   }
 `;
 
@@ -62,9 +69,15 @@ const Branches = props => {
 
           return (
             <>
+              <HeaderImage />
               <Header>
                 <h1>{page.header.title}</h1>
                 <p>{page.header.text}</p>
+                <Dropdown
+                  branches={branches.edges}
+                  selectedBranch={selectedBranch}
+                  setSelectedBranch={setSelectedBranch}
+                />
               </Header>
               <Container style={{ marginBottom: '2rem' }}>
                 {/* <ul>
@@ -81,12 +94,6 @@ const Branches = props => {
                     </li>
                   ))}
                 </ul> */}
-
-                <Dropdown
-                  branches={branches.edges}
-                  selectedBranch={selectedBranch}
-                  setSelectedBranch={setSelectedBranch}
-                />
               </Container>
 
               {selectedBranch && (

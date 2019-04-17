@@ -17,6 +17,7 @@ const StyledNavbar = styled.div`
   z-index: 100;
 
   > ${Container} {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

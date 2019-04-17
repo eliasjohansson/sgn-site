@@ -1,13 +1,13 @@
-import { Query } from "react-apollo";
-import { withRouter } from "next/router";
-import gql from "graphql-tag";
-import styled from "styled-components";
-import qs from "query-string";
+import { Query } from 'react-apollo';
+import { withRouter } from 'next/router';
+import gql from 'graphql-tag';
+import styled from 'styled-components';
+import qs from 'query-string';
 
 // Components
-import Card from "../components/Card";
-import Banner from "../components/Banner";
-import Button from "../components/Button";
+import BigSection from '../components/Home/BigSection';
+import Banner from '../components/Banner';
+import Button from '../components/Button';
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -58,7 +58,7 @@ const Index = props => {
 
           return (
             <>
-              <Card />
+              <BigSection />
 
               <Banner dark>
                 <h1>Banner</h1>
@@ -72,7 +72,7 @@ const Index = props => {
                 <Button>CTA</Button>
               </Banner>
 
-              <Card />
+              <BigSection />
 
               <Banner primary>
                 <p>

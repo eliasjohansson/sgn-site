@@ -91,12 +91,13 @@ const Nav = styled.nav`
       }
       a {
         white-space: nowrap;
-        padding: 0px 1rem;
+        padding: 0px 0.7rem;
         height: 100%;
         width: 100%;
         color: ${({ theme }) => theme.colorGrey};
         text-decoration: none;
         font: ${({ theme }) => theme.fontSmall};
+        font-size: 12px;
       }
     }
   }

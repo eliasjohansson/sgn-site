@@ -3,6 +3,7 @@ import YouTube from './YouTube';
 import Facebook from './Facebook';
 import Instagram from './Instagram';
 import Arrow from './Arrow';
+import Globe from './Globe';
 
 function Icon(props) {
   switch (props.symbol) {
@@ -14,6 +15,8 @@ function Icon(props) {
       return <Instagram {...props} />;
     case 'arrow':
       return <Arrow {...props} />;
+    case 'globe':
+      return <Globe {...props} />;
     default:
       return <span>Unknown icon: {props.symbol}</span>;
   }
