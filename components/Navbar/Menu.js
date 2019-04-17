@@ -74,38 +74,38 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({ open, router, lang }) => {
+const Menu = ({ open, router, lang, close }) => {
   return (
     <StyledMenu open={open}>
       <ul>
         <li>
           <Link route="index" params={{ lang: lang }}>
-            <a>Home</a>
+            <a onClick={close}>Home</a>
           </Link>
         </li>
         <li>
           <Link route="branches" params={{ lang: lang }}>
-            <a>Locations</a>
+            <a onClick={close}>Locations</a>
           </Link>
         </li>
         <li>
           <Link route="collaborations" params={{ lang: lang }}>
-            <a>Collaborations</a>
+            <a onClick={close}>Collaborations</a>
           </Link>
         </li>
         <li>
           <Link route="donate" params={{ lang: lang }}>
-            <a>Donate</a>
+            <a onClick={close}>Donate</a>
           </Link>
         </li>
         <li>
           <Link route="news" params={{ lang: lang }}>
-            <a>News</a>
+            <a onClick={close}>News</a>
           </Link>
         </li>
         <li>
           <Link route="membership" params={{ lang: lang }}>
-            <a>Membership</a>
+            <a onClick={close}>Membership</a>
           </Link>
         </li>
       </ul>

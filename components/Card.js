@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "./Container";
+import React from 'react';
+import styled from 'styled-components';
+import Container from './Container';
 
 const Wrapper = styled.div`
   margin-bottom: 2rem;
@@ -27,7 +27,7 @@ const ContentWrapper = styled.div`
 `;
 const StyledCard = styled.div`
   width: 100%;
-  margin-top: 5rem;
+  margin: 5rem 0;
   display: grid;
   grid-gap: 1.5rem;
   grid-template-rows: repeat(2, auto);

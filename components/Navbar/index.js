@@ -4,7 +4,7 @@ import { Link } from '../../routes';
 import Container from '../Container';
 import Logo from '../Logo';
 import Hamburger from './Hamburger';
-import DesktopLanguage from './Language';
+import { DesktopLang } from './Language';
 import Menu from './Menu';
 
 const StyledNavbar = styled.div`
@@ -23,7 +23,7 @@ const StyledNavbar = styled.div`
   }
 `;
 
-const Navbar = ({ open }) => {
+const Navbar = ({ open, lang }) => {
   const [menuOpen, setMenuOpen] = useState(open || false);
   return (
     <StyledNavbar>
@@ -31,9 +31,9 @@ const Navbar = ({ open }) => {
         <Logo />
 
         <Hamburger cross={menuOpen} onClick={() => setMenuOpen(!menuOpen)} />
-        <Menu open={menuOpen} />
+        <Menu open={menuOpen} close={() => setMenuOpen(false)} lang={lang} />
       </Container>
-      <DesktopLanguage>English</DesktopLanguage>
+      <DesktopLang lang={lang} />
     </StyledNavbar>
   );
 };
