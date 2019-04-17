@@ -171,7 +171,7 @@ const StyledMobileLang = styled.div`
 `;
 
 export const MobileLang = withRouter(({ lang, router }) => {
-  const [focused, setFocused] = useState(true);
+  const [focused, setFocused] = useState(false);
   return (
     <StyledMobileLang
       onFocus={() => setFocused(true)}
