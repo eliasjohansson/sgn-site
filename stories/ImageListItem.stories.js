@@ -3,13 +3,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import Activity from '../../../components/Branches/Activity';
-import { Activities } from '../../../components/Branches/SelectedBranch';
-import Container from '../../../components/Container';
+import ImageListItem from '../components/ImageListItem';
+import { Activities } from '../components/Branches/SelectedBranch';
+import Container from '../components/Container';
 
-storiesOf('Page Specific|Branches/Activity', module)
+storiesOf('Shared | Image List Item', module)
   .add('single', () => (
-    <Activity
+    <ImageListItem
       image="https://via.placeholder.com/160"
       title="Welcome Gatherings"
       description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
@@ -18,24 +18,23 @@ storiesOf('Page Specific|Branches/Activity', module)
   .add('list', () => (
     <Activities>
       <Container>
-        <h1>Activities</h1>
         <div>
-          <Activity
+          <ImageListItem
             image="https://via.placeholder.com/160"
             title="Welcome Gatherings"
             description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
           />
-          <Activity
+          <ImageListItem
             image="https://via.placeholder.com/160"
             title="Welcome Gatherings"
             description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
           />
-          <Activity
+          <ImageListItem
             image="https://via.placeholder.com/160"
             title="Welcome Gatherings"
             description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
           />
-          <Activity
+          <ImageListItem
             image="https://via.placeholder.com/160"
             title="Welcome Gatherings"
             description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
