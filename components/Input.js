@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledInput = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   flex: 1;
   label {
     display: block;
@@ -62,11 +62,11 @@ const Input = props => {
           required={required}
           pattern={pattern}
           name={name}
-          type={type || "text"}
+          type={type || 'text'}
         />
       )}
       {textarea && (
-        <textarea name={name} cols={cols || "30"} rows={rows || "10"} />
+        <textarea name={name} cols={cols || '30'} rows={rows || '10'} />
       )}
     </StyledInput>
   );

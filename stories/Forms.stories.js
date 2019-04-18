@@ -8,8 +8,9 @@ import { addDecorator } from '@storybook/react';
 import Container from '../components/Container';
 import Input from '../components/Input.js';
 import Button from '../components/Button';
+import Checkbox from '../components/Checkbox';
 
-storiesOf('Shared | Input', module)
+storiesOf('Shared | Forms', module)
   .addDecorator(storyFn => (
     <Container style={{ paddingTop: '2rem' }}>{storyFn()}</Container>
   ))
@@ -19,12 +20,8 @@ storiesOf('Shared | Input', module)
     <Input label="Person Number" description="(YYYY-MM-DD-000)" />
   ))
   .add('textarea', () => <Input textarea label="Message" />)
-  .add('Example "Contact Us"', () => (
-    <div>
-      <Input label="Name" />
-      <Input label="Email" type="email" />
-      <Input label="Subject" />
-      <Input textarea label="Message" />
-      <Button primary>Send</Button>
-    </div>
+  .add('checkbox', () => (
+    <Checkbox name="tac">
+      I agree to the <a href="#">terms and conditions</a>
+    </Checkbox>
   ));
