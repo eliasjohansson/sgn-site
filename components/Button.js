@@ -35,7 +35,7 @@ const StyledButton = styled.button`
   }
 `;
 const Button = props => {
-  return <StyledButton {...props}> CTA </StyledButton>;
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 
 export default Button;

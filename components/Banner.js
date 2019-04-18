@@ -42,9 +42,9 @@ const StyledBanner = styled(Section)`
   }
 `;
 
-const Banner = ({ children, primary, dark }) => {
+const Banner = ({ children, primary, dark, className }) => {
   return (
-    <StyledBanner primary={primary} dark={dark}>
+    <StyledBanner className={className} primary={primary} dark={dark}>
       <Container>{children}</Container>
     </StyledBanner>
   );
