@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Container from './Container';
-import Button from './Button';
+import React from "react";
+import styled from "styled-components";
+import Container from "./Container";
+import Button from "./Button";
 const StyledHero = styled.div`
   width: 100vw;
   height: calc(100vh - 64px);
@@ -17,11 +17,11 @@ const StyledHero = styled.div`
   .overlay::after {
     display: block;
     position: relative;
-    background-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    background-image: linear-gradient(to bottom, transparent 0%, #242424 100%);
     margin-top: -200px;
     height: 200px;
     width: 100%;
-    content: '';
+    content: "";
   }
   ${Container} {
     display: grid;
