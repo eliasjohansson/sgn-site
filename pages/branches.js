@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import React, { useState } from "react";
+import styled from "styled-components";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 
 // Components
-import Container from '../components/Container';
-import SelectedBranch from '../components/Branches/SelectedBranch';
-import Dropdown from '../components/Branches/Dropdown';
-import HeaderImage from '../components/HeaderImage';
-import Section from '../components/Section';
+import Container from "../components/Container";
+import SelectedBranch from "../components/Branches/SelectedBranch";
+import Dropdown from "../components/Branches/Dropdown";
+import HeaderImage from "../components/HeaderImage";
+import Section from "../components/Section";
 
 export const BRANCHES_QUERY = gql`
   query branchesQuery($lang: String!) {
@@ -67,7 +67,7 @@ const Branches = props => {
 
           return (
             <>
-              <HeaderImage />
+              <HeaderImage image="https://images.pexels.com/photos/297755/pexels-photo-297755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
               <Header>
                 <h1>{page.header.title}</h1>
                 <p>{page.header.text}</p>
@@ -77,7 +77,7 @@ const Branches = props => {
                   setSelectedBranch={setSelectedBranch}
                 />
               </Header>
-              <Container style={{ marginBottom: '2rem' }}>
+              <Container style={{ marginBottom: "2rem" }}>
                 {/* <ul>
                   {branches.edges.map(({ node: branch }) => (
                     <li
