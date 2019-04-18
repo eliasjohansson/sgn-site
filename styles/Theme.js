@@ -1,12 +1,13 @@
 const Theme = {
   // Color
-  colorPrimary: '#008484',
-  colorDarkPrimary: '#005550',
-  colorWhite: '#fff',
-  colorLightGrey: '#F1F1F2',
-  colorGrey: '#D2D2D2',
-  colorDarkGrey: '#393939',
-  colorBlack: '#000000',
+  colorPrimary: "#008484",
+  colorDarkPrimary: "#005550",
+  colorWhite: "#fff",
+  colorLightGrey: "#F1F1F2",
+  colorGrey: "#D2D2D2",
+  colorDarkGrey: "#393939",
+  colorBlack: "#000000",
+  colorAccent: "#FD6C22",
 
   // Font
   fontMobileH1: "bold 28px/95% 'Montserrat', sans-serif",
