@@ -1,0 +1,90 @@
+query homeQuery($lang: String!) {
+  page: pages(where: { title: "Home", lang: $lang }) {
+    edges {
+      node {
+        home {
+          header {
+            title
+            text
+            image
+            cta {
+              label
+              link
+            }
+          }
+          card1 {
+            image
+            title
+            text
+          }
+          quote
+          card2 {
+            image
+            title
+            text
+          }
+          green_banner_1 {
+            title
+            text
+          }
+          green_banner_2 {
+            title
+            text
+          }
+          visions {
+            title
+            list {
+              image
+              text
+            }
+          }
+          awards {
+            title
+            list {
+              image
+              description
+              link
+            }
+          }
+          news_info_box {
+            title
+            text
+            button_label
+          }
+          partners {
+            title
+            list {
+              logo
+              name
+              link
+            }
+          }
+          contact {
+            title
+            text
+            form {
+              name {
+                label
+                instructions
+              }
+              email {
+                label
+                instructions
+              }
+              subject {
+                label
+                instructions
+              }
+              message {
+                label
+                instructions
+              }
+              tac_label
+              button_label
+            }
+          }
+        }
+      }
+    }
+  }
+}
