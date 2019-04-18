@@ -8,6 +8,7 @@ import Container from '../components/Container';
 import SelectedBranch from '../components/Branches/SelectedBranch';
 import Dropdown from '../components/Branches/Dropdown';
 import HeaderImage from '../components/HeaderImage';
+import Section from '../components/Section';
 
 export const BRANCHES_QUERY = gql`
   query branchesQuery($lang: String!) {
@@ -36,11 +37,8 @@ export const BRANCHES_QUERY = gql`
 
 const StyledBranches = styled.div``;
 
-const Header = styled(Container)`
-  margin-bottom: 2rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  > p,
+const Header = styled(Section)`
+  p,
   h1 {
     max-width: 800px;
   }
