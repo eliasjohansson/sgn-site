@@ -58,11 +58,17 @@ storiesOf('Page Specific|Home/News', module)
         <Button outlined>CTA</Button>
       </InfoCard>
       <Post>
-        <Image
-          src="https://via.placeholder.com/200x150"
-          width="30%"
-          height="100%"
-        />
+        <img src="https://via.placeholder.com/200x150" />
+        <div>
+          <small>2019-02-11</small>
+          <p>
+            {text.slice(0, 170)} ...
+            <a href="#">read more</a>
+          </p>
+        </div>
+      </Post>
+      <Post>
+        <img src="https://via.placeholder.com/200x150" />
         <div>
           <small>2019-02-11</small>
           <p>
@@ -72,25 +78,7 @@ storiesOf('Page Specific|Home/News', module)
         </div>
       </Post>
       <Post>
-        <Image
-          src="https://via.placeholder.com/200x150"
-          width="30%"
-          height="100%"
-        />
-        <div>
-          <small>2019-02-11</small>
-          <p>
-            <span>{text.slice(0, 170)} ... </span>
-            <a href="#">read more</a>
-          </p>
-        </div>
-      </Post>
-      <Post>
-        <Image
-          src="https://via.placeholder.com/200x150"
-          width="30%"
-          height="100%"
-        />
+        <img src="https://via.placeholder.com/200x150" />
         <div>
           <small>2019-02-11</small>
           <p>

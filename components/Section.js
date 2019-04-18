@@ -9,7 +9,7 @@ const StyledSection = styled.div`
 const Section = props => {
   return (
     <StyledSection {...props}>
-      <Container>{props.children}</Container>
+      <Container fluid={props.fluid}>{props.children}</Container>
     </StyledSection>
   );
 };

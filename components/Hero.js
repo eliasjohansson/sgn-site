@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "./Container";
-import Button from "./Button";
+import React from 'react';
+import styled from 'styled-components';
+import Container from './Container';
+import Button from './Button';
 const StyledHero = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 64px);
   h1 {
     color: white;
   }
@@ -12,7 +12,7 @@ const StyledHero = styled.div`
     z-index: -1;
     object-fit: cover;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 64px);
   }
   .overlay::after {
     display: block;
@@ -21,7 +21,7 @@ const StyledHero = styled.div`
     margin-top: -200px;
     height: 200px;
     width: 100%;
-    content: "";
+    content: '';
   }
   ${Container} {
     display: grid;
@@ -38,11 +38,11 @@ const StyledHero = styled.div`
     }
   }
 `;
-const Hero = props => {
+const Hero = ({ image }) => {
   return (
     <StyledHero>
       <div className="overlay">
-        <img src="https://via.placeholder.com/1440x880" />
+        <img src={image} />
       </div>
       <div className="wrapper">
         <Container>
