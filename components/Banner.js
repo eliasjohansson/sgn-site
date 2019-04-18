@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from './Container';
+import Section from './Section';
 
-const StyledBanner = styled.div`
+const StyledBanner = styled(Section)`
   ${({ theme, primary, dark }) => {
     if (primary)
       return `
@@ -26,7 +27,14 @@ const StyledBanner = styled.div`
   text-align: center;
 
   > * {
-    max-width: 700px;
+    max-width: 900px;
+  }
+
+  i {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 110%;
+    font-family: 'Montserrat', sans-serif;
   }
 
   button {

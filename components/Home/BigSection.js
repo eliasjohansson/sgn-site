@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
+import Section from '../Section';
 
 const Wrapper = styled.div`
   margin-bottom: 2rem;
@@ -20,66 +21,67 @@ const ContentWrapper = styled.div`
     margin-bottom: 2rem;
   }
   @media screen and (min-width: 900px) {
-    & {
+    /* & {
       max-width: 40%;
-    }
+    } */
+    padding-right: 2rem;
   }
 `;
-const StyledBigSection = styled.div`
-  width: 100%;
-  margin: 5rem 0;
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-rows: repeat(2, auto);
-  background-color: ${({ theme }) => theme.colorLightGrey};
-  img {
-    height: 50vh;
+const StyledBigSection = styled(Section)`
+  background-color: ${({ theme }) => theme.colorWhite};
+  > div {
     width: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
-  }
-  a {
-    color: ${({ theme }) => theme.colorPrimary};
-    text-decoration: none;
-    & :visited {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-rows: repeat(2, auto);
+
+    img {
+      height: 50vh;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+    a {
       color: ${({ theme }) => theme.colorPrimary};
+      text-decoration: none;
+      & :visited {
+        color: ${({ theme }) => theme.colorPrimary};
+      }
     }
-  }
-  @media screen and (min-width: 900px) {
-    & {
-      grid-template-rows: repeat(1, auto);
-      grid-template-columns: repeat(2, 60%);
-    }
-    & img {
-      min-width: 60%;
-      min-height: 100%;
+    @media screen and (min-width: 900px) {
+      & {
+        grid-template-rows: repeat(1, auto);
+        grid-template-columns: 60% 40%;
+      }
+      & img {
+        min-width: 60%;
+        min-height: 100%;
+      }
     }
   }
 `;
 
-const BigSection = props => {
+const BigSection = ({ image, children }) => {
   return (
-    <Container fluid>
-      <StyledBigSection>
-        <img src="https://dummyimage.com/1024x1720/fff/aaa" alt="" />
-        <ContentWrapper>
-          <h1>H1 Headline</h1>
-          <p>
-            Support Group Network (SGN) är en ideell förening som formats av
-            asylsökande i samarbete med det svenska samhället i syfte att hjälpa
-            andra asylsökande, flyktingar.
-          </p>
-          <Wrapper>
-            {props.children}
-            {/* {props.withLink && (
+    <StyledBigSection fluid>
+      <img src={image} alt="" />
+      <ContentWrapper>
+        {/* <h1>H1 Headline</h1>
+        <p>
+          Support Group Network (SGN) är en ideell förening som formats av
+          asylsökande i samarbete med det svenska samhället i syfte att hjälpa
+          andra asylsökande, flyktingar.
+        </p> */}
+        {children}
+        {/* <Wrapper>
+        {props.withLink && (
               <a className="link" href="#">
                 Read more ➤
               </a>
-            )} */}
-          </Wrapper>
-        </ContentWrapper>
-      </StyledBigSection>
-    </Container>
+            )} 
+        </Wrapper> */}
+      </ContentWrapper>
+    </StyledBigSection>
   );
 };
 

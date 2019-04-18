@@ -8,6 +8,10 @@ import qs from 'query-string';
 import BigSection from '../components/Home/BigSection';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
+import Hero from '../components/Hero';
+import News from '../components/Home/News';
+import Awards from '../components/Home/Awards';
+import Visions from '../components/Home/Visions';
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -58,33 +62,39 @@ const Index = props => {
 
           return (
             <>
-              <BigSection />
-
-              <Banner dark>
-                <h1>Banner</h1>
+              <Hero image="https://images.unsplash.com/photo-1548107116-762a8ff356f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" />
+              <BigSection image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+                <h1>H1 - Desktop</h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                  et blanditiis minus esse! Doloremque blanditiis consectetur
-                  aut deserunt officiis quas consequuntur alias distinctio
-                  laboriosam, velit tempore repudiandae aspernatur delectus
-                  ducimus.
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Molestias optio laboriosam perspiciatis, debitis aliquid et,
+                  iste esse velit, iusto facere perferendis tempora illo
+                  dignissimos consequatur est inventore porro laborum sapiente.
+                </p>
+              </BigSection>
+              <Banner>
+                <i>
+                  “De har hjälpt mig att hålla mig igång och uppleva
+                  meningsfullhet i den riktningslösa framtiden”.
+                </i>
+              </Banner>
+              <BigSection />
+              <Visions />
+              <Banner primary>
+                <h1>Title</h1>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
+                  nisi dicta quisquam aut dolor, assumenda commodi mollitia
+                  voluptatem amet ea, nobis quasi repudiandae repellendus
+                  nostrum quidem. Vitae quod non eaque!
                 </p>
                 <Button>CTA</Button>
               </Banner>
-
-              <BigSection />
-
+              <Awards />
+              <News />
               <Banner primary>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                  et blanditiis minus esse! Doloremque blanditiis consectetur
-                  aut deserunt officiis quas consequuntur alias distinctio
-                  laboriosam, velit tempore repudiandae aspernatur delectus
-                  ducimus.
-                </p>
-              </Banner>
-              <Banner>
-                <h1>Im White</h1>
+                <h1>Title</h1>
+                <Button>CTA</Button>
               </Banner>
             </>
           );
