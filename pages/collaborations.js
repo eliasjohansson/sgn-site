@@ -19,7 +19,7 @@ const Header = styled(Section)`
 const Collaborations = props => {
   return (
     <StyledCollaborations>
-      <HeaderImage />
+      <HeaderImage image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
       <Header>
         <h1>Headline</h1>
         <p>
@@ -28,7 +28,7 @@ const Collaborations = props => {
           Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
         </p>
       </Header>
-      <Collabs />
+      <Collabs lang={props.lang} />
       <Banner primary>
         <h1>Title</h1>
         <Button>CTA</Button>

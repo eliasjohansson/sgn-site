@@ -1,23 +1,23 @@
-import { Query } from 'react-apollo';
-import { withRouter } from 'next/router';
-import gql from 'graphql-tag';
-import styled from 'styled-components';
-import qs from 'query-string';
+import { Query } from "react-apollo";
+import { withRouter } from "next/router";
+import gql from "graphql-tag";
+import styled from "styled-components";
+import qs from "query-string";
 
 // Queries
 import HOME_QUERY from '../graphql/home.gql';
 
 // Components
-import BigSection from '../components/Home/BigSection';
-import Banner from '../components/Banner';
-import Button from '../components/Button';
-import Hero from '../components/Hero';
-import News from '../components/Home/News';
-import Awards from '../components/Home/Awards';
-import Visions from '../components/Home/Visions';
-import Projects from '../components/Home/Projects/';
-import Partners from '../components/Home/Partners';
-import Contact from '../components/Home/Contact';
+import BigSection from "../components/Home/BigSection";
+import Banner from "../components/Banner";
+import Button from "../components/Button";
+import Hero from "../components/Hero";
+import News from "../components/Home/News";
+import Awards from "../components/Home/Awards";
+import Visions from "../components/Home/Visions";
+import Projects from "../components/Home/Projects/";
+import Partners from "../components/Home/Partners";
+import Contact from "../components/Home/Contact";
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -58,7 +58,7 @@ const Index = props => {
                 <p>{page.green_banner_1.text}</p>
                 <Button>CTA</Button>
               </Banner>
-              <Projects />
+              <Projects lang={lang} />
               <Awards />
               <News />
               <Banner primary>

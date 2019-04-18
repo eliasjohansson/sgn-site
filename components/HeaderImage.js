@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledHeaderImage = styled.div`
   /* position: relative; */
@@ -15,10 +15,10 @@ const StyledHeaderImage = styled.div`
     height: 60vh;
   }
 `;
-const HeaderImage = props => {
+const HeaderImage = ({ image }) => {
   return (
     <StyledHeaderImage>
-      <img src="https://images.pexels.com/photos/106829/pexels-photo-106829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+      <img src={image} />
     </StyledHeaderImage>
   );
 };

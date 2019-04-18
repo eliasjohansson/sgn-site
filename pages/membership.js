@@ -16,7 +16,7 @@ const Header = styled(Section)`
 const Membership = props => {
   return (
     <StyledMembership>
-      <HeaderImage />
+      <HeaderImage image="https://images.pexels.com/photos/1963622/pexels-photo-1963622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
       <Header>
         <h1>Headline</h1>
         <p>
