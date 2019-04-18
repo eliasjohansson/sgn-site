@@ -12,6 +12,9 @@ import Hero from '../components/Hero';
 import News from '../components/Home/News';
 import Awards from '../components/Home/Awards';
 import Visions from '../components/Home/Visions';
+import Projects from '../components/Home/Projects/';
+import Partners from '../components/Home/Partners';
+import Contact from '../components/Home/Contact';
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -90,12 +93,15 @@ const Index = props => {
                 </p>
                 <Button>CTA</Button>
               </Banner>
+              <Projects />
               <Awards />
               <News />
               <Banner primary>
                 <h1>Title</h1>
                 <Button>CTA</Button>
               </Banner>
+              <Partners />
+              <Contact />
             </>
           );
         }}
