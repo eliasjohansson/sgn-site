@@ -46,18 +46,46 @@ export const Award = styled(Card)`
 const Awards = props => {
   return (
     <StyledAwards>
-      <Container>
-        <h1>Awards we are proud of</h1>
+      <h1>Awards we are proud of</h1>
 
-        <div>
-          <Award>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div />
-          </Award>
-        </div>
-      </Container>
+      <div>
+        <Award>
+          <div>
+            <img src="https://via.placeholder.com/300" alt="" />
+          </div>
+          <h4>
+            We won the ttela award for best innovation or something. And we love
+            it!!
+          </h4>
+        </Award>
+        <Award>
+          <div>
+            <img src="https://via.placeholder.com/300" alt="" />
+          </div>
+          <h4>
+            We won the ttela award for best innovation or something. And we love
+            it!!
+          </h4>
+        </Award>
+        <Award>
+          <div>
+            <img src="https://via.placeholder.com/300" alt="" />
+          </div>
+          <h4>
+            We won the ttela award for best innovation or something. And we love
+            it!!
+          </h4>
+        </Award>
+        <Award>
+          <div>
+            <img src="https://via.placeholder.com/300" alt="" />
+          </div>
+          <h4>
+            We won the ttela award for best innovation or something. And we love
+            it!!
+          </h4>
+        </Award>
+      </div>
     </StyledAwards>
   );
 };
