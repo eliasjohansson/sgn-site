@@ -23,10 +23,6 @@ const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
-/* export const HOME_QUERY = gql`
-
-`; */
-
 const Index = props => {
   const { lang } = props;
   return (

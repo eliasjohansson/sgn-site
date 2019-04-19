@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import React from "react";
-import Section from "./Section";
-import HeaderImage from "./HeaderImage";
+import styled from 'styled-components';
+import React from 'react';
+import Section from './Section';
+import HeaderImage from './HeaderImage';
 
 const StyledCollaboration = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};

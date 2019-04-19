@@ -87,12 +87,11 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
         {languages.map(l => (
           <li>
             <Link
-              route={
+              route={`/${lang}/${
                 router.route === '/'
                   ? 'index'
                   : router.route.slice(1) /* Slice to remove "/" */
-              }
-              params={{ lang: l.slug }}
+              }`}
             >
               <a>{l.name.slice(0, 3)}</a>
             </Link>
@@ -184,12 +183,11 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
         {languages.map(l => (
           <li>
             <Link
-              route={
+              route={`/${lang}/${
                 router.route === '/'
                   ? 'index'
                   : router.route.slice(1) /* Slice to remove "/" */
-              }
-              params={{ lang: l.slug }}
+              }`}
             >
               <a>{l.name}</a>
             </Link>

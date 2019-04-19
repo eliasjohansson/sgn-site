@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // Components
-import { Link } from "../../../routes";
-import Card from "../../Card";
+import { Link } from '../../../routes';
+import Card from '../../Card';
 
 const StyledProjectCard = styled(Card)`
   position: relative;
@@ -45,12 +45,12 @@ const ProjectCard = ({
   return (
     <StyledProjectCard>
       <ImageBox>
-        <img src={src} alt={alt || ""} />
+        <img src={src} alt={alt || ''} />
       </ImageBox>
       <ContentBox>
         <h1>{title}</h1>
         <p>{description}</p>
-        <Link route="collaboration" params={{ lang, id: collaborationId }}>
+        <Link route="collaboration" params={{ lang: lang, id: '123' }}>
           <a>Read more</a>
         </Link>
       </ContentBox>

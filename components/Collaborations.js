@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "../routes";
-import styled from "styled-components";
-import Section from "./Section";
-import Card from "./Card";
+import React from 'react';
+import { Link } from '../routes';
+import styled from 'styled-components';
+import Section from './Section';
+import Card from './Card';
+
 const StyledCollab = styled(Section)``;
+
 const StyledCard = styled(Card)`
   > a {
     width: 100%;
@@ -47,7 +49,7 @@ const Collab = props => {
       <Grid>
         <StyledCard>
           <Link
-            params={{ lang: props.lang, cid: "string" }}
+            params={{ lang: props.lang, id: 'string' }}
             route="collaboration"
           >
             <a>
@@ -59,7 +61,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, cid: "tva" }} route="collaboration">
+          <Link params={{ lang: props.lang, id: 'tva' }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>
@@ -69,7 +71,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, cid: "3" }} route="collaboration">
+          <Link params={{ lang: props.lang, id: 'tjo' }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>
@@ -79,7 +81,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, cid: "4" }} route="collaboration">
+          <Link params={{ lang: props.lang, id: 'bla' }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>
