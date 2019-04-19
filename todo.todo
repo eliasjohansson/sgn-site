@@ -1,0 +1,68 @@
+CMS:
+  (ACF & GraphQL):
+    ☐ Home @started(19-04-19 16:10)
+    ☐ Branches
+    ☐ Collaborations
+    ☐ Collaboration Post Type
+    ☐ Donations
+    ☐ Membership
+    ☐ Events Post Type
+    ☐ GDPR
+    ☐ 404
+  
+  ☐ Create post type for translation of menu, system text etc.
+
+  Low Prio:
+    ☐ Hide uneccesary/dangerous menu items
+  
+
+Frontend:
+  Pages:
+    Homepage:
+      ✔ Create Query @done(19-04-19 16:09)
+      ☐ Fill with content
+
+    Branches:
+      ☐ Create Query
+      ☐ Fill with CMS content
+      ☐ Fix flicker when chaning branch (Loading view)
+
+    Collaborations:
+      ☐ Create Query
+      ☐ Fill with CMS content
+
+    Collaboration:
+      ☐ Create Query
+      ☐ Fill with CMS content
+
+    News:
+      ✔ Create Query @done(19-04-19 16:09)
+      ☐ Fill with CMS content
+
+    Donate:
+      ☐ Create Query
+      ☐ Fill with CMS content
+
+    Membership:
+      ☐ Create Query
+      ☐ Fill with CMS content
+
+    404:
+      ☐ Make page
+      ☐ Send error message to this page? (ex. This page is not available in Swedish)
+
+    GDPR:
+      ☐ Make page
+      ☐ Create Query
+      ☐ Fill with CMS content
+
+    Identity:
+      // ???
+
+  
+
+  Shared Components:
+    ☐ Logo in footer
+    ☐ Lang dropdown designs
+    ☐ Move Lang dropdown to inside the container (Navbar)
+      // Check new design on Figma
