@@ -5,7 +5,12 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import ContactForm from '../../../components/Forms/ContactForm';
 import Banner from '../../../components/Banner';
-import { StyledContact, ContactBanner } from '../../../components/Home/Contact';
+import {
+  StyledContact,
+  ContactBanner,
+  FormContainer,
+  BannerContainer
+} from '../../../components/Home/Contact';
 
 storiesOf('Page Specific|Home/Contact', module)
   .add('form', () => <ContactForm />)
@@ -16,9 +21,13 @@ storiesOf('Page Specific|Home/Contact', module)
   ))
   .add('complete section', () => (
     <StyledContact>
-      <ContactForm />
-      <ContactBanner primary>
-        <h1>Feel free to contact us regarding any subject.</h1>
-      </ContactBanner>
+      <FormContainer>
+        <ContactForm />
+      </FormContainer>
+      <BannerContainer reverse>
+        <ContactBanner primary>
+          <h1>Feel free to contact us regarding any subject.</h1>
+        </ContactBanner>
+      </BannerContainer>
     </StyledContact>
   ));
