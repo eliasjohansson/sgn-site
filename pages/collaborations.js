@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'next/router';
+
+// Components
 import Collabs from '../components/Collaborations';
 import HeaderImage from '../components/HeaderImage';
 import Section from '../components/Section';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
-import { withRouter } from 'next/router';
+
 const StyledCollaborations = styled.div`
   & h1 {
     margin: 0;
@@ -16,6 +19,7 @@ const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};
 `;
+
 const Collaborations = withRouter(props => {
   return (
     <StyledCollaborations>

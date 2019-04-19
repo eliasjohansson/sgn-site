@@ -1,11 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import HeaderImage from "../components/HeaderImage";
-import Section from "../components/Section";
-import Banner from "../components/Banner";
-import Button from "../components/Button";
-import Donate from "../components/Donate";
+import React from 'react';
+import styled from 'styled-components';
+
+// Components
+import HeaderImage from '../components/HeaderImage';
+import Section from '../components/Section';
+import Banner from '../components/Banner';
+import Button from '../components/Button';
+import Donate from '../components/Donate';
+
 const StyledDonations = styled.div``;
+
 const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};

@@ -8,25 +8,7 @@ import Container from '../Container';
 import ImageListItem from '../ImageListItem';
 import Event from './Event';
 
-export const BRANCH_QUERY = gql`
-  query branchQuery($lang: String!, $branch: String!) {
-    branches(where: { title: $branch, lang: $lang }) {
-      edges {
-        node {
-          title
-          acf {
-            activities {
-              title
-              description
-              date_time
-              image
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import BRANCH_QUERY from '../../graphql/branch.gql';
 
 const StyledSelectedBranch = styled.div``;
 

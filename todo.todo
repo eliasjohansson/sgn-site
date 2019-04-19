@@ -1,12 +1,15 @@
 CMS:
   (ACF & GraphQL):
     ☐ Home @started(19-04-19 16:10)
-    ☐ Branches
+    ✔ Branches @done(19-04-19 17:37)
+    ✔ Branch Post Type @done(19-04-19 17:37)
+    ✔ News @done(19-04-19 17:37)
     ☐ Collaborations
     ☐ Collaboration Post Type
     ☐ Donations
     ☐ Membership
     ☐ Events Post Type
+      ☐ Connect to Branch somehow
     ☐ GDPR
     ☐ 404
   
@@ -23,9 +26,9 @@ Frontend:
       ☐ Fill with content
 
     Branches:
-      ☐ Create Query
+      ✔ Create Query @done(19-04-19 17:43)
       ☐ Fill with CMS content
-      ☐ Fix flicker when chaning branch (Loading view)
+      ☐ Fix flicker when changing branch (Loading view)
 
     Collaborations:
       ☐ Create Query

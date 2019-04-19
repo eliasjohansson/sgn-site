@@ -1,0 +1,23 @@
+query branchesQuery($lang: String!) {
+  page: pages(where: { title: "Branches", lang: $lang }) {
+    edges {
+      node {
+        branches {
+          header {
+            title
+            text
+            image
+          }
+        }
+      }
+    }
+  }
+  branches: branches(where: { lang: $lang }) {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}

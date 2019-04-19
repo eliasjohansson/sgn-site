@@ -1,0 +1,19 @@
+query branchQuery($lang: String!, $id: String!) {
+  branch: branches(where: { lang: $lang, id: $id }) {
+    edges {
+      node {
+        id
+        title
+        acf {
+          description
+          activities {
+            title
+            description
+            date_time
+            image
+          }
+        }
+      }
+    }
+  }
+}

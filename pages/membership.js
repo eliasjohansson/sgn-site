@@ -1,8 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import MembershipForm from "../components/Forms/MembershipForm";
-import HeaderImage from "../components/HeaderImage";
-import Section from "../components/Section";
+import React from 'react';
+import styled from 'styled-components';
+
+// Components
+import MembershipForm from '../components/Forms/MembershipForm';
+import HeaderImage from '../components/HeaderImage';
+import Section from '../components/Section';
+
 const StyledMembership = styled.div`
   & h1 {
     margin: 0;
