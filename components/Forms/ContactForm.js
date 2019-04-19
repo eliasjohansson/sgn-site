@@ -7,7 +7,7 @@ import Button from '../Button';
 import Section from '../Section';
 import Checkbox from '../Checkbox';
 
-const StyledContactForm = styled(Section)`
+const StyledContactForm = styled.div`
   h1 {
     margin-bottom: 2.5rem;
   }
