@@ -74,7 +74,7 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({ open, router, lang, close }) => {
+const Menu = ({ open, router, lang, languages, close }) => {
   return (
     <StyledMenu open={open}>
       <ul>
@@ -110,7 +110,7 @@ const Menu = ({ open, router, lang, close }) => {
         </li>
       </ul>
 
-      <MobileLang lang={lang} />
+      <MobileLang lang={lang} languages={languages} />
     </StyledMenu>
   );
 };

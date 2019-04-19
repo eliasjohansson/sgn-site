@@ -36,9 +36,9 @@ const Index = props => {
           let page;
           if (!loading) {
             page = data.page.edges[0].node.home;
+          } else {
+            return null;
           }
-
-          console.log(page);
 
           return (
             <>

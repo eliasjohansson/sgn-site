@@ -1,0 +1,7 @@
+query languageQuery {
+  languages {
+    slug
+    name
+    locale
+  }
+}

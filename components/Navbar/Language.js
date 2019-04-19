@@ -71,36 +71,33 @@ const StyledDesktopLang = styled.button`
   }
 `;
 
-export const DesktopLang = withRouter(({ lang, router }) => {
+export const DesktopLang = withRouter(({ lang, languages, router }) => {
   const [focused, setFocused] = useState(false);
+
   return (
     <StyledDesktopLang
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       focused={focused}
     >
-      <span>{lang}</span>
+      <span>
+        {languages[languages.map(l => l.slug).indexOf(lang)].name.slice(0, 3)}
+      </span>
       <ul>
-        <li>
-          <Link
-            route={
-              router.route === '/'
-                ? 'index'
-                : router.route.slice(1) /* Slice to remove "/" */
-            }
-            params={{ lang: 'en' }}
-          >
-            <a>Eng</a>
-          </Link>
-        </li>
-        <li>
-          <Link
-            route={router.route === '/' ? 'index' : router.route.slice(1)}
-            params={{ lang: 'sv' }}
-          >
-            <a>Swe</a>
-          </Link>
-        </li>
+        {languages.map(l => (
+          <li>
+            <Link
+              route={
+                router.route === '/'
+                  ? 'index'
+                  : router.route.slice(1) /* Slice to remove "/" */
+              }
+              params={{ lang: l.slug }}
+            >
+              <a>{l.name.slice(0, 3)}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </StyledDesktopLang>
   );
@@ -170,7 +167,7 @@ const StyledMobileLang = styled.div`
   }
 `;
 
-export const MobileLang = withRouter(({ lang, router }) => {
+export const MobileLang = withRouter(({ lang, languages, router }) => {
   const [focused, setFocused] = useState(false);
   return (
     <StyledMobileLang
@@ -180,30 +177,24 @@ export const MobileLang = withRouter(({ lang, router }) => {
     >
       <button>
         <Icon symbol="globe" />
-        <span>English</span>
+        <span>{languages[languages.map(l => l.slug).indexOf(lang)].name}</span>
       </button>
 
       <ul>
-        <li>
-          <Link
-            route={
-              router.route === '/'
-                ? 'index'
-                : router.route.slice(1) /* Slice to remove "/" */
-            }
-            params={{ lang: 'en' }}
-          >
-            <a>English</a>
-          </Link>
-        </li>
-        <li>
-          <Link
-            route={router.route === '/' ? 'index' : router.route.slice(1)}
-            params={{ lang: 'sv' }}
-          >
-            <a>Svenska</a>
-          </Link>
-        </li>
+        {languages.map(l => (
+          <li>
+            <Link
+              route={
+                router.route === '/'
+                  ? 'index'
+                  : router.route.slice(1) /* Slice to remove "/" */
+              }
+              params={{ lang: l.slug }}
+            >
+              <a>{l.name}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </StyledMobileLang>
   );
