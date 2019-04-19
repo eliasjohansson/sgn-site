@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Icon from "./Icons";
 
 const StyledCheckbox = styled.label`
   display: flex;
@@ -28,9 +29,16 @@ const StyledCheckbox = styled.label`
   &:hover > span {
     background-color: ${({ theme }) => theme.colorLightGrey};
   }
-
+  svg {
+    opacity: 0;
+    fill: white;
+  }
   input:checked ~ span {
     background-color: ${({ theme }) => theme.colorPrimary};
+    > svg {
+      opacity: 1;
+      transition: 0.45s;
+    }
   }
 `;
 
@@ -43,7 +51,11 @@ const Checkbox = ({ children, name, value }) => {
         id={`checkbox-${name}`}
         value={value}
       />
-      <span />
+
+      <span>
+        {" "}
+        <Icon symbol="checked" />
+      </span>
       <p>{children}</p>
     </StyledCheckbox>
   );

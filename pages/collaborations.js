@@ -5,7 +5,7 @@ import HeaderImage from "../components/HeaderImage";
 import Section from "../components/Section";
 import Banner from "../components/Banner";
 import Button from "../components/Button";
-
+import { withRouter } from "next/router";
 const StyledCollaborations = styled.div`
   & h1 {
     margin: 0;
@@ -16,7 +16,7 @@ const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};
 `;
-const Collaborations = props => {
+const Collaborations = withRouter(props => {
   return (
     <StyledCollaborations>
       <HeaderImage image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
@@ -35,6 +35,6 @@ const Collaborations = props => {
       </Banner>
     </StyledCollaborations>
   );
-};
+});
 
 export default Collaborations;

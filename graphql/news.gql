@@ -1,0 +1,15 @@
+query newsQuery($lang: String!) {
+  page: pages(where: { title: "News", lang: $lang }) {
+    edges {
+      node {
+        news {
+          header {
+            title
+            text
+            image
+          }
+        }
+      }
+    }
+  }
+}
