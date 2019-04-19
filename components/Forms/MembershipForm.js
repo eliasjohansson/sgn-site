@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
 import Section from "../Section";
+import Checkbox from "../Checkbox";
 const Wrapper = styled(Section)`
   > div form {
     display: grid;
@@ -70,11 +71,11 @@ const MembershipForm = () => {
             required
           />
           <Input
-            label="LMA (12-345678/9)"
-            placeholder="12-345678/9"
+            label="LMA (12345678-9)"
+            placeholder="12345678-9"
             type="text"
             required
-            pattern="\d{2}-?\d{6}/?\d{1}"
+            pattern="\d{8}-?\d{1}"
           />
         </div>
         <Input label="Adress" type="text" required />
@@ -98,11 +99,9 @@ const MembershipForm = () => {
           <Input textarea label="Profession" />
           <Input label="Mother language" type="text" required />
           <div className="termsWrapper">
-            <input type="checkbox" name="vehicle1" value="Bike" />{" "}
-            <p>
-              {" "}
-              I agree to the<a href="#"> terms and conditions</a>
-            </p>
+            <Checkbox name="tac">
+              I agree to the <a href="#">terms and conditions</a>
+            </Checkbox>
           </div>
           <Button primary type="submit" />
         </div>

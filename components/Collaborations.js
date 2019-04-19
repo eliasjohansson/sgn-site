@@ -46,7 +46,10 @@ const Collab = props => {
       <h1>Current Projects</h1>
       <Grid>
         <StyledCard>
-          <Link params={{ lang: props.lang, id: 1 }} route="collaboration">
+          <Link
+            params={{ lang: props.lang, cid: "string" }}
+            route="collaboration"
+          >
             <a>
               <h2>Projname</h2>
               <ImageBox>
@@ -56,7 +59,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, id: 2 }} route="collaboration">
+          <Link params={{ lang: props.lang, cid: "tva" }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>
@@ -66,7 +69,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, id: 3 }} route="collaboration">
+          <Link params={{ lang: props.lang, cid: "3" }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>
@@ -76,7 +79,7 @@ const Collab = props => {
           </Link>
         </StyledCard>
         <StyledCard>
-          <Link params={{ lang: props.lang, id: 4 }} route="collaboration">
+          <Link params={{ lang: props.lang, cid: "4" }} route="collaboration">
             <a>
               <h2>Projname</h2>
               <ImageBox>

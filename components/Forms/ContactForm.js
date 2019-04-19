@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 // Components
-import Input from '../Input';
-import Button from '../Button';
-import Section from '../Section';
-import Checkbox from '../Checkbox';
+import Input from "../Input";
+import Button from "../Button";
+import Section from "../Section";
+import Checkbox from "../Checkbox";
 
 const StyledContactForm = styled.div`
   h1 {
@@ -17,7 +17,7 @@ const ContactForm = props => {
   return (
     <StyledContactForm>
       <h1>Contact Us</h1>
-      <form onSubmit={() => console.log('Submitted contact form')}>
+      <form onSubmit={() => console.log("Submitted contact form")}>
         <Input label="Name" />
         <Input label="Email" type="email" />
         <Input label="Subject" />
