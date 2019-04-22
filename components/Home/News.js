@@ -45,7 +45,7 @@ export const Post = styled(Card)`
     min-height: 100%;
   }
 
-  div:last-child {
+  > div {
     flex: 1;
     overflow: hidden;
     margin-left: 1.5rem;
@@ -68,7 +68,7 @@ export const Post = styled(Card)`
       margin-bottom: 1rem;
     }
 
-    div:last-child {
+    > div {
       margin-left: 0;
     }
   }

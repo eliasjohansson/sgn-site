@@ -89,7 +89,7 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
             <Link
               route={`/${lang}/${
                 router.route === '/'
-                  ? 'index'
+                  ? '/'
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >
@@ -185,7 +185,7 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
             <Link
               route={`/${lang}/${
                 router.route === '/'
-                  ? 'index'
+                  ? '/'
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >

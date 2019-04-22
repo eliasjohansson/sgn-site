@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import moment from "moment";
+import React from 'react';
+import styled from 'styled-components';
+import moment from 'moment';
 
 const StyledEvent = styled.a`
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.06);
@@ -33,15 +33,17 @@ const DateBox = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  span:first-child {
-    font: ${({ theme }) => theme.fontMobileH3};
-    color: ${({ theme }) => theme.colorPrimary};
-    margin-bottom: 3px;
-  }
-  span:last-child {
-    font: ${({ theme }) => theme.fontMobileH1};
-    color: ${({ theme }) => theme.colorDarkGrey};
-  }
+`;
+
+const Month = styled.span`
+  font: ${({ theme }) => theme.fontMobileH3};
+  color: ${({ theme }) => theme.colorPrimary};
+  margin-bottom: 3px;
+`;
+
+const Day = styled.span`
+  font: ${({ theme }) => theme.fontMobileH1};
+  color: ${({ theme }) => theme.colorDarkGrey};
 `;
 
 const Event = ({ image, date, title, link }) => {
@@ -50,12 +52,12 @@ const Event = ({ image, date, title, link }) => {
       <img src={image} alt="" />
       <div>
         <DateBox>
-          <span>
+          <Month>
             {moment()
-              .format("MMM")
+              .format('MMM')
               .toLowerCase()}
-          </span>
-          <span>{moment().format("D")}</span>
+          </Month>
+          <Day>{moment().format('D')}</Day>
         </DateBox>
         <h2>{title}</h2>
       </div>
