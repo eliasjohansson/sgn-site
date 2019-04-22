@@ -1,19 +1,62 @@
 CMS:
-  (ACF & GraphQL):
-    ☐ Home @started(19-04-19 16:10)
-    ✔ Branches @done(19-04-19 17:37)
-    ✔ Branch Post Type @done(19-04-19 17:37)
-    ✔ News @done(19-04-19 17:37)
-    ☐ Collaborations
-    ☐ Collaboration Post Type
-    ☐ Donations
-    ☐ Membership
-    ☐ Events Post Type
+  Pages:
+    Home:
+      ✔ ACF @done(19-04-22 22:02)
+      ✔ Type Defs @done(19-04-22 22:02)
+      ☐ Fill with real content
+    
+    Branches:
+      ✔ ACF @done(19-04-22 22:02)
+      ✔ Type Defs @done(19-04-22 22:02)
+      ☐ Fill with real content
+   
+    News:
+      ✔ ACF @done(19-04-22 22:02)
+      ✔ Type Defs @done(19-04-22 22:02)
+      ☐ Fill with real content
+
+    Collaborations:
+      ✔ ACF @done(19-04-22 22:00)
+      ✔ Type Defs @done(19-04-22 22:09)
+      ☐ Fill with real content
+
+    Donations:
+      ☐ ACF
+      ☐ Type Defs
+      ☐ Fill with real content
+
+    Membership:
+      ☐ ACF
+      ☐ Type Defs
+      ☐ Fill with real content
+
+    GDPR:
+      ☐ ACF ??
+      ☐ Type Defs ??
+      // Maybe just use default content box?
+
+    404:
+      ☐ ACF
+      ☐ Type Defs
+      ☐ Fill with real content
+
+
+  Custom Post Types:
+    ☐ Create post type for translation of menu, system text etc. 
+
+    Branch:
+      ✔ ACF @done(19-04-22 22:06)
+      ✔ Type Defs @done(19-04-22 22:06)
+
+    Collaboration:
+      ☐ ACF
+      ☐ Type Defs
+
+    Events:
+      ☐ ACF
+      ☐ Type Defs
       ☐ Connect to Branch somehow
-    ☐ GDPR
-    ☐ 404
   
-  ☐ Create post type for translation of menu, system text etc.
 
   Low Prio:
     ☐ Hide uneccesary/dangerous menu items
@@ -23,15 +66,15 @@ Frontend:
   Pages:
     Homepage:
       ✔ Create Query @done(19-04-19 16:09)
-      ☐ Fill with content
+      ☐ Fill with content @started(19-04-22 22:03)
 
     Branches:
       ✔ Create Query @done(19-04-19 17:43)
-      ☐ Fill with CMS content
+      ☐ Fill with CMS content @started(19-04-22 22:03)
       ☐ Fix flicker when changing branch (Loading view)
 
     Collaborations:
-      ☐ Create Query
+      ✔ Create Query @done(19-04-22 22:05)
       ☐ Fill with CMS content
 
     Collaboration:

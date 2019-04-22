@@ -1,0 +1,36 @@
+query branchesQuery($lang: String!) {
+  page: pages(where: { lang: $lang, title: "Collaborations" }) {
+    edges {
+      node {
+        collaborations {
+          header {
+            title
+            text
+            image
+            button {
+              label
+              label
+            }
+          }
+          projects_title
+          green_banner {
+            title
+            text
+            button {
+              label
+              link
+            }
+          }
+        }
+      }
+    }
+  }
+  collaborations {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}
