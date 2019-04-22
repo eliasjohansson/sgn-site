@@ -5,9 +5,8 @@ query homeQuery($lang: String!) {
         home {
           header {
             title
-            text
             image
-            cta {
+            button {
               label
               link
             }
