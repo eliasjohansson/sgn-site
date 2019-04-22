@@ -55,22 +55,6 @@ const Branches = props => {
                   setSelectedBranch={setSelectedBranch}
                 />
               </Header>
-              <Container style={{ marginBottom: '2rem' }}>
-                {/* <ul>
-                  {branches.edges.map(({ node: branch }) => (
-                    <li
-                      onClick={() => setSelectedBranch(branch.title)}
-                      style={{
-                        marginBottom: '1rem',
-                        textDecoration: 'underline',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {branch.title}
-                    </li>
-                  ))}
-                </ul> */}
-              </Container>
 
               {selectedBranch && (
                 <SelectedBranch lang={lang} selectedBranch={selectedBranch} />

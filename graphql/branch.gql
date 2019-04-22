@@ -1,5 +1,5 @@
-query branchQuery($lang: String!, $id: String!) {
-  branch: branches(where: { lang: $lang, id: $id }) {
+query branchQuery($lang: String!, $title: String!) {
+  branch: branches(where: { lang: $lang, title: $title }) {
     edges {
       node {
         id

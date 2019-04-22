@@ -69,12 +69,12 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
     <StyledSelectedBranch>
       <Query
         query={BRANCH_QUERY}
-        variables={{ lang: lang, branch: selectedBranch }}
+        variables={{ lang: lang, title: selectedBranch }}
         ssr={false}
-        fetchPolicy="network-only"
       >
         {({ loading, error, data, fetchMore, refetch }) => {
-          if (!loading) branch = data.branches.edges[0].node;
+          console.log(data);
+          if (!loading) branch = data.branch.edges[0].node;
           else return null;
 
           const {
