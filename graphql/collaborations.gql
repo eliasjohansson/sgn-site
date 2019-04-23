@@ -25,11 +25,15 @@ query branchesQuery($lang: String!) {
       }
     }
   }
-  collaborations {
+  collaborations(where: { lang: $lang }) {
     edges {
       node {
         id
         title
+        acf {
+          image
+          title
+        }
       }
     }
   }

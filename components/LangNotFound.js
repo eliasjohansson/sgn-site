@@ -4,7 +4,7 @@ import { withRouter } from 'next/router';
 import { Query } from 'react-apollo';
 import { Link } from '../routes';
 
-import NOTFOUND_QUERY from '../graphql/not-found.gql';
+import PAGE_TRANSLATIONS_QUERY from '../graphql/page-translations.gql';
 import Section from './Section';
 
 const StyledLangNotFound = styled(Section)`
@@ -17,7 +17,7 @@ const LangNotFound = ({ page }) => {
   return (
     <StyledLangNotFound>
       <Query
-        query={NOTFOUND_QUERY}
+        query={PAGE_TRANSLATIONS_QUERY}
         variables={{
           page
         }}
