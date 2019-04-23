@@ -73,7 +73,7 @@ const StyledDesktopLang = styled.button`
 
 export const DesktopLang = withRouter(({ lang, languages, router }) => {
   const [focused, setFocused] = useState(false);
-
+  if (!languages) return null;
   return (
     <StyledDesktopLang
       onFocus={() => setFocused(true)}
@@ -81,15 +81,16 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
       focused={focused}
     >
       <span>
-        {languages[languages.map(l => l.slug).indexOf(lang)].name.slice(0, 3)}
+        {languages[languages.map(l => l.slug).indexOf(lang)] &&
+          languages[languages.map(l => l.slug).indexOf(lang)].name.slice(0, 3)}
       </span>
       <ul>
         {languages.map(l => (
           <li>
             <Link
-              route={`/${lang}/${
+              route={`/${l.slug}/${
                 router.route === '/'
-                  ? '/'
+                  ? ''
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >
@@ -168,6 +169,7 @@ const StyledMobileLang = styled.div`
 
 export const MobileLang = withRouter(({ lang, languages, router }) => {
   const [focused, setFocused] = useState(false);
+
   return (
     <StyledMobileLang
       onFocus={() => setFocused(true)}
@@ -176,7 +178,10 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
     >
       <button>
         <Icon symbol="globe" />
-        <span>{languages[languages.map(l => l.slug).indexOf(lang)].name}</span>
+        <span>
+          {languages[languages.map(l => l.slug).indexOf(lang)] &&
+            languages[languages.map(l => l.slug).indexOf(lang)].name}
+        </span>
       </button>
 
       <ul>

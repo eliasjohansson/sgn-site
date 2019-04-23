@@ -21,19 +21,17 @@ CMS:
       ☐ Fill with real content
 
     Donations:
-      ☐ ACF
+      ✔ ACF @done(19-04-22 22:45)
       ☐ Type Defs
       ☐ Fill with real content
 
     Membership:
-      ☐ ACF
+      ✔ ACF @done(19-04-22 22:59)
       ☐ Type Defs
-      ☐ Fill with real content
+      ☐ Fill with real content 
 
     GDPR:
-      ☐ ACF ??
-      ☐ Type Defs ??
-      // Maybe just use default content box?
+      ✔ Fill with real content @done(19-04-22 23:32)
 
     404:
       ☐ ACF
@@ -49,11 +47,11 @@ CMS:
       ✔ Type Defs @done(19-04-22 22:06)
 
     Collaboration:
-      ☐ ACF
+      ✔ ACF @done(19-04-22 22:35)
       ☐ Type Defs
 
     Events:
-      ☐ ACF
+      ☐ ACF @started(19-04-22 22:36)
       ☐ Type Defs
       ☐ Connect to Branch somehow
   
@@ -96,6 +94,7 @@ Frontend:
     404:
       ☐ Make page
       ☐ Send error message to this page? (ex. This page is not available in Swedish)
+        ☐ Display available langs for page you got redirected from
 
     GDPR:
       ☐ Make page

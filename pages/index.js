@@ -1,8 +1,10 @@
+import React, { useState } from 'react';
 import { Query } from 'react-apollo';
 import { withRouter } from 'next/router';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import qs from 'query-string';
+import { Router } from '../routes';
 
 // Queries
 import HOME_QUERY from '../graphql/home.gql';
@@ -24,17 +26,26 @@ const StyledIndex = styled.div`
 `;
 
 const Index = props => {
+  const [page, setPage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { lang } = props;
+
+  if (process.browser && page === null && !isLoading) {
+    lang.length == 2
+      ? Router.replace('/404?error=lang&from=home')
+      : Router.replace('/404');
+  }
+
   return (
     <StyledIndex>
       <Query query={HOME_QUERY} variables={{ lang: lang }}>
         {({ loading, error, data, fetchMore }) => {
-          let page;
-          if (!loading) {
-            page = data.page.edges[0].node.home;
-          } else {
-            return null;
-          }
+          if (!loading) setIsLoading(false);
+
+          if (data.page && data.page.edges.length > 0)
+            setPage(data.page.edges[0].node.home);
+
+          if (isLoading || page === null) return null;
 
           return (
             <>

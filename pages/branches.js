@@ -26,22 +26,28 @@ const Header = styled(Section)`
 `;
 
 const Branches = props => {
+  const [page, setPage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedBranch, setSelectedBranch] = useState(null);
-
   const { lang } = props;
+
+  if (process.browser && page === null && !isLoading)
+    Router.replace('/404?error=lang&from=branches');
+
   return (
     <StyledBranches>
       <Query query={BRANCHES_QUERY} variables={{ lang: lang }}>
         {({ loading, error, data, fetchMore }) => {
           const { page: pageData, branches } = data;
 
-          let page;
-          if (!loading) {
-            page = pageData.edges[0].node.branches;
+          if (!loading) setIsLoading(false);
+
+          if (pageData && pageData.edges.length > 0) {
+            setPage(pageData.edges[0].node.branches);
             !selectedBranch && setSelectedBranch(branches.edges[0].node.title);
-          } else {
-            return null;
           }
+
+          if (isLoading || page === null) return null;
 
           return (
             <>

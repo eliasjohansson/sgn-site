@@ -73,7 +73,6 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
         ssr={false}
       >
         {({ loading, error, data, fetchMore, refetch }) => {
-          console.log(data);
           if (!loading) branch = data.branch.edges[0].node;
           else return null;
 
