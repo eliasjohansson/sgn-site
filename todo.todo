@@ -20,9 +20,9 @@ CMS:
       ✔ Type Defs @done(19-04-22 22:09)
       ☐ Fill with real content
 
-    Donations:
+    Donate:
       ✔ ACF @done(19-04-22 22:45)
-      ☐ Type Defs
+      ✔ Type Defs @done(19-04-23 23:41)
       ☐ Fill with real content
 
     Membership:
@@ -84,7 +84,7 @@ Frontend:
       ☐ Fill with CMS content
 
     Donate:
-      ☐ Create Query
+      ✔ Create Query @done(19-04-23 23:42)
       ☐ Fill with CMS content
 
     Membership:
