@@ -21,44 +21,39 @@ const Header = styled(Section)`
   color: ${({ theme }) => theme.colorDarkGrey};
 `;
 const News = props => {
-  const [page, setPage] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { lang } = props;
 
-  if (process.browser && page === null && !isLoading) {
-    lang.length == 2
-      ? Router.replace('/404?error=lang&from=news')
-      : Router.replace('/404');
-  }
   return (
-    <StyledNews>
-      <Query query={NEWS_QUERY} variables={{ lang: lang }}>
-        {({ loading, error, data, fetchMore }) => {
-          if (!loading) setIsLoading(false);
+    <Query query={NEWS_QUERY} variables={{ lang: lang }}>
+      {({ loading, error, data, fetchMore }) => {
+        let page;
 
-          if (data.page && data.page.edges.length > 0)
-            setPage(data.page.edges[0].node.news);
+        if (!loading) {
+          if (data.page.edges.length > 0) {
+            page = data.page.edges[0].node.news;
+          } else {
+            return <LangNotFound page="news" />;
+          }
+        }
 
-          if (isLoading || page === null) return null;
+        if (loading) return <p>Loading</p>;
 
-          console.log(page);
-          return (
-            <>
-              <HeaderImage image={page.header.image} />
-              <Header>
-                <h1>{page.header.title}</h1>
-                <p>{page.header.text}</p>
-              </Header>
-              <NewsComponent />
-              <Banner primary>
-                <h1>Title</h1>
-                <Button>CTA</Button>
-              </Banner>
-            </>
-          );
-        }}
-      </Query>
-    </StyledNews>
+        return (
+          <StyledNews>
+            <HeaderImage image={page.header.image} />
+            <Header>
+              <h1>{page.header.title}</h1>
+              <p>{page.header.text}</p>
+            </Header>
+            <NewsComponent />
+            <Banner primary>
+              <h1>Title</h1>
+              <Button>CTA</Button>
+            </Banner>
+          </StyledNews>
+        );
+      }}
+    </Query>
   );
 };
 

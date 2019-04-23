@@ -79,7 +79,7 @@ const Menu = ({ open, router, lang, languages, close }) => {
     <StyledMenu open={open}>
       <ul>
         <li>
-          <Link route="index" params={{ lang: lang }}>
+          <Link route="home" params={{ lang: lang }}>
             <a onClick={close}>Home</a>
           </Link>
         </li>

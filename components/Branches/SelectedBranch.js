@@ -66,70 +66,67 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
   let branch;
 
   return (
-    <StyledSelectedBranch>
-      <Query
-        query={BRANCH_QUERY}
-        variables={{ lang: lang, title: selectedBranch }}
-        ssr={false}
-      >
-        {({ loading, error, data, fetchMore, refetch }) => {
-          if (!loading) branch = data.branch.edges[0].node;
-          else return null;
+    <Query
+      query={BRANCH_QUERY}
+      variables={{ lang: lang, title: selectedBranch }}
+    >
+      {({ loading, error, data, fetchMore, refetch }) => {
+        if (!loading) branch = data.branch.edges[0].node;
+        else return null;
 
-          const {
-            acf: { activities }
-          } = branch;
+        const {
+          acf: { activities }
+        } = branch;
 
-          return (
-            <>
-              <Activities>
-                <Container>
-                  <h1>Activities</h1>
-                  <div>
-                    {activities.length > 0 ? (
-                      activities.map(activity => (
-                        <ImageListItem
-                          image={activity.image}
-                          title={activity.title}
-                          description={activity.description}
-                        />
-                      ))
-                    ) : (
-                      <p>No activities available for this branch</p>
-                    )}
-                  </div>
-                </Container>
-              </Activities>
-              <Events>
-                <Container>
-                  <h1>Upcoming events</h1>
-                  <div>
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                  </div>
-                </Container>
-              </Events>
-            </>
-          );
-        }}
-      </Query>
-    </StyledSelectedBranch>
+        return (
+          <StyledSelectedBranch>
+            <Activities>
+              <Container>
+                <h1>Activities</h1>
+                <div>
+                  {activities.length > 0 ? (
+                    activities.map(activity => (
+                      <ImageListItem
+                        image={activity.image}
+                        title={activity.title}
+                        description={activity.description}
+                      />
+                    ))
+                  ) : (
+                    <p>No activities available for this branch</p>
+                  )}
+                </div>
+              </Container>
+            </Activities>
+            <Events>
+              <Container>
+                <h1>Upcoming events</h1>
+                <div>
+                  <Event
+                    image="https://via.placeholder.com/600x300"
+                    date="2019-08-25 11:00:00"
+                    title="Eid Al-Adha dag"
+                    link="https://www.facebook.com/events/330053544400045/"
+                  />
+                  <Event
+                    image="https://via.placeholder.com/600x300"
+                    date="2019-08-25 11:00:00"
+                    title="Eid Al-Adha dag"
+                    link="https://www.facebook.com/events/330053544400045/"
+                  />
+                  <Event
+                    image="https://via.placeholder.com/600x300"
+                    date="2019-08-25 11:00:00"
+                    title="Eid Al-Adha dag"
+                    link="https://www.facebook.com/events/330053544400045/"
+                  />
+                </div>
+              </Container>
+            </Events>
+          </StyledSelectedBranch>
+        );
+      }}
+    </Query>
   );
 };
 

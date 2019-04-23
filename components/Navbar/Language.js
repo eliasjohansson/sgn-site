@@ -72,6 +72,7 @@ const StyledDesktopLang = styled.button`
 `;
 
 export const DesktopLang = withRouter(({ lang, languages, router }) => {
+  console.log(router.route);
   const [focused, setFocused] = useState(false);
   if (!languages) return null;
   return (
@@ -89,7 +90,7 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
           <li>
             <Link
               route={`/${l.slug}/${
-                router.route === '/'
+                router.route === '/home'
                   ? ''
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
@@ -189,8 +190,8 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
           <li>
             <Link
               route={`/${lang}/${
-                router.route === '/'
-                  ? '/'
+                router.route === '/home'
+                  ? ''
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >

@@ -1,10 +1,9 @@
 const routes = require('next-routes');
 
-const lang = ':lang';
+const lang = ':lang?';
 
 module.exports = routes()
-  .add('not-found', '/404')
-  .add('index', `/${lang}`)
+  .add('home', `/${lang}`)
   .add('news', `/${lang}/news`)
   .add('membership', `/${lang}/membership`)
   .add('donate', `/${lang}/donate`)
