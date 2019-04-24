@@ -135,10 +135,10 @@ const SelectedBranch = ({
                         <div>
                           {data.events.edges.map(({ node }) => (
                             <Event
-                              image={node.image}
-                              date="2019-08-25 11:00:00"
-                              title="Eid Al-Adha dag"
-                              link="https://www.facebook.com/events/330053544400045/"
+                              image={node.acf.image}
+                              date={node.acf.date}
+                              title={node.title}
+                              link={node.facebook_event}
                             />
                           ))}
                         </div>

@@ -42,54 +42,23 @@ const Grid = styled.div`
   }
 `;
 
-const Collab = props => {
+const Collab = ({ title, collabs, lang }) => {
   return (
     <StyledCollab>
-      <h1>Current Projects</h1>
+      <h1>{title}</h1>
       <Grid>
-        <StyledCard>
-          <Link
-            params={{ lang: props.lang, id: 'string' }}
-            route="collaboration"
-          >
-            <a>
-              <h2>Projname</h2>
-              <ImageBox>
-                <img src="https://via.placeholder.com/4180x500" />
-              </ImageBox>
-            </a>
-          </Link>
-        </StyledCard>
-        <StyledCard>
-          <Link params={{ lang: props.lang, id: 'tva' }} route="collaboration">
-            <a>
-              <h2>Projname</h2>
-              <ImageBox>
-                <img src="https://via.placeholder.com/480x600" />
-              </ImageBox>
-            </a>
-          </Link>
-        </StyledCard>
-        <StyledCard>
-          <Link params={{ lang: props.lang, id: 'tjo' }} route="collaboration">
-            <a>
-              <h2>Projname</h2>
-              <ImageBox>
-                <img src="https://via.placeholder.com/480x1300" />
-              </ImageBox>
-            </a>
-          </Link>
-        </StyledCard>
-        <StyledCard>
-          <Link params={{ lang: props.lang, id: 'bla' }} route="collaboration">
-            <a>
-              <h2>Projname</h2>
-              <ImageBox>
-                <img src="https://via.placeholder.com/480x300" />
-              </ImageBox>
-            </a>
-          </Link>
-        </StyledCard>
+        {collabs.map(({ node }) => (
+          <StyledCard>
+            <Link params={{ lang: lang, id: node.title }} route="collaboration">
+              <a>
+                <h2>{node.title}</h2>
+                <ImageBox>
+                  <img src={node.acf.image} />
+                </ImageBox>
+              </a>
+            </Link>
+          </StyledCard>
+        ))}
       </Grid>
     </StyledCollab>
   );

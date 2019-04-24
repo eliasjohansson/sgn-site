@@ -13,6 +13,8 @@ import Section from '../components/Section';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
 import { Query } from 'react-apollo';
+import LinkButton from '../components/LinkButton';
+import LangNotFound from '../components/LangNotFound';
 
 const StyledCollaborations = styled.div`
   & h1 {
@@ -34,7 +36,7 @@ const Collaborations = props => {
         let page;
 
         if (!loading) {
-          if (data && data.page.edges.length > 0) {
+          if (data.page.edges.length > 0) {
             page = data.page.edges[0].node.collaborations;
           } else {
             return <LangNotFound page="collaborations" />;
@@ -47,18 +49,26 @@ const Collaborations = props => {
           <StyledCollaborations>
             <HeaderImage image={page.header.image} />
             <Header>
-              <h1>Headline</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-                odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-                turpis. Suspendisse urna nibh, viverra non, semper suscipit,
-                posuere a, pede.
-              </p>
+              <h1>{page.header.title}</h1>
+              <p>{page.header.text}</p>
             </Header>
-            <Collabs lang={lang} />
+            <Collabs
+              title={page.projects_title}
+              collabs={data.collaborations.edges}
+              lang={lang}
+            />
             <Banner primary>
-              <h1>Title</h1>
-              <Button>CTA</Button>
+              <h1>{page.green_banner.title}</h1>
+              <LinkButton
+                external
+                href={`/${lang}${
+                  page.green_banner.link_button.link_type === 'Internal'
+                    ? page.green_banner.link_button.internal_link
+                    : page.green_banner.link_button.external_link
+                }`}
+              >
+                {page.green_banner.link_button.label}
+              </LinkButton>
             </Banner>
           </StyledCollaborations>
         );
