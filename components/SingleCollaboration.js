@@ -12,16 +12,23 @@ const StyledCollaboration = styled(Section)`
 const Body = styled(Section)`
   > div {
     padding-left: 0;
+    a {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
   }
   p,
   h1 {
     max-width: 800px;
   }
-  p {
+  .content {
     margin-bottom: 3rem;
   }
 `;
 const Contact = styled(Section)`
+  h3 {
+    margin-bottom: 0.3rem;
+  }
   p {
     max-width: 800px;
   }
@@ -31,41 +38,36 @@ const ContactWrapper = styled.div`
   width: 100vw;
 `;
 
-const SingleCollaboration = () => {
+const SingleCollaboration = ({ collab }) => {
   return (
     <>
-      <HeaderImage image="https://images.pexels.com/photos/297755/pexels-photo-297755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+      <HeaderImage image={collab.acf.image} />
       <StyledCollaboration>
         <Body>
-          <h1>Talking to the community</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-            Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-            pede. Donec nec justo eget felis facilisis fermentum. Aliquam
-            porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-            Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-            pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-            Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-            turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere
-            a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam
-            porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-            Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-            pede.
-          </p>
-          <a>Download as PDF</a> <br />
-          <a>Visit Website</a>
+          <h1>{collab.acf.title}</h1>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: collab.acf.content }}
+          />
+          {collab.acf.pdf && (
+            <>
+              <a href={collab.acf.pdf}>{collab.acf.pdf_label}</a>
+              <br />
+            </>
+          )}
+          {collab.acf.pdf && (
+            <>
+              <a href={collab.acf.website}>{collab.acf.website_label}</a>
+              <br />
+            </>
+          )}
         </Body>
       </StyledCollaboration>
       <ContactWrapper>
         <Contact>
-          <h3>Contact information</h3>
-          <p>+4676-884 08 84</p>
-          <p>info@supportgroup.se</p>
+          <h3>{collab.acf.contact_info.title}</h3>
+          <p>{collab.acf.contact_info.phone_number}</p>
+          <p>{collab.acf.contact_info.email}</p>
         </Contact>
       </ContactWrapper>
     </>

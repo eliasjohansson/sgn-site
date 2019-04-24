@@ -44,6 +44,30 @@ query homeQuery($lang: String!) {
               internal_link
             }
           }
+          info_cards {
+            card_1 {
+              image
+              title
+              text
+              link_button {
+                label
+                link_type
+                external_link
+                internal_link
+              }
+            }
+            card_2 {
+              image
+              title
+              text
+              link_button {
+                label
+                link_type
+                external_link
+                internal_link
+              }
+            }
+          }
           visions {
             title
             list {

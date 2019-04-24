@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
+import GENERAL_INFO_QUERY from '../graphql/general-info.gql';
+import { Query } from 'react-apollo';
+
 const StyledLayout = styled.div`
   main {
     padding-top: calc(64px);
@@ -13,13 +16,29 @@ const StyledLayout = styled.div`
 
 const Layout = ({ children, lang }) => {
   return (
-    <StyledLayout>
-      <Navbar lang={lang} />
+    <Query query={GENERAL_INFO_QUERY} variables={{ lang: lang }}>
+      {({ loading, error, data, fetchMore }) => {
+        if (loading) return null;
 
-      <main>{children}</main>
+        const navbar =
+          data.generalInfo.edges.length > 0
+            ? data.generalInfo.edges[0].node.acf.navbar
+            : null;
+        const footer =
+          data.generalInfo.edges.length > 0
+            ? data.generalInfo.edges[0].node.acf.footer
+            : null;
+        return (
+          <StyledLayout>
+            <Navbar data={navbar} lang={lang} />
 
-      <Footer lang={lang} />
-    </StyledLayout>
+            <main>{children}</main>
+
+            <Footer data={footer} lang={lang} />
+          </StyledLayout>
+        );
+      }}
+    </Query>
   );
 };
 

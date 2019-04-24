@@ -12,7 +12,7 @@ const StyledHamburger = styled.div`
   align-items: center;
   cursor: pointer;
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1013px) {
     display: none;
   }
 `;

@@ -17,7 +17,7 @@ import Hero from "../components/Hero";
 import News from "../components/Home/News";
 import Awards from "../components/Home/Awards";
 import Visions from "../components/Home/Visions";
-import Projects from "../components/Home/Projects/";
+import InfoCards from "../components/Home/Projects/";
 import Partners from "../components/Home/Partners";
 import Contact from "../components/Home/Contact";
 import LangNotFound from "../components/LangNotFound";
@@ -43,7 +43,7 @@ const Index = props => {
           }
         }
 
-        if (loading) return <p>Loading</p>;
+        if (loading) return null;
 
         return (
           <StyledIndex>
@@ -86,7 +86,7 @@ const Index = props => {
                 </LinkButton>
               </Banner>
 
-              <Projects lang={lang} />
+              <InfoCards data={page.info_cards} lang={lang} />
 
               <Awards title={page.awards.title} awards={page.awards.list} />
 

@@ -1,5 +1,5 @@
 query generalInfoQuery($lang: String!) {
-  generalInfo: generalInfoTranslations(where: { lang: "en" }) {
+  generalInfo: generalInfoTranslations(where: { lang: $lang }) {
     edges {
       node {
         acf {

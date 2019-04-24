@@ -22,9 +22,7 @@ const ContactForm = ({ title, form }) => {
         <Input label={form.email.label} type="email" />
         <Input label={form.subject.label} />
         <Input textarea label={form.message.label} />
-        <Checkbox name="tac">
-          <a href="#">{form.tac_label}</a>
-        </Checkbox>
+        <Checkbox name="tac">{form.tac_label}</Checkbox>
         <Button type="submit" primary>
           {form.button_label}
         </Button>

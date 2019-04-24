@@ -70,23 +70,19 @@ const SelectedBranch = ({
   activitiesTitle,
   eventsTitle
 }) => {
-  let branch;
-
   return (
     <Query
       query={BRANCH_QUERY}
       variables={{ lang: lang, title: selectedBranch }}
     >
       {({ loading, error, data, fetchMore, refetch }) => {
-        if (!loading) branch = data.branch.edges[0].node;
-        else return null;
+        let branch;
+        if (loading) return null;
 
+        branch = data.branch.edges[0].node;
         const {
           acf: { activities, events }
         } = branch;
-
-        if (JSON.parse(events))
-          console.log(JSON.parse(events).map(e => e.event));
 
         return (
           <StyledSelectedBranch>
@@ -127,18 +123,16 @@ const SelectedBranch = ({
                   }) => {
                     if (eventsLoading) return null;
 
-                    console.log(data);
-
                     return (
                       <Container>
                         <h1>{eventsTitle}</h1>
                         <div>
                           {data.events.edges.map(({ node }) => (
                             <Event
-                              image={node.image}
-                              date="2019-08-25 11:00:00"
-                              title="Eid Al-Adha dag"
-                              link="https://www.facebook.com/events/330053544400045/"
+                              image={node.acf.image}
+                              date={node.acf.date}
+                              title={node.title}
+                              link={node.facebook_event}
                             />
                           ))}
                         </div>

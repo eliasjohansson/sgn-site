@@ -1,5 +1,5 @@
 query membershipQuery($lang: String!) {
-  pages(where: { title: "membership", lang: $lang }) {
+  page: pages(where: { title: "membership", lang: $lang }) {
     edges {
       node {
         title

@@ -9,6 +9,9 @@ query branchesQuery($lang: String!) {
             image
             link_button {
               label
+              link_type
+              external_link
+              internal_link
             }
           }
           projects_title
@@ -17,6 +20,9 @@ query branchesQuery($lang: String!) {
             text
             link_button {
               label
+              link_type
+              external_link
+              internal_link
             }
           }
         }

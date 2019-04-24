@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Link } from "../../routes";
-import { Query } from "react-apollo";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Link } from '../../routes';
+import { Query } from 'react-apollo';
 
 // Queries
-import LANGUAGES_QUERY from "../../graphql/languages.gql";
+import LANGUAGES_QUERY from '../../graphql/languages.gql';
 
 // Components
-import Container from "../Container";
-import Logo from "../Logo";
-import Hamburger from "./Hamburger";
-import { DesktopLang } from "./Language";
-import Menu from "./Menu";
+import Container from '../Container';
+import Logo from '../Logo';
+import Hamburger from './Hamburger';
+import { DesktopLang } from './Language';
+import Menu from './Menu';
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -30,13 +30,14 @@ const StyledNavbar = styled.div`
   }
 `;
 
-const Navbar = ({ open, lang }) => {
+const Navbar = ({ open, lang, data: generalData }) => {
   const [menuOpen, setMenuOpen] = useState(open || false);
   return (
     <StyledNavbar>
       <Query query={LANGUAGES_QUERY}>
         {({ loading, error, data, fetchMore }) => {
           const { languages } = data;
+          if (loading) return null;
           return (
             <>
               <Container>
@@ -49,6 +50,7 @@ const Navbar = ({ open, lang }) => {
                 <Menu
                   open={menuOpen}
                   close={() => setMenuOpen(false)}
+                  data={generalData}
                   lang={lang}
                   languages={languages}
                 />

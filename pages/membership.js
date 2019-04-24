@@ -1,10 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+
+// Queries
+import MEMBERSHIP_QUERY from '../graphql/membership.gql';
 
 // Components
-import MembershipForm from "../components/Forms/MembershipForm";
-import HeaderImage from "../components/HeaderImage";
-import Section from "../components/Section";
+import MembershipForm from '../components/Forms/MembershipForm';
+import HeaderImage from '../components/HeaderImage';
+import Section from '../components/Section';
+import { Query } from 'react-apollo';
 
 const StyledMembership = styled.div``;
 
@@ -12,20 +16,36 @@ const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};
 `;
+
 const Membership = props => {
+  const { lang } = props;
   return (
-    <StyledMembership>
-      <HeaderImage image="https://images.pexels.com/photos/1963622/pexels-photo-1963622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-      <Header>
-        <h1>Headline</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-          Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-        </p>
-      </Header>
-      <MembershipForm />
-    </StyledMembership>
+    <Query query={MEMBERSHIP_QUERY} variables={{ lang: lang }}>
+      {({ loading, error, data, fetchMore }) => {
+        let page;
+
+        if (!loading) {
+          if (data.page.edges.length > 0) {
+            page = data.page.edges[0].node.membership;
+          } else {
+            return <LangNotFound page="membership" />;
+          }
+        }
+
+        if (loading) return null;
+
+        return (
+          <StyledMembership>
+            <HeaderImage image={page.header.image} />
+            <Header>
+              <h1>{page.header.title}</h1>
+              <p>{page.header.text}</p>
+            </Header>
+            <MembershipForm form={page.form} />
+          </StyledMembership>
+        );
+      }}
+    </Query>
   );
 };
 

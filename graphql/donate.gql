@@ -1,5 +1,5 @@
 query donateQuery($lang: String!) {
-  pages(where: { title: "Donate", lang: $lang }) {
+  page: pages(where: { title: "Donate", lang: $lang }) {
     edges {
       node {
         donate {

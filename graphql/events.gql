@@ -3,6 +3,11 @@ query eventsQuery($lang: String!, $ids: [ID]!) {
     edges {
       node {
         title
+        acf {
+          date
+          facebook_event
+          image
+        }
       }
     }
   }

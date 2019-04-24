@@ -26,7 +26,7 @@ export const FormContainer = styled.div`
   display: grid;
   grid-template-columns: ${({ reverse }) =>
     reverse ? "minmax(0px, 595px) auto" : "auto minmax(0px, 595px)"};
-  grid-template-rows: 1fr;
+  grid-template-rows: auto;
   background-color: ${({ theme }) => theme.colorWhite};
   padding: 5rem 2rem 5rem 0;
   > * {
