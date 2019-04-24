@@ -22,7 +22,6 @@ a, a:visited {
 }
   h1 { 
     font: ${({ theme }) => theme.fontMobileH1}; 
-    padding-bottom: 1rem;
     }
   h2 { font: ${({ theme }) => theme.fontMobileH2}; }
   h3 { font: ${({ theme }) => theme.fontMobileH3}; }
