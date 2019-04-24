@@ -17,7 +17,7 @@ const ContentBox = styled.div`
     margin: 2rem 0 1.5rem 0;
   }
 
-  p {
+  .description {
     margin-bottom: 2rem;
   }
 `;
@@ -39,6 +39,7 @@ const ProjectCard = ({
   lang,
   image: { src, alt },
   title,
+  link,
   description,
   collaborationId
 }) => {
@@ -49,10 +50,19 @@ const ProjectCard = ({
       </ImageBox>
       <ContentBox>
         <h1>{title}</h1>
-        <p>{description}</p>
-        <Link route="collaboration" params={{ lang: lang, id: '123' }}>
-          <a>Read more</a>
-        </Link>
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+        <a
+          href={`/${lang}${
+            link.link_type === 'Internal'
+              ? link.internal_link
+              : link.external_link
+          }`}
+        >
+          {link.label}
+        </a>
       </ContentBox>
     </StyledProjectCard>
   );

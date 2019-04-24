@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // Components
-import ProjectCard from "./ProjectCard";
-import Section from "../../Section";
+import ProjectCard from './ProjectCard';
+import Section from '../../Section';
 
 export const StyledProjects = styled(Section)`
   > div {
@@ -19,28 +19,23 @@ export const StyledProjects = styled(Section)`
   }
 `;
 
-const Projects = props => {
+const Projects = ({ lang, data }) => {
+  console.log(data);
   return (
     <StyledProjects>
       <ProjectCard
-        lang={props.lang}
-        image={{ src: "https://via.placeholder.com/500" }}
-        title="Title"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio debitis
-          expedita delectus asperiores. Cumque ab, qui accusamus eaque
-          consequuntur animi fugit velit tempore tenetur possimus perspiciatis
-          esse, blanditiis optio in."
-        collaborationId="1"
+        lang={lang}
+        image={{ src: data.card_1.image }}
+        title={data.card_1.title}
+        description={data.card_1.text}
+        link={data.card_1.link_button}
       />
       <ProjectCard
-        lang={props.lang}
-        image={{ src: "https://via.placeholder.com/500" }}
-        title="Title"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio debitis
-          expedita delectus asperiores. Cumque ab, qui accusamus eaque
-          consequuntur animi fugit velit tempore tenetur possimus perspiciatis
-          esse, blanditiis optio in."
-        collaborationId="1"
+        lang={lang}
+        image={{ src: data.card_2.image }}
+        title={data.card_2.title}
+        description={data.card_2.text}
+        link={data.card_2.link_button}
       />
     </StyledProjects>
   );

@@ -14,9 +14,9 @@ export const StyledAwards = styled(Section)`
       margin-top: 5rem;
       display: grid;
       grid-template-rows: repeat(auto-fill, max-content);
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       row-gap: 1.5rem;
-      column-gap: 1.5rem;
+      column-gap: 5rem;
       overflow-x: scroll;
     }
   }
