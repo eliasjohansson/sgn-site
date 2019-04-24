@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from '../Card';
 import Section from '../Section';
 import Button from '../Button';
+import LinkButton from '../LinkButton';
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore et dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore et dolor`;
 
@@ -74,17 +75,15 @@ export const Post = styled(Card)`
   }
 `;
 
-const News = props => {
+const News = ({ infoBox, lang }) => {
   return (
     <StyledNews>
       <InfoCard>
         <h1>News feed</h1>
-        <p>
-          Support Group Network (SGN) är en ideell förening som formats av
-          asylsökande i samarbete med det svenska samhället i syfte att hjälpa
-          andra asylsökande, flyktingar.
-        </p>
-        <Button outlined>CTA</Button>
+        <p>{infoBox.text}</p>
+        <LinkButton primary external href={`/${lang}/news`}>
+          {infoBox.button_label}
+        </LinkButton>
       </InfoCard>
       <Post>
         <img src="https://via.placeholder.com/200x150" />

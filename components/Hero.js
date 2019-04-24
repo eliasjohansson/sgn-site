@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "./Container";
-import Button from "./Button";
+import React from 'react';
+import styled from 'styled-components';
+import Container from './Container';
+import Button from './Button';
+import LinkButton from './LinkButton';
 const StyledHero = styled.div`
   width: 100vw;
   height: calc(100vh - 64px);
@@ -21,7 +22,7 @@ const StyledHero = styled.div`
     margin-top: -200px;
     height: 200px;
     width: 100%;
-    content: "";
+    content: '';
   }
   ${Container} {
     display: grid;
@@ -38,7 +39,7 @@ const StyledHero = styled.div`
     }
   }
 `;
-const Hero = ({ image }) => {
+const Hero = ({ lang, image, title, button }) => {
   return (
     <StyledHero>
       <div className="overlay">
@@ -46,8 +47,17 @@ const Hero = ({ image }) => {
       </div>
       <div className="wrapper">
         <Container>
-          <h1>H1 Header</h1>
-          <Button />
+          <h1>{title}</h1>
+          <LinkButton
+            external
+            href={`/${lang}${
+              button.link_type === 'Internal'
+                ? button.internal_link
+                : button.external_link
+            }`}
+          >
+            {button.label}
+          </LinkButton>
         </Container>
       </div>
     </StyledHero>

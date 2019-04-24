@@ -61,15 +61,15 @@ export const BannerContainer = styled.div`
   }
 `;
 
-const Contact = props => {
+const Contact = ({ title, text, form }) => {
   return (
     <StyledContact>
       <FormContainer>
-        <ContactForm />
+        <ContactForm title={title} form={form} />
       </FormContainer>
       <BannerContainer reverse>
         <ContactBanner primary>
-          <h1>Feel free to contact us regarding any subject.</h1>
+          <h1>{text}</h1>
         </ContactBanner>
       </BannerContainer>
     </StyledContact>

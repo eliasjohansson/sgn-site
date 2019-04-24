@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const StyledButton = styled.button`
+export const buttonStyle = css`
   width: 100%;
   height: 3rem;
   max-width: 343px;
@@ -10,17 +10,18 @@ const StyledButton = styled.button`
   border-radius: 2px;
   ${props =>
     props.primary
-      ? `background-color: ${props.theme.colorPrimary}
-         color: ${props.theme.colorWhite}
+      ? `background-color: ${props.theme.colorPrimary};
+         color: ${props.theme.colorWhite} !important;
       `
-      : `background-color: ${props.theme.colorWhite} 
-          color: ${props.theme.colorDarkGrey}`};
+      : `background-color: ${props.theme.colorWhite} ;
+          color: ${props.theme.colorDarkGrey} !important;
+    `};
   ${props =>
     props.outlined &&
     `
     border: solid 1px ${props.theme.colorPrimary}
     background-color: transparent;
-    color: ${props.theme.colorPrimary};
+    color: ${props.theme.colorPrimary} !important;
     `}
   ${props =>
     props.small &&
@@ -31,8 +32,13 @@ const StyledButton = styled.button`
   outline: inherit;
   transition: 0.15s ease-in-out;
   &:active {
+    color: inherit;
     transform: scale(1.02);
   }
+`;
+
+const StyledButton = styled.button`
+  ${buttonStyle}
 `;
 const Button = props => {
   return <StyledButton {...props}>{props.children}</StyledButton>;

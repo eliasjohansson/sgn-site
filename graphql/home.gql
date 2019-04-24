@@ -6,9 +6,11 @@ query homeQuery($lang: String!) {
           header {
             title
             image
-            button {
+            link_button {
               label
-              link
+              link_type
+              external_link
+              internal_link
             }
           }
           card1 {
@@ -25,10 +27,22 @@ query homeQuery($lang: String!) {
           green_banner_1 {
             title
             text
+            link_button {
+              label
+              link_type
+              external_link
+              internal_link
+            }
           }
           green_banner_2 {
             title
             text
+            link_button {
+              label
+              link_type
+              external_link
+              internal_link
+            }
           }
           visions {
             title

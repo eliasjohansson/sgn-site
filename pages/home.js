@@ -21,6 +21,7 @@ import Projects from '../components/Home/Projects/';
 import Partners from '../components/Home/Partners';
 import Contact from '../components/Home/Contact';
 import LangNotFound from '../components/LangNotFound';
+import LinkButton from '../components/LinkButton';
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -47,33 +48,74 @@ const Index = props => {
         return (
           <StyledIndex>
             <>
-              <Hero image={page.header.image} />
+              <Hero
+                lang={lang}
+                image={page.header.image}
+                title={page.header.title}
+                button={page.header.link_button}
+              />
+
               <BigSection image={page.card1.image}>
                 <h1>{page.card1.title}</h1>
                 <p>{page.card1.text}</p>
               </BigSection>
+
               <Banner>
                 <i>“{page.quote}”.</i>
               </Banner>
+
               <BigSection reversed image={page.card2.image}>
                 <h1>{page.card2.title}</h1>
                 <p>{page.card2.text}</p>
               </BigSection>
+
               <Visions title={page.visions.title} visions={page.visions.list} />
+
               <Banner primary>
                 <h1>{page.green_banner_1.title}</h1>
                 <p>{page.green_banner_1.text}</p>
-                <Button>CTA</Button>
+                <LinkButton
+                  external
+                  href={`/${lang}${
+                    page.green_banner_1.link_button.link_type === 'Internal'
+                      ? page.green_banner_1.link_button.internal_link
+                      : page.green_banner_1.link_button.external_link
+                  }`}
+                >
+                  {page.green_banner_1.link_button.label}
+                </LinkButton>
               </Banner>
+
               <Projects lang={lang} />
+
               <Awards title={page.awards.title} awards={page.awards.list} />
-              <News infoBox={{ title: '' }} news={[]} />
+
+              <News infoBox={page.news_info_box} lang={lang} />
+
               <Banner primary>
                 <h1>{page.green_banner_2.title}</h1>
-                <Button>CTA</Button>
+                <LinkButton
+                  external
+                  href={`/${lang}${
+                    page.green_banner_2.link_button.link_type === 'Internal'
+                      ? page.green_banner_2.link_button.internal_link
+                      : page.green_banner_2.link_button.external_link
+                  }`}
+                >
+                  {page.green_banner_2.link_button.label}
+                </LinkButton>
               </Banner>
-              <Partners />
-              <Contact />
+
+              <Partners
+                title={page.partners.title}
+                partners={page.partners.list}
+              />
+
+              <Contact
+                title={page.contact.title}
+                text={page.contact.text}
+                form={page.contact.form}
+              />
             </>
           </StyledIndex>
         );
