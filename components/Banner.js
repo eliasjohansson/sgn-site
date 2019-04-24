@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Container from './Container';
-import Section from './Section';
+import React from "react";
+import styled from "styled-components";
+import Container from "./Container";
+import Section from "./Section";
 
 const StyledBanner = styled(Section)`
   ${({ theme, primary, dark }) => {
@@ -34,7 +34,6 @@ const StyledBanner = styled(Section)`
     font-weight: bold;
     font-size: 28px;
     line-height: 110%;
-    font-family: 'Montserrat', sans-serif;
   }
 
   button,

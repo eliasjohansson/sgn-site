@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     background-color: ${({ theme }) => theme.colorLightGrey};
     overflow-x: hidden;
   }
@@ -19,6 +19,9 @@ a, a:visited {
   text-decoration: none;
   color: ${({ theme }) => theme.colorPrimary}
   p { font: ${({ theme }) => theme.fontMobileP}; }
+  &:hover {
+    text-decoration:underline;
+  }
 }
   h1 { 
     font: ${({ theme }) => theme.fontMobileH1}; 
@@ -31,6 +34,16 @@ a, a:visited {
   small { font: ${({ theme }) => theme.fontMini}; }
 h1::after {
   content: '.';
+  color: ${({ theme }) => theme.colorAccent};
+    background: none;
+}
+ i::before {
+  content: ' "';
+  color: ${({ theme }) => theme.colorAccent};
+    background: none;
+}
+i::after {
+  content: '" ';
   color: ${({ theme }) => theme.colorAccent};
     background: none;
 }

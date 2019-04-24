@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import React, { useState } from "react";
+import styled from "styled-components";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 
 // Queries
-import BRANCHES_QUERY from '../graphql/branches.gql';
+import BRANCHES_QUERY from "../graphql/branches.gql";
 
 // Components
-import Container from '../components/Container';
-import SelectedBranch from '../components/Branches/SelectedBranch';
-import Dropdown from '../components/Branches/Dropdown';
-import HeaderImage from '../components/HeaderImage';
-import Section from '../components/Section';
-import LangNotFound from '../components/LangNotFound';
+import Container from "../components/Container";
+import ContactInfo from "../components/ContactInfo";
+import SelectedBranch from "../components/Branches/SelectedBranch";
+import Dropdown from "../components/Branches/Dropdown";
+import HeaderImage from "../components/HeaderImage";
+import Section from "../components/Section";
+import LangNotFound from "../components/LangNotFound";
 
 const StyledBranches = styled.div``;
 
 const Header = styled(Section)`
+  background: ${({ theme }) => theme.colorWhite};
   p,
   h1 {
     max-width: 800px;
@@ -58,7 +60,7 @@ const Branches = props => {
                 setSelectedBranch={setSelectedBranch}
               />
             </Header>
-
+            <ContactInfo />
             {selectedBranch && (
               <SelectedBranch
                 lang={lang}

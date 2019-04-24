@@ -22,6 +22,9 @@ export const buttonStyle = css`
   &:hover {
     opacity: 0.9;
   }
+  > a {
+    text-decoration: none !important;
+  }
 `;
 
 const StyledButton = styled.button`

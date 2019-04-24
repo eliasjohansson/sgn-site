@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { Query } from 'react-apollo';
-import { withRouter } from 'next/router';
-import gql from 'graphql-tag';
-import styled from 'styled-components';
-import qs from 'query-string';
-import { Router } from '../routes';
+import React, { useState } from "react";
+import { Query } from "react-apollo";
+import { withRouter } from "next/router";
+import gql from "graphql-tag";
+import styled from "styled-components";
+import qs from "query-string";
+import { Router } from "../routes";
 
 // Queries
-import HOME_QUERY from '../graphql/home.gql';
+import HOME_QUERY from "../graphql/home.gql";
 
 // Components
-import BigSection from '../components/Home/BigSection';
-import Banner from '../components/Banner';
-import Button from '../components/Button';
-import Hero from '../components/Hero';
-import News from '../components/Home/News';
-import Awards from '../components/Home/Awards';
-import Visions from '../components/Home/Visions';
-import Projects from '../components/Home/Projects/';
-import Partners from '../components/Home/Partners';
-import Contact from '../components/Home/Contact';
-import LangNotFound from '../components/LangNotFound';
-import LinkButton from '../components/LinkButton';
+import BigSection from "../components/Home/BigSection";
+import Banner from "../components/Banner";
+import Button from "../components/Button";
+import Hero from "../components/Hero";
+import News from "../components/Home/News";
+import Awards from "../components/Home/Awards";
+import Visions from "../components/Home/Visions";
+import Projects from "../components/Home/Projects/";
+import Partners from "../components/Home/Partners";
+import Contact from "../components/Home/Contact";
+import LangNotFound from "../components/LangNotFound";
+import LinkButton from "../components/LinkButton";
 
 const StyledIndex = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor};
@@ -61,7 +61,7 @@ const Index = props => {
               </BigSection>
 
               <Banner>
-                <i>“{page.quote}”.</i>
+                <i>{page.quote}.</i>
               </Banner>
 
               <BigSection reversed image={page.card2.image}>
@@ -77,7 +77,7 @@ const Index = props => {
                 <LinkButton
                   external
                   href={`/${lang}${
-                    page.green_banner_1.link_button.link_type === 'Internal'
+                    page.green_banner_1.link_button.link_type === "Internal"
                       ? page.green_banner_1.link_button.internal_link
                       : page.green_banner_1.link_button.external_link
                   }`}
@@ -97,7 +97,7 @@ const Index = props => {
                 <LinkButton
                   external
                   href={`/${lang}${
-                    page.green_banner_2.link_button.link_type === 'Internal'
+                    page.green_banner_2.link_button.link_type === "Internal"
                       ? page.green_banner_2.link_button.internal_link
                       : page.green_banner_2.link_button.external_link
                   }`}

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import ContactForm from '../Forms/ContactForm';
-import Banner from '../Banner';
-import { SupahContainer } from '../Container';
+import React from "react";
+import styled from "styled-components";
+import ContactForm from "../Forms/ContactForm";
+import Banner from "../Banner";
+import { SupahContainer } from "../Container";
 
 export const StyledContact = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ export const ContactBanner = styled(Banner)`
 export const FormContainer = styled.div`
   display: grid;
   grid-template-columns: ${({ reverse }) =>
-    reverse ? 'minmax(0px, 595px) auto' : 'auto minmax(0px, 595px)'};
+    reverse ? "minmax(0px, 595px) auto" : "auto minmax(0px, 595px)"};
   grid-template-rows: 1fr;
   background-color: ${({ theme }) => theme.colorWhite};
   padding: 5rem 2rem 5rem 0;
@@ -49,11 +49,11 @@ export const FormContainer = styled.div`
 export const BannerContainer = styled.div`
   display: grid;
   grid-template-columns: ${({ reverse }) =>
-    reverse ? 'minmax(0px, 595px) auto' : 'auto minmax(0px, 595px)'};
+    reverse ? "minmax(0px, 595px) auto" : "auto minmax(0px, 595px)"};
   grid-template-rows: 1fr;
   background-color: ${({ theme }) => theme.colorPrimary};
   > * {
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
   }
 
   @media screen and (max-width: 900px) {

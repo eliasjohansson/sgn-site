@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Icon from '../Icons';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Icon from "../Icons";
 
 const StyledDropdown = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ const StyledDropdown = styled.div`
     border-radius: 2px;
     border: 1px solid ${({ theme }) => theme.colorPrimary};
     background-color: ${({ focused, theme }) =>
-      focused ? theme.colorWhite : theme.colorLightGrey};
+      focused ? theme.colorWhite : theme.colorWhite};
     padding: 0.8rem 1rem;
     width: 100%;
     color: ${({ theme }) => theme.colorPrimary};
@@ -44,7 +44,7 @@ const StyledDropdown = styled.div`
     width: 100%;
     z-index: 100;
     transform-origin: top;
-    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
+    transform: ${({ focused }) => (focused ? "scaleY(1)" : "scaleY(0)")};
     transition: 0.3s ease;
 
     li {

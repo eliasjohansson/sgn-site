@@ -20,11 +20,11 @@ const StyledHero = styled.div`
     display: grid;
   }
   .wrapper {
-    margin-top: -200px;
+    margin-top: calc(-145.1px + -10rem);
   }
   @media screen and (max-width: 900px) {
     img {
-      height: 60vh;
+      height: 100%;
     }
     & ${Container} {
       justify-content: center;
