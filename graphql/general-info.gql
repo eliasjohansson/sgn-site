@@ -1,0 +1,44 @@
+query generalInfoQuery($lang: String!) {
+  generalInfo: generalInfoTranslations(where: { lang: "en" }) {
+    edges {
+      node {
+        acf {
+          general_info {
+            title
+          }
+          navbar {
+            logo
+            links {
+              home
+              locations
+              collaborations
+              donate
+              news
+              membership
+            }
+          }
+          footer {
+            logo
+            social_media {
+              facebook
+              twitter
+              instagram
+            }
+            contact_info {
+              email
+              phone_number
+              address
+            }
+            navigation {
+              private_policy
+              cookies
+              login
+              graphic_identity
+            }
+            copyright
+          }
+        }
+      }
+    }
+  }
+}
