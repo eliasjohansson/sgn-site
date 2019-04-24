@@ -44,7 +44,7 @@ const Branches = props => {
           }
         }
 
-        if (loading) return <p>Loading</p>;
+        if (loading) return null;
 
         return (
           <StyledBranches>

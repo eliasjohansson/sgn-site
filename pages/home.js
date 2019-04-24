@@ -43,7 +43,7 @@ const Index = props => {
           }
         }
 
-        if (loading) return <p>Loading</p>;
+        if (loading) return null;
 
         console.log(data.page.info_cards);
 

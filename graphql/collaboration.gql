@@ -1,5 +1,5 @@
 query collaborationQuery($title: String!, $lang: String!) {
-  collaborations(where: { title: $title, lang: $lang }) {
+  collab: collaborations(where: { title: $title, lang: $lang }) {
     edges {
       node {
         acf {
@@ -7,7 +7,9 @@ query collaborationQuery($title: String!, $lang: String!) {
           title
           content
           pdf
+          pdf_label
           website
+          website_label
           contact_info {
             title
             email

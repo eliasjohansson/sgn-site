@@ -43,7 +43,7 @@ const Collaborations = props => {
           }
         }
 
-        if (loading) return <p>Loading</p>;
+        if (loading) return null;
 
         return (
           <StyledCollaborations>
