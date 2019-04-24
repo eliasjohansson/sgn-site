@@ -44,7 +44,7 @@ const Donate = () => {
           asylsökande i samarbete med det svenska samhället i syfte att hjälpa
           andra asylsökande, flyktingar.
         </p>
-        <Button outlined>
+        <Button>
           <p>Contact us</p>
         </Button>
       </ContentBox>

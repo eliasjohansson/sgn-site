@@ -1,24 +1,27 @@
-import { Query } from 'react-apollo';
-import { withRouter } from 'next/router';
-import gql from 'graphql-tag';
-import qs from 'query-string';
-import React from 'react';
-import styled from 'styled-components';
+import { Query } from "react-apollo";
+import { withRouter } from "next/router";
+import gql from "graphql-tag";
+import qs from "query-string";
+import React from "react";
+import styled from "styled-components";
 
 // Queries
-import NEWS_QUERY from '../graphql/news.gql';
+import NEWS_QUERY from "../graphql/news.gql";
 
 // Components
-import HeaderImage from '../components/HeaderImage';
-import Section from '../components/Section';
-import Banner from '../components/Banner';
-import Button from '../components/Button';
-import NewsComponent from '../components/NewsComponent';
+import HeaderImage from "../components/HeaderImage";
+import Section from "../components/Section";
+import Banner from "../components/Banner";
+import Button from "../components/Button";
+import NewsComponent from "../components/NewsComponent";
 
 const StyledNews = styled.div``;
 const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};
+  p {
+    padding-bottom: 4rem;
+  }
 `;
 const News = props => {
   const { lang } = props;
@@ -38,12 +41,9 @@ const News = props => {
               <Header>
                 <h1>{header.title}</h1>
                 <p>{header.text}</p>
+                <Button primary>Go to Facebook</Button>
               </Header>
               <NewsComponent />
-              <Banner primary>
-                <h1>Title</h1>
-                <Button>CTA</Button>
-              </Banner>
             </>
           );
         }}

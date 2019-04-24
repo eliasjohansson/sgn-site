@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledImageListItem = styled.div`
   display: flex;
@@ -13,8 +13,9 @@ const StyledImageListItem = styled.div`
     width: 160px;
     margin-bottom: 1rem;
     img {
-      object-fit: cover;
-      object-position: center;
+      max-height: 80%;
+      object-fit: contain;
+      object-position: 50% 50%;
       position: absolute;
       top: 0;
       left: 0;

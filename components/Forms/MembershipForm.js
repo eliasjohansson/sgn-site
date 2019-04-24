@@ -103,7 +103,9 @@ const MembershipForm = () => {
               I agree to the <a href="#">terms and conditions</a>
             </Checkbox>
           </div>
-          <Button primary type="submit" />
+          <Button primary type="submit">
+            Submit{" "}
+          </Button>
         </div>
       </StyledForm>
     </Wrapper>

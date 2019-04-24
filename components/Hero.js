@@ -13,16 +13,9 @@ const StyledHero = styled.div`
     object-fit: cover;
     width: 100%;
     height: calc(100vh - 64px);
+    filter: brightness(0.75);
   }
-  .overlay::after {
-    display: block;
-    position: relative;
-    background-image: linear-gradient(to bottom, transparent 0%, #242424 100%);
-    margin-top: -200px;
-    height: 200px;
-    width: 100%;
-    content: "";
-  }
+
   ${Container} {
     display: grid;
   }
@@ -41,9 +34,7 @@ const StyledHero = styled.div`
 const Hero = ({ image }) => {
   return (
     <StyledHero>
-      <div className="overlay">
-        <img src={image} />
-      </div>
+      <img src={image} />
       <div className="wrapper">
         <Container>
           <h1>H1 Header</h1>

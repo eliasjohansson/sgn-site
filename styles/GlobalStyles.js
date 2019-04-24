@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 // @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
 const GlobalStyle = createGlobalStyle`
@@ -20,14 +20,21 @@ a, a:visited {
   color: ${({ theme }) => theme.colorPrimary}
   p { font: ${({ theme }) => theme.fontMobileP}; }
 }
-  h1 { font: ${({ theme }) => theme.fontMobileH1}; }
+  h1 { 
+    font: ${({ theme }) => theme.fontMobileH1}; 
+    padding-bottom: 1rem;
+    }
   h2 { font: ${({ theme }) => theme.fontMobileH2}; }
   h3 { font: ${({ theme }) => theme.fontMobileH3}; }
   h4 { font: ${({ theme }) => theme.fontMobileH4}; }
   p { font: ${({ theme }) => theme.fontMobileP}; }
   b { font: ${({ theme }) => theme.fontMobilePBold}; }
   small { font: ${({ theme }) => theme.fontMini}; }
-
+h1::after {
+  content: '.';
+  color: ${({ theme }) => theme.colorAccent};
+    background: none;
+}
   ul {
     margin: 0;
     padding: 0;

@@ -1,12 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 // Components
-import HeaderImage from '../components/HeaderImage';
-import Section from '../components/Section';
-import Banner from '../components/Banner';
-import Button from '../components/Button';
-import Donate from '../components/Donate';
+import HeaderImage from "../components/HeaderImage";
+import Section from "../components/Section";
+import Banner from "../components/Banner";
+import Button from "../components/Button";
+import H1 from "../components/H1";
+import Donate from "../components/Donate";
 
 const StyledDonations = styled.div``;
 
@@ -28,7 +29,7 @@ const Donations = props => {
       </Header>
       <Donate />
       <Banner primary>
-        <h1>Title</h1>
+        <H1 withExclamation>We are always looking for new members</H1>
         <Button>CTA</Button>
       </Banner>
     </StyledDonations>

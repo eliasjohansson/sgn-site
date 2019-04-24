@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledInput = styled.div`
   margin-bottom: 1.5rem;
@@ -10,6 +10,8 @@ const StyledInput = styled.div`
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 3px;
+    position: absolute;
+    transform: translateY(-1rem);
 
     small {
       font-size: 8px;
@@ -25,7 +27,6 @@ const StyledInput = styled.div`
     outline: 0;
     padding: 0 1rem;
   }
-
   textarea {
     width: 100%;
     border-radius: 5px;
@@ -33,6 +34,12 @@ const StyledInput = styled.div`
     outline: 0;
     padding: 1rem;
     resize: none;
+  }
+  input,
+  textarea {
+    @media screen and (max-width: 900px) {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -62,11 +69,11 @@ const Input = props => {
           required={required}
           pattern={pattern}
           name={name}
-          type={type || 'text'}
+          type={type || "text"}
         />
       )}
       {textarea && (
-        <textarea name={name} cols={cols || '30'} rows={rows || '10'} />
+        <textarea name={name} cols={cols || "30"} rows={rows || "10"} />
       )}
     </StyledInput>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
   width: 100%;
@@ -14,24 +14,12 @@ const StyledButton = styled.button`
          color: ${props.theme.colorWhite}
       `
       : `background-color: ${props.theme.colorWhite} 
-          color: ${props.theme.colorDarkGrey}`};
-  ${props =>
-    props.outlined &&
-    `
-    border: solid 1px ${props.theme.colorPrimary}
-    background-color: transparent;
-    color: ${props.theme.colorPrimary};
-    `}
-  ${props =>
-    props.small &&
-    `
-    width: 122px;
-    `}
+          color: ${props.theme.colorPrimary}`};
 
   outline: inherit;
   transition: 0.15s ease-in-out;
-  &:active {
-    transform: scale(1.02);
+  &:hover {
+    opacity: 0.9;
   }
 `;
 const Button = props => {
