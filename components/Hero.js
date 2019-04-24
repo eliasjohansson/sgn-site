@@ -37,7 +37,10 @@ const Hero = ({ lang, image, title, button }) => {
       <img src={image} />
       <div className="wrapper">
         <Container>
-          <h1 dangerouslySetInnerHTML={{ __html: title }} />
+          <h1
+            style={{ lineHeight: '120%' }}
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
           <LinkButton
             external
             href={`/${lang}${

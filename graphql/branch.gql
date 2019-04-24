@@ -5,7 +5,20 @@ query branchQuery($lang: String!, $title: String!) {
         id
         title
         acf {
-          description
+          contact_info {
+            address_label
+            address
+            email_label
+            email
+            phone_number_label
+            phone_number
+            social_media_label
+            social_media {
+              facebook
+              twitter
+              instagram
+            }
+          }
           activities {
             title
             description

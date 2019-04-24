@@ -81,9 +81,10 @@ const SelectedBranch = ({
 
         branch = data.branch.edges[0].node;
         const {
-          acf: { activities, events }
+          acf: { activities, events, contact_info }
         } = branch;
 
+        console.log(contact_info);
         return (
           <StyledSelectedBranch>
             <Activities>
