@@ -18,7 +18,6 @@ const Collaboration = withRouter(props => {
       variables={{ lang: props.lang, title: props.router.query.id }}
     >
       {({ loading, error, data, fetchMore }) => {
-        console.log(data);
         let collab;
 
         if (!loading) {

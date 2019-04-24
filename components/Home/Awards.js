@@ -42,6 +42,7 @@ export const Award = styled(Card)`
     h4 {
       padding: 1.5rem 1rem;
       text-align: center;
+      color: ${({ theme }) => theme.colorDarkGrey};
     }
   }
 `;

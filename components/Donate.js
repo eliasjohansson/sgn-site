@@ -19,6 +19,7 @@ const Donations = styled(Section)`
     }
   }
 `;
+
 const ContentBox = styled(Card)`
   display: flex;
   padding: 2rem;
@@ -34,6 +35,9 @@ const ContentBox = styled(Card)`
   }
   p {
     margin-bottom: 1rem;
+  }
+  a {
+    margin-top: 1rem;
   }
 `;
 

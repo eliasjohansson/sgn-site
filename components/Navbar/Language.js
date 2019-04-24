@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { withRouter } from "next/router";
-import { Link } from "../../routes";
-import Icon from "../Icons";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { withRouter } from 'next/router';
+import { Link } from '../../routes';
+import Icon from '../Icons';
 
 const StyledDesktopLang = styled.button`
-  padding: 0 2rem;
-  right: 1rem;
+  padding: 0 2.5rem;
+  margin-left: 1rem;
   top: 0;
   width: auto;
   height: 64px;
@@ -25,6 +25,7 @@ const StyledDesktopLang = styled.button`
   }
 
   span {
+    
   }
 
   ul {
@@ -38,7 +39,7 @@ const StyledDesktopLang = styled.button`
     width: 100%;
     z-index: 100;
     transform-origin: top;
-    transform: ${({ focused }) => (focused ? "scaleY(1)" : "scaleY(0)")};
+    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
     transition: 0.3s ease;
 
     li {
@@ -60,18 +61,17 @@ const StyledDesktopLang = styled.button`
         text-decoration: none;
         width: 100%;
         display: inline-block;
-        padding: 0.5rem 1rem;
+        padding: 0.7rem 1rem;
       }
     }
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1013px) {
     display: none;
   }
 `;
 
 export const DesktopLang = withRouter(({ lang, languages, router }) => {
-  console.log(router.route);
   const [focused, setFocused] = useState(false);
   if (!languages) return null;
   return (
@@ -82,19 +82,21 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
     >
       <span>
         {languages[languages.map(l => l.slug).indexOf(lang)] &&
-          languages[languages.map(l => l.slug).indexOf(lang)].name.slice(0, 3)}
+          languages[languages.map(l => l.slug).indexOf(lang)].name
+            .slice(0, 2)
+            .toUpperCase()}
       </span>
       <ul>
         {languages.map(l => (
           <li>
             <Link
               route={`/${l.slug}/${
-                router.route === "/home"
-                  ? ""
+                router.route === '/home'
+                  ? ''
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >
-              <a>{l.name.slice(0, 3)}</a>
+              <a>{l.name.slice(0, 2).toUpperCase()}</a>
             </Link>
           </li>
         ))}
@@ -136,7 +138,7 @@ const StyledMobileLang = styled.div`
     width: 100%;
     z-index: 100;
     transform-origin: bottom;
-    transform: ${({ focused }) => (focused ? "scaleY(1)" : "scaleY(0)")};
+    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
     transition: 0.3s ease;
     
 
@@ -147,17 +149,18 @@ const StyledMobileLang = styled.div`
       position: relative;
       overflow: auto;
       color: ${({ theme }) => theme.colorDarkGrey};
-      font: ${({ theme }) => theme.fontMobileP};
+     
       &:hover {
         background-color: ${({ theme }) => theme.colorPrimary};
         color: ${({ theme }) => theme.colorWhite};
       }
       a {
+        font: ${({ theme }) => theme.fontMobileP};
         color: inherit;
         text-decoration: none;
         width: 100%;
         display: inline-block;
-        padding: 1rem 1rem;
+        padding: 1rem 1rem !important;
       }
     }
   }
@@ -188,9 +191,9 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
         {languages.map(l => (
           <li>
             <Link
-              route={`/${lang}/${
-                router.route === "/home"
-                  ? ""
+              route={`/${l.slug}/${
+                router.route === '/home'
+                  ? ''
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >

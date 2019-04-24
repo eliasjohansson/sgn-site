@@ -70,23 +70,19 @@ const SelectedBranch = ({
   activitiesTitle,
   eventsTitle
 }) => {
-  let branch;
-
   return (
     <Query
       query={BRANCH_QUERY}
       variables={{ lang: lang, title: selectedBranch }}
     >
       {({ loading, error, data, fetchMore, refetch }) => {
-        if (!loading) branch = data.branch.edges[0].node;
-        else return null;
+        let branch;
+        if (loading) return null;
 
+        branch = data.branch.edges[0].node;
         const {
           acf: { activities, events }
         } = branch;
-
-        if (JSON.parse(events))
-          console.log(JSON.parse(events).map(e => e.event));
 
         return (
           <StyledSelectedBranch>
@@ -126,8 +122,6 @@ const SelectedBranch = ({
                     refetch
                   }) => {
                     if (eventsLoading) return null;
-
-                    console.log(data);
 
                     return (
                       <Container>

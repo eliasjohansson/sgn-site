@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Container from "./Container";
-import Button from "./Button";
-import LinkButton from "./LinkButton";
+import React from 'react';
+import styled from 'styled-components';
+import Container from './Container';
+import Button from './Button';
+import LinkButton from './LinkButton';
 const StyledHero = styled.div`
   width: 100vw;
   height: calc(100vh - 64px);
@@ -37,11 +37,11 @@ const Hero = ({ lang, image, title, button }) => {
       <img src={image} />
       <div className="wrapper">
         <Container>
-          <h1>{title}</h1>
+          <h1 dangerouslySetInnerHTML={{ __html: title }} />
           <LinkButton
             external
             href={`/${lang}${
-              button.link_type === "Internal"
+              button.link_type === 'Internal'
                 ? button.internal_link
                 : button.external_link
             }`}

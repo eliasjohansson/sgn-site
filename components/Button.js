@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 export const buttonStyle = css`
   cursor: pointer;
@@ -22,6 +22,7 @@ export const buttonStyle = css`
   &:hover {
     opacity: 0.9;
   }
+  font-weight: bold;
 `;
 
 const StyledButton = styled.button`

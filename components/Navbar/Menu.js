@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { withRouter } from "next/router";
-import styled from "styled-components";
-import routes, { Link } from "../../routes";
+import React, { useState } from 'react';
+import { withRouter } from 'next/router';
+import styled from 'styled-components';
+import routes, { Link } from '../../routes';
 
 // Components
-import Hamburger from "./Hamburger";
-import { MobileLang } from "./Language";
+import Hamburger from './Hamburger';
+import { MobileLang } from './Language';
 
 const StyledMenu = styled.nav`
   display: flex;
@@ -20,7 +20,7 @@ const StyledMenu = styled.nav`
   max-width: 400px;
   height: calc(100vh - 64px);
   background-color: ${({ theme }) => theme.colorWhite};
-  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(100%)")};
+  transform: ${({ open }) => (open ? 'translateX(0%)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
 
   ul {
@@ -53,6 +53,7 @@ const StyledMenu = styled.nav`
     max-width: 100%;
     width: auto;
     height: 100%;
+
     /* padding-right: 12rem; */
 
     ul {
@@ -60,10 +61,11 @@ const StyledMenu = styled.nav`
       display: flex;
       li {
         font: ${({ theme }) => theme.fontDesktopH4};
-        margin-left: 2rem;
+
         height: 100%;
         a {
-          padding: 0 1rem;
+          cursor: pointer;
+          padding: 0 1.5rem;
           &:hover {
             background-color: ${({ theme }) => theme.colorPrimary};
             color: ${({ theme }) => theme.colorWhite};
@@ -78,38 +80,40 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({ open, router, lang, languages, close }) => {
+const Menu = ({ open, router, lang, languages, close, data }) => {
   return (
     <StyledMenu open={open}>
       <ul>
         <li>
           <Link route="home" params={{ lang: lang }}>
-            <a onClick={close}>Home</a>
+            <a onClick={close}>{data.links.home || 'Home'}</a>
           </Link>
         </li>
         <li>
           <Link route="branches" params={{ lang: lang }}>
-            <a onClick={close}>Locations</a>
+            <a onClick={close}>{data.links.locations || 'Locations'}</a>
           </Link>
         </li>
         <li>
           <Link route="collaborations" params={{ lang: lang }}>
-            <a onClick={close}>Collaborations</a>
+            <a onClick={close}>
+              {data.links.collaborations || 'Collaborations'}
+            </a>
           </Link>
         </li>
         <li>
           <Link route="donate" params={{ lang: lang }}>
-            <a onClick={close}>Donate</a>
+            <a onClick={close}>{data.links.donate || 'Donate'}</a>
           </Link>
         </li>
         <li>
           <Link route="news" params={{ lang: lang }}>
-            <a onClick={close}>News</a>
+            <a onClick={close}>{data.links.news || 'News'}</a>
           </Link>
         </li>
         <li>
           <Link route="membership" params={{ lang: lang }}>
-            <a onClick={close}>Membership</a>
+            <a onClick={close}>{data.links.membership || 'Membership'}</a>
           </Link>
         </li>
       </ul>

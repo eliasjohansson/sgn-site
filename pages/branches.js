@@ -17,6 +17,8 @@ import LangNotFound from '../components/LangNotFound';
 const StyledBranches = styled.div``;
 
 const Header = styled(Section)`
+  background-color: ${({ theme }) => theme.colorWhite};
+  border-top: 1px solid ${({ theme }) => theme.colorGrey};
   p,
   h1 {
     max-width: 800px;
@@ -48,7 +50,7 @@ const Branches = props => {
 
         return (
           <StyledBranches>
-            <HeaderImage image="https://images.pexels.com/photos/297755/pexels-photo-297755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+            <HeaderImage image={page.header.image} />
             <Header>
               <h1>{page.header.title}</h1>
               <p>{page.header.text}</p>

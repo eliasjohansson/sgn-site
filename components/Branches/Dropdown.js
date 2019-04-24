@@ -9,7 +9,7 @@ const StyledDropdown = styled.div`
     border-radius: 2px;
     border: 1px solid ${({ theme }) => theme.colorPrimary};
     background-color: ${({ focused, theme }) =>
-      focused ? theme.colorWhite : theme.colorLightGrey};
+      focused ? theme.colorWhite : theme.colorWhite};
     padding: 0.8rem 1rem;
     width: 100%;
     color: ${({ theme }) => theme.colorPrimary};

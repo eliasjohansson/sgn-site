@@ -20,7 +20,6 @@ export const StyledProjects = styled(Section)`
 `;
 
 const Projects = ({ lang, data }) => {
-  console.log(data);
   return (
     <StyledProjects>
       <ProjectCard

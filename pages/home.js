@@ -45,8 +45,6 @@ const Index = props => {
 
         if (loading) return null;
 
-        console.log(data.page.info_cards);
-
         return (
           <StyledIndex>
             <>

@@ -28,8 +28,16 @@ export const StyledPartners = styled(Section)`
 `;
 
 export const Partner = styled.div`
+  display: flex;
+  align-items: center;
   img {
     width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+
+    @media screen and (max-width: 600px) {
+      max-height: 75px;
+    }
   }
 `;
 

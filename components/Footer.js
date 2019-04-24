@@ -7,20 +7,42 @@ import { Link } from '../routes';
 const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colorDarkGrey};
   color: ${({ theme }) => theme.colorWhite};
+  padding-top: 3rem;
 
   ${Container} {
-    padding-top: 3rem;
     padding-bottom: 1rem;
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-template-rows: repeat(3, max-content);
+    grid-template-rows: repeat(4, max-content);
   }
 
   @media screen and (min-width: 900px) {
+    padding-top: 0;
     ${Container} {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
     }
+  }
+`;
+
+const FooterLogo = styled.div`
+  max-width: 1190px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+  img {
+    height: 56px;
+  }
+
+  @media screen and (max-width: 1190px) {
+    margin: 0 1rem;
+  }
+  @media screen and (max-width: 900px) {
+    display: none;
   }
 `;
 
@@ -125,9 +147,12 @@ const Copyright = styled.div`
   }
 `;
 
-const Footer = ({ lang }) => {
+const Footer = ({ lang, data }) => {
   return (
     <StyledFooter>
+      <FooterLogo>
+        <img src={data.logo} alt="SGN Logo" />
+      </FooterLogo>
       <Container>
         <Contact>
           <h2>Contact</h2>
@@ -156,22 +181,22 @@ const Footer = ({ lang }) => {
           <ul>
             <li>
               <Link route="private-policy">
-                <a>Private Policy</a>
+                <a>{data.navigation.private_policy || 'Private Policy'}</a>
               </Link>
             </li>
             <li>
               <Link route="cookies">
-                <a>Cookies</a>
+                <a>{data.navigation.cookies || 'Cookies'}</a>
               </Link>
             </li>
             <li>
               <Link route="login">
-                <a>Login</a>
+                <a>{data.navigation.login || 'Login'}</a>
               </Link>
             </li>
             <li>
               <Link route="graphic-identity">
-                <a>Graphic Identity</a>
+                <a>{data.navigation.graphic_identity || 'Graphic Identity'}</a>
               </Link>
             </li>
           </ul>
