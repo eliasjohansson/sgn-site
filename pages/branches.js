@@ -60,7 +60,12 @@ const Branches = props => {
             </Header>
 
             {selectedBranch && (
-              <SelectedBranch lang={lang} selectedBranch={selectedBranch} />
+              <SelectedBranch
+                lang={lang}
+                activitiesTitle={page.activities_title}
+                eventsTitle={page.events_title}
+                selectedBranch={selectedBranch}
+              />
             )}
           </StyledBranches>
         );

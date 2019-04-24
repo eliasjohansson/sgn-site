@@ -7,8 +7,7 @@ query branchesQuery($lang: String!) {
             title
             text
             image
-            button {
-              label
+            link_button {
               label
             }
           }
@@ -16,9 +15,8 @@ query branchesQuery($lang: String!) {
           green_banner {
             title
             text
-            button {
+            link_button {
               label
-              link
             }
           }
         }

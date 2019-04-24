@@ -8,7 +8,9 @@ import Container from '../Container';
 import ImageListItem from '../ImageListItem';
 import Event from './Event';
 
+// Queries
 import BRANCH_QUERY from '../../graphql/branch.gql';
+import EVENTS_QUERY from '../../graphql/events.gql';
 
 const StyledSelectedBranch = styled.div``;
 
@@ -62,7 +64,12 @@ export const Events = styled.div`
   }
 `;
 
-const SelectedBranch = ({ lang, selectedBranch }) => {
+const SelectedBranch = ({
+  lang,
+  selectedBranch,
+  activitiesTitle,
+  eventsTitle
+}) => {
   let branch;
 
   return (
@@ -75,14 +82,17 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
         else return null;
 
         const {
-          acf: { activities }
+          acf: { activities, events }
         } = branch;
+
+        if (JSON.parse(events))
+          console.log(JSON.parse(events).map(e => e.event));
 
         return (
           <StyledSelectedBranch>
             <Activities>
               <Container>
-                <h1>Activities</h1>
+                <h1>{activitiesTitle}</h1>
                 <div>
                   {activities.length > 0 ? (
                     activities.map(activity => (
@@ -98,31 +108,46 @@ const SelectedBranch = ({ lang, selectedBranch }) => {
                 </div>
               </Container>
             </Activities>
-            <Events>
-              <Container>
-                <h1>Upcoming events</h1>
-                <div>
-                  <Event
-                    image="https://via.placeholder.com/600x300"
-                    date="2019-08-25 11:00:00"
-                    title="Eid Al-Adha dag"
-                    link="https://www.facebook.com/events/330053544400045/"
-                  />
-                  <Event
-                    image="https://via.placeholder.com/600x300"
-                    date="2019-08-25 11:00:00"
-                    title="Eid Al-Adha dag"
-                    link="https://www.facebook.com/events/330053544400045/"
-                  />
-                  <Event
-                    image="https://via.placeholder.com/600x300"
-                    date="2019-08-25 11:00:00"
-                    title="Eid Al-Adha dag"
-                    link="https://www.facebook.com/events/330053544400045/"
-                  />
-                </div>
-              </Container>
-            </Events>
+            {JSON.parse(events) && (
+              <Events>
+                <Query
+                  query={EVENTS_QUERY}
+                  variables={{
+                    lang: lang,
+                    ids: JSON.parse(events).map(e => e.event)
+                  }}
+                  ssr={false}
+                >
+                  {({
+                    loading: eventsLoading,
+                    error,
+                    data,
+                    fetchMore,
+                    refetch
+                  }) => {
+                    if (eventsLoading) return null;
+
+                    console.log(data);
+
+                    return (
+                      <Container>
+                        <h1>{eventsTitle}</h1>
+                        <div>
+                          {data.events.edges.map(({ node }) => (
+                            <Event
+                              image={node.image}
+                              date="2019-08-25 11:00:00"
+                              title="Eid Al-Adha dag"
+                              link="https://www.facebook.com/events/330053544400045/"
+                            />
+                          ))}
+                        </div>
+                      </Container>
+                    );
+                  }}
+                </Query>
+              </Events>
+            )}
           </StyledSelectedBranch>
         );
       }}

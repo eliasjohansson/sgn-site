@@ -34,7 +34,7 @@ const Collaborations = props => {
         let page;
 
         if (!loading) {
-          if (data.page.edges.length > 0) {
+          if (data && data.page.edges.length > 0) {
             page = data.page.edges[0].node.collaborations;
           } else {
             return <LangNotFound page="collaborations" />;
