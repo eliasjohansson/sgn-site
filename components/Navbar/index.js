@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from '../../routes';
-import { Query } from 'react-apollo';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "../../routes";
+import { Query } from "react-apollo";
 
 // Queries
-import LANGUAGES_QUERY from '../../graphql/languages.gql';
+import LANGUAGES_QUERY from "../../graphql/languages.gql";
 
 // Components
-import Container from '../Container';
-import Logo from '../Logo';
-import Hamburger from './Hamburger';
-import { DesktopLang } from './Language';
-import Menu from './Menu';
+import Container from "../Container";
+import Logo from "../Logo";
+import Hamburger from "./Hamburger";
+import { DesktopLang } from "./Language";
+import Menu from "./Menu";
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -25,7 +25,7 @@ const StyledNavbar = styled.div`
   > ${Container} {
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 `;
@@ -52,8 +52,8 @@ const Navbar = ({ open, lang }) => {
                   lang={lang}
                   languages={languages}
                 />
+                <DesktopLang lang={lang} languages={languages} />
               </Container>
-              <DesktopLang lang={lang} languages={languages} />
             </>
           );
         }}
