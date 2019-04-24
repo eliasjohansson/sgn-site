@@ -13,6 +13,7 @@ import Button from '../components/Button';
 import H1 from '../components/H1';
 import Donate from '../components/Donate';
 import LinkButton from '../components/LinkButton';
+import LangNotFound from '../components/LangNotFound';
 
 const StyledDonations = styled.div``;
 
@@ -45,6 +46,7 @@ const Donations = props => {
               <p>{page.header.text}</p>
             </Header>
             <Donate
+              lang={lang}
               collaborateCard={page.collaborate_card}
               donateCard={page.donate_card}
             />

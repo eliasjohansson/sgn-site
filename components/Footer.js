@@ -150,9 +150,11 @@ const Copyright = styled.div`
 const Footer = ({ lang, data }) => {
   return (
     <StyledFooter>
-      <FooterLogo>
-        <img src={data.logo} alt="SGN Logo" />
-      </FooterLogo>
+      {data && (
+        <FooterLogo>
+          <img src={data.logo} alt="SGN Logo" />
+        </FooterLogo>
+      )}
       <Container>
         <Contact>
           <h2>Contact</h2>
@@ -181,22 +183,26 @@ const Footer = ({ lang, data }) => {
           <ul>
             <li>
               <Link route="private-policy">
-                <a>{data.navigation.private_policy || 'Private Policy'}</a>
+                <a>
+                  {data ? data.navigation.private_policy : 'Private Policy'}
+                </a>
               </Link>
             </li>
             <li>
               <Link route="cookies">
-                <a>{data.navigation.cookies || 'Cookies'}</a>
+                <a>{data ? data.navigation.cookies : 'Cookies'}</a>
               </Link>
             </li>
             <li>
               <Link route="login">
-                <a>{data.navigation.login || 'Login'}</a>
+                <a>{data ? data.navigation.login : 'Login'}</a>
               </Link>
             </li>
             <li>
               <Link route="graphic-identity">
-                <a>{data.navigation.graphic_identity || 'Graphic Identity'}</a>
+                <a>
+                  {data ? data.navigation.graphic_identity : 'Graphic Identity'}
+                </a>
               </Link>
             </li>
           </ul>
