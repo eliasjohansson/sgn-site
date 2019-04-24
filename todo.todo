@@ -27,7 +27,7 @@ CMS:
 
     Membership:
       ✔ ACF @done(19-04-22 22:59)
-      ☐ Type Defs
+      ✔ Type Defs @done(19-04-24 10:29)
       ☐ Fill with real content 
 
     GDPR:
@@ -52,8 +52,8 @@ CMS:
 
     Events:
       ✔ ACF @done(19-04-24 09:38)
-      ☐ Type Defs
-      ☐ Connect to Branch somehow
+      ✔ Type Defs @done(19-04-24 10:10)
+      ✔ Connect to Branch somehow @done(19-04-24 10:10)
   
 
   Low Prio:
@@ -88,7 +88,7 @@ Frontend:
       ☐ Fill with CMS content
 
     Membership:
-      ☐ Create Query
+      ✔ Create Query @done(19-04-24 10:30)
       ☐ Fill with CMS content
 
     404:
