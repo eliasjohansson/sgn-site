@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 export const buttonStyle = css`
+  cursor: pointer;
   width: 100%;
   height: 3rem;
   max-width: 343px;

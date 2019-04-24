@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { withRouter } from 'next/router';
-import styled from 'styled-components';
-import routes, { Link } from '../../routes';
+import React, { useState } from "react";
+import { withRouter } from "next/router";
+import styled from "styled-components";
+import routes, { Link } from "../../routes";
 
 // Components
-import Hamburger from './Hamburger';
-import { MobileLang } from './Language';
+import Hamburger from "./Hamburger";
+import { MobileLang } from "./Language";
 
 const StyledMenu = styled.nav`
   display: flex;
@@ -20,7 +20,7 @@ const StyledMenu = styled.nav`
   max-width: 400px;
   height: calc(100vh - 64px);
   background-color: ${({ theme }) => theme.colorWhite};
-  transform: ${({ open }) => (open ? 'translateX(0%)' : 'translateX(100%)')};
+  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(100%)")};
   transition: transform 0.3s ease;
 
   ul {
@@ -44,7 +44,7 @@ const StyledMenu = styled.nav`
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1013px) {
     transform: translateX(0%);
     transition: 0s ease;
     flex-direction: row;
@@ -53,7 +53,7 @@ const StyledMenu = styled.nav`
     max-width: 100%;
     width: auto;
     height: 100%;
-    padding-right: 12rem;
+    /* padding-right: 12rem; */
 
     ul {
       height: 100%;
@@ -63,7 +63,11 @@ const StyledMenu = styled.nav`
         margin-left: 2rem;
         height: 100%;
         a {
-          padding: 0;
+          padding: 0 1rem;
+          &:hover {
+            background-color: ${({ theme }) => theme.colorPrimary};
+            color: ${({ theme }) => theme.colorWhite};
+          }
         }
       }
     }

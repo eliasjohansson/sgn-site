@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { withRouter } from 'next/router';
-import { Link } from '../../routes';
-import Icon from '../Icons';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { withRouter } from "next/router";
+import { Link } from "../../routes";
+import Icon from "../Icons";
 
 const StyledDesktopLang = styled.button`
   padding: 0 2rem;
-  position: absolute;
-  right: 0;
+  right: 1rem;
   top: 0;
   width: auto;
   height: 64px;
@@ -39,7 +38,7 @@ const StyledDesktopLang = styled.button`
     width: 100%;
     z-index: 100;
     transform-origin: top;
-    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
+    transform: ${({ focused }) => (focused ? "scaleY(1)" : "scaleY(0)")};
     transition: 0.3s ease;
 
     li {
@@ -90,8 +89,8 @@ export const DesktopLang = withRouter(({ lang, languages, router }) => {
           <li>
             <Link
               route={`/${l.slug}/${
-                router.route === '/home'
-                  ? ''
+                router.route === "/home"
+                  ? ""
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >
@@ -137,7 +136,7 @@ const StyledMobileLang = styled.div`
     width: 100%;
     z-index: 100;
     transform-origin: bottom;
-    transform: ${({ focused }) => (focused ? 'scaleY(1)' : 'scaleY(0)')};
+    transform: ${({ focused }) => (focused ? "scaleY(1)" : "scaleY(0)")};
     transition: 0.3s ease;
     
 
@@ -163,7 +162,7 @@ const StyledMobileLang = styled.div`
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1013px) {
     display: none;
   }
 `;
@@ -190,8 +189,8 @@ export const MobileLang = withRouter(({ lang, languages, router }) => {
           <li>
             <Link
               route={`/${lang}/${
-                router.route === '/home'
-                  ? ''
+                router.route === "/home"
+                  ? ""
                   : router.route.slice(1) /* Slice to remove "/" */
               }`}
             >
