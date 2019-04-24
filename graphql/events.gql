@@ -1,0 +1,9 @@
+query eventsQuery($lang: String!, ids: Array!) {
+  events(where: {in: $ids, lang: $lang}) {
+    edges {
+      node {
+        title
+      }
+    }
+  }
+}

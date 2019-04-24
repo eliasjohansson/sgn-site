@@ -12,6 +12,7 @@ query branchQuery($lang: String!, $title: String!) {
             date_time
             image
           }
+          events
         }
       }
     }
