@@ -4,11 +4,12 @@ import Input from '../Input';
 import Button from '../Button';
 import Section from '../Section';
 import Checkbox from '../Checkbox';
+
 const Wrapper = styled(Section)`
   > div form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, auto);
+    grid-template-rows: repeat(8, 1fr);
     grid-auto-flow: dense;
     grid-gap: 2rem;
     @media screen and (max-width: 900px) {
@@ -45,16 +46,20 @@ const StyledForm = styled.form`
   }
 `;
 
+const CustomInput = styled(Input)`
+  margin-bottom: 0;
+`;
+
 const MembershipForm = ({ form }) => {
   return (
     <Wrapper>
       <h1>{form.title}</h1>
       <StyledForm>
         <div className="hAlign">
-          <Input label={form.labels.first_name} />
-          <Input label={form.labels.last_name} />
+          <CustomInput label={form.labels.first_name} />
+          <CustomInput label={form.labels.last_name} />
         </div>
-        <Input
+        <CustomInput
           label={form.labels.personal_number + ' (YYYY-MM-DD-xxxx)'}
           placeholder="1989-21-01-XXXX"
           pattern="\d{4}-?\d{2}-?\d{2}-?\d{4}"
@@ -62,14 +67,14 @@ const MembershipForm = ({ form }) => {
           required
         />
         <div className="hAlign">
-          <Input
+          <CustomInput
             label={form.labels.birth_date + ' (YYYY-MM-DD)'}
             placeholder="1989-21-01"
             pattern="\d{4}-?\d{2}-?\d{2}"
             type="text"
             required
           />
-          <Input
+          <CustomInput
             label={form.labels.lma + ' (12345678-9)'}
             placeholder="12345678-9"
             type="text"
@@ -77,22 +82,22 @@ const MembershipForm = ({ form }) => {
             pattern="\d{8}-?\d{1}"
           />
         </div>
-        <Input label={form.labels.address} type="text" required />
+        <CustomInput label={form.labels.address} type="text" required />
         <div className="hAlign">
-          <Input label={form.labels.zipcode} type="text" required />
-          <Input label={form.labels.city} type="text" required />
+          <CustomInput label={form.labels.zipcode} type="text" required />
+          <CustomInput label={form.labels.city} type="text" required />
         </div>
         <div className="hAlign">
-          <Input label={form.labels.nationality} type="text" required />
-          <Input
-            label={form.labels.in_sweden_from + ' (YYYY-MM-DD):'}
+          <CustomInput label={form.labels.nationality} type="text" required />
+          <CustomInput
+            label={form.labels.in_sweden_from + ' (YYYY-MM-DD)'}
             pattern="\d{4}-?\d{2}-?\d{2}"
             type="text"
             required
           />
         </div>
-        <Input label={form.labels.email} type="email" required />
-        <Input label={form.labels.mobile_number} type="text" required />
+        <CustomInput label={form.labels.email} type="email" required />
+        <CustomInput label={form.labels.mobile_number} type="text" required />
         <div className="col2">
           <Input textarea label={form.labels.education} />
           <Input textarea label={form.labels.profession} />
