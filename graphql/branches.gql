@@ -8,6 +8,8 @@ query branchesQuery($lang: String!) {
             text
             image
           }
+          activities_title
+          events_title
         }
       }
     }

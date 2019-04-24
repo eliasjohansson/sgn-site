@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'next/router';
+import { Router } from '../routes';
 
 // Queries
 import COLLABORATIONS_QUERY from '../graphql/collaborations.gql';
@@ -24,18 +25,26 @@ const Header = styled(Section)`
   color: ${({ theme }) => theme.colorDarkGrey};
 `;
 
-const Collaborations = ({ lang }) => (
-  <StyledCollaborations>
+const Collaborations = props => {
+  const { lang } = props;
+
+  return (
     <Query query={COLLABORATIONS_QUERY} variables={{ lang: lang }}>
       {({ loading, error, data, fetchMore }) => {
         let page;
+
         if (!loading) {
-          page = data.page.edges[0].node.collaborations;
-        } else {
-          return null;
+          if (data && data.page.edges.length > 0) {
+            page = data.page.edges[0].node.collaborations;
+          } else {
+            return <LangNotFound page="collaborations" />;
+          }
         }
+
+        if (loading) return <p>Loading</p>;
+
         return (
-          <>
+          <StyledCollaborations>
             <HeaderImage image={page.header.image} />
             <Header>
               <h1>Headline</h1>
@@ -51,11 +60,11 @@ const Collaborations = ({ lang }) => (
               <h1>Title</h1>
               <Button>CTA</Button>
             </Banner>
-          </>
+          </StyledCollaborations>
         );
       }}
     </Query>
-  </StyledCollaborations>
-);
+  );
+};
 
 export default Collaborations;

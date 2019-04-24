@@ -1,0 +1,9 @@
+query pageTranslationsQuery($page: String!) {
+  pages(where: { title: $page, lang: "en" }) {
+    edges {
+      node {
+        availableLanguages
+      }
+    }
+  }
+}

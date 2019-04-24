@@ -8,7 +8,9 @@ import Container from '../Container';
 import ImageListItem from '../ImageListItem';
 import Event from './Event';
 
+// Queries
 import BRANCH_QUERY from '../../graphql/branch.gql';
+import EVENTS_QUERY from '../../graphql/events.gql';
 
 const StyledSelectedBranch = styled.div``;
 
@@ -62,75 +64,94 @@ export const Events = styled.div`
   }
 `;
 
-const SelectedBranch = ({ lang, selectedBranch }) => {
+const SelectedBranch = ({
+  lang,
+  selectedBranch,
+  activitiesTitle,
+  eventsTitle
+}) => {
   let branch;
 
   return (
-    <StyledSelectedBranch>
-      <Query
-        query={BRANCH_QUERY}
-        variables={{ lang: lang, title: selectedBranch }}
-        ssr={false}
-      >
-        {({ loading, error, data, fetchMore, refetch }) => {
-          console.log(data);
-          if (!loading) branch = data.branch.edges[0].node;
-          else return null;
+    <Query
+      query={BRANCH_QUERY}
+      variables={{ lang: lang, title: selectedBranch }}
+    >
+      {({ loading, error, data, fetchMore, refetch }) => {
+        if (!loading) branch = data.branch.edges[0].node;
+        else return null;
 
-          const {
-            acf: { activities }
-          } = branch;
+        const {
+          acf: { activities, events }
+        } = branch;
 
-          return (
-            <>
-              <Activities>
-                <Container>
-                  <h1>Activities</h1>
-                  <div>
-                    {activities.length > 0 ? (
-                      activities.map(activity => (
-                        <ImageListItem
-                          image={activity.image}
-                          title={activity.title}
-                          description={activity.description}
-                        />
-                      ))
-                    ) : (
-                      <p>No activities available for this branch</p>
-                    )}
-                  </div>
-                </Container>
-              </Activities>
+        if (JSON.parse(events))
+          console.log(JSON.parse(events).map(e => e.event));
+
+        return (
+          <StyledSelectedBranch>
+            <Activities>
+              <Container>
+                <h1>{activitiesTitle}</h1>
+                <div>
+                  {activities.length > 0 ? (
+                    activities.map(activity => (
+                      <ImageListItem
+                        image={activity.image}
+                        title={activity.title}
+                        description={activity.description}
+                      />
+                    ))
+                  ) : (
+                    <p>No activities available for this branch</p>
+                  )}
+                </div>
+              </Container>
+            </Activities>
+            {JSON.parse(events) && (
               <Events>
-                <Container>
-                  <h1>Upcoming events</h1>
-                  <div>
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                    <Event
-                      image="https://via.placeholder.com/600x300"
-                      date="2019-08-25 11:00:00"
-                      title="Eid Al-Adha dag"
-                      link="https://www.facebook.com/events/330053544400045/"
-                    />
-                  </div>
-                </Container>
+                <Query
+                  query={EVENTS_QUERY}
+                  variables={{
+                    lang: lang,
+                    ids: JSON.parse(events).map(e => e.event)
+                  }}
+                  ssr={false}
+                >
+                  {({
+                    loading: eventsLoading,
+                    error,
+                    data,
+                    fetchMore,
+                    refetch
+                  }) => {
+                    if (eventsLoading) return null;
+
+                    console.log(data);
+
+                    return (
+                      <Container>
+                        <h1>{eventsTitle}</h1>
+                        <div>
+                          {data.events.edges.map(({ node }) => (
+                            <Event
+                              image={node.image}
+                              date="2019-08-25 11:00:00"
+                              title="Eid Al-Adha dag"
+                              link="https://www.facebook.com/events/330053544400045/"
+                            />
+                          ))}
+                        </div>
+                      </Container>
+                    );
+                  }}
+                </Query>
               </Events>
-            </>
-          );
-        }}
-      </Query>
-    </StyledSelectedBranch>
+            )}
+          </StyledSelectedBranch>
+        );
+      }}
+    </Query>
   );
 };
 

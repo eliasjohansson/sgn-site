@@ -12,6 +12,7 @@ import SelectedBranch from '../components/Branches/SelectedBranch';
 import Dropdown from '../components/Branches/Dropdown';
 import HeaderImage from '../components/HeaderImage';
 import Section from '../components/Section';
+import LangNotFound from '../components/LangNotFound';
 
 const StyledBranches = styled.div``;
 
@@ -27,43 +28,49 @@ const Header = styled(Section)`
 
 const Branches = props => {
   const [selectedBranch, setSelectedBranch] = useState(null);
-
   const { lang } = props;
-  return (
-    <StyledBranches>
-      <Query query={BRANCHES_QUERY} variables={{ lang: lang }}>
-        {({ loading, error, data, fetchMore }) => {
-          const { page: pageData, branches } = data;
 
-          let page;
-          if (!loading) {
-            page = pageData.edges[0].node.branches;
+  return (
+    <Query query={BRANCHES_QUERY} variables={{ lang: lang }}>
+      {({ loading, error, data, fetchMore }) => {
+        const { branches } = data;
+        let page;
+        if (!loading) {
+          if (data && data.page.edges.length > 0) {
+            page = data.page.edges[0].node.branches;
             !selectedBranch && setSelectedBranch(branches.edges[0].node.title);
           } else {
-            return null;
+            return <LangNotFound page="branches" />;
           }
+        }
 
-          return (
-            <>
-              <HeaderImage image="https://images.pexels.com/photos/297755/pexels-photo-297755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-              <Header>
-                <h1>{page.header.title}</h1>
-                <p>{page.header.text}</p>
-                <Dropdown
-                  branches={branches.edges}
-                  selectedBranch={selectedBranch}
-                  setSelectedBranch={setSelectedBranch}
-                />
-              </Header>
+        if (loading) return <p>Loading</p>;
 
-              {selectedBranch && (
-                <SelectedBranch lang={lang} selectedBranch={selectedBranch} />
-              )}
-            </>
-          );
-        }}
-      </Query>
-    </StyledBranches>
+        return (
+          <StyledBranches>
+            <HeaderImage image="https://images.pexels.com/photos/297755/pexels-photo-297755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+            <Header>
+              <h1>{page.header.title}</h1>
+              <p>{page.header.text}</p>
+              <Dropdown
+                branches={branches.edges}
+                selectedBranch={selectedBranch}
+                setSelectedBranch={setSelectedBranch}
+              />
+            </Header>
+
+            {selectedBranch && (
+              <SelectedBranch
+                lang={lang}
+                activitiesTitle={page.activities_title}
+                eventsTitle={page.events_title}
+                selectedBranch={selectedBranch}
+              />
+            )}
+          </StyledBranches>
+        );
+      }}
+    </Query>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.button`
+export const buttonStyle = css`
   width: 100%;
   height: 3rem;
   max-width: 343px;
@@ -10,8 +10,8 @@ const StyledButton = styled.button`
   border-radius: 2px;
   ${props =>
     props.primary
-      ? `background-color: ${props.theme.colorPrimary}
-         color: ${props.theme.colorWhite}
+      ? `background-color: ${props.theme.colorPrimary};
+         color: ${props.theme.colorWhite} !important;
       `
       : `background-color: ${props.theme.colorWhite} 
           color: ${props.theme.colorPrimary}`};
@@ -21,6 +21,10 @@ const StyledButton = styled.button`
   &:hover {
     opacity: 0.9;
   }
+`;
+
+const StyledButton = styled.button`
+  ${buttonStyle}
 `;
 const Button = props => {
   return <StyledButton {...props}>{props.children}</StyledButton>;

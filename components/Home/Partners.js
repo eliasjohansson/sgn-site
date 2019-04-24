@@ -33,53 +33,16 @@ export const Partner = styled.div`
   }
 `;
 
-const Partners = ({ partners }) => {
+const Partners = ({ title, partners }) => {
   return (
     <StyledPartners>
-      <h1>Our Partners</h1>
+      <h1>{title || 'Our Partners'}</h1>
       <div>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
-        <Partner>
-          <img
-            src="https://www.supportgroup.se/wp-content/uploads/2018/02/Restad_logo.png"
-            alt=""
-          />
-        </Partner>
+        {partners.map(partner => (
+          <Partner>
+            <img src={partner.logo} alt={partner.name} />
+          </Partner>
+        ))}
       </div>
     </StyledPartners>
   );

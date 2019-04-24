@@ -24,67 +24,44 @@ export const StyledAwards = styled(Section)`
 
 export const Award = styled(Card)`
   min-width: 250px;
-  > div {
-    width: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
+  a {
+    > div {
       width: 100%;
-      height: 100%;
+      padding-bottom: 100%;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
-  }
 
-  h4 {
-    padding: 1.5rem 1rem;
-    text-align: center;
+    h4 {
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
   }
 `;
 
-const Awards = props => {
+const Awards = ({ title, awards }) => {
   return (
     <StyledAwards>
-      <h1>Awards we are proud of</h1>
+      <h1>{title || 'Awards we are proud of'}</h1>
 
       <div>
-        <Award>
-          <div>
-            <img src="https://via.placeholder.com/300" alt="" />
-          </div>
-          <h4>
-            We won the ttela award for best innovation or something. And we love
-            it!!
-          </h4>
-        </Award>
-        <Award>
-          <div>
-            <img src="https://via.placeholder.com/300" alt="" />
-          </div>
-          <h4>
-            We won the ttela award for best innovation or something. And we love
-            it!!
-          </h4>
-        </Award>
-        <Award>
-          <div>
-            <img src="https://via.placeholder.com/300" alt="" />
-          </div>
-          <h4>
-            We won the ttela award for best innovation or something. And we love
-            it!!
-          </h4>
-        </Award>
-        <Award>
-          <div>
-            <img src="https://via.placeholder.com/300" alt="" />
-          </div>
-          <h4>
-            We won the ttela award for best innovation or something. And we love
-            it!!
-          </h4>
-        </Award>
+        {awards.map(award => (
+          <Award>
+            <a href={award.link}>
+              <div>
+                <img src={award.image} alt="award" />
+              </div>
+              <h4>{award.description}</h4>
+            </a>
+          </Award>
+        ))}
       </div>
     </StyledAwards>
   );

@@ -1,0 +1,20 @@
+query collaborationQuery($title: String!, $lang: String!) {
+  collaborations(where: { title: $title, lang: $lang }) {
+    edges {
+      node {
+        acf {
+          image
+          title
+          content
+          pdf
+          website
+          contact_info {
+            title
+            email
+            phone_number
+          }
+        }
+      }
+    }
+  }
+}

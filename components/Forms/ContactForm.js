@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // Components
-import Input from "../Input";
-import Button from "../Button";
-import Section from "../Section";
-import Checkbox from "../Checkbox";
+import Input from '../Input';
+import Button from '../Button';
+import Section from '../Section';
+import Checkbox from '../Checkbox';
 
 const StyledContactForm = styled.div`
   h1 {
@@ -13,20 +13,20 @@ const StyledContactForm = styled.div`
   }
 `;
 
-const ContactForm = props => {
+const ContactForm = ({ title, form }) => {
   return (
     <StyledContactForm>
-      <h1>Contact Us</h1>
-      <form onSubmit={() => console.log("Submitted contact form")}>
-        <Input label="Name" />
-        <Input label="Email" type="email" />
-        <Input label="Subject" />
-        <Input textarea label="Message" />
+      <h1>{title}</h1>
+      <form onSubmit={() => console.log('Submitted contact form')}>
+        <Input label={form.name.label} />
+        <Input label={form.email.label} type="email" />
+        <Input label={form.subject.label} />
+        <Input textarea label={form.message.label} />
         <Checkbox name="tac">
-          I agree to the <a href="#">terms and conditions</a>
+          <a href="#">{form.tac_label}</a>
         </Checkbox>
         <Button type="submit" primary>
-          Send
+          {form.button_label}
         </Button>
       </form>
     </StyledContactForm>

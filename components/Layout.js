@@ -6,7 +6,7 @@ import Footer from './Footer';
 const StyledLayout = styled.div`
   main {
     padding-top: calc(64px);
-    min-height: 75vh;
+    min-height: calc(100vh);
     position: relative;
   }
 `;

@@ -1,0 +1,42 @@
+query membershipQuery($lang: String!) {
+  pages(where: { title: "membership", lang: $lang }) {
+    edges {
+      node {
+        title
+        membership {
+          header {
+            image
+            title
+            text
+          }
+          form {
+            title
+            labels {
+              first_name
+              last_name
+              personal_number
+              birth_date
+              lma
+              address
+              zipcode
+              city
+              nationality
+              in_sweden_from
+              email
+              mobile_number
+              education
+              profession
+              mother_language
+              add_another_language
+            }
+            terms_and_condition {
+              i_agree_to_the
+              terms_and_conditions
+            }
+            sign_up_button
+          }
+        }
+      }
+    }
+  }
+}

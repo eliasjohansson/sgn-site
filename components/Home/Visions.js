@@ -31,27 +31,14 @@ export const Vision = styled(ImageListItem)`
   }
 `;
 
-const Visions = props => {
+const Visions = ({ title, visions }) => {
   return (
     <StyledVisions>
-      <h1>Visions</h1>
+      <h1>{title}</h1>
       <div>
-        <Vision
-          image="https://via.placeholder.com/300"
-          description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-        />
-        <Vision
-          image="https://via.placeholder.com/300"
-          description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-        />
-        <Vision
-          image="https://via.placeholder.com/300"
-          description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-        />
-        <Vision
-          image="https://via.placeholder.com/300"
-          description="We meet new arrivals and provide information about Swedish society, culture and lifestyle."
-        />
+        {visions.map(vision => (
+          <Vision image={vision.image} description={vision.text} />
+        ))}
       </div>
     </StyledVisions>
   );

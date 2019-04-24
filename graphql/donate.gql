@@ -1,0 +1,32 @@
+query donateQuery($lang: String!) {
+  pages(where: { title: "Donate", lang: $lang }) {
+    edges {
+      node {
+        donate {
+          header {
+            title
+            text
+            image
+          }
+          collaborate_card {
+            title
+            text
+            button_label
+          }
+          donate_card {
+            title
+            text
+            donation_alternatives {
+              name
+              value
+            }
+          }
+          member_banner {
+            title
+            button_label
+          }
+        }
+      }
+    }
+  }
+}

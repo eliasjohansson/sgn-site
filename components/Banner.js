@@ -37,7 +37,9 @@ const StyledBanner = styled(Section)`
     font-family: 'Montserrat', sans-serif;
   }
 
-  button {
+  button,
+  a {
+    margin: 0 auto;
     margin-top: 2rem;
   }
 `;

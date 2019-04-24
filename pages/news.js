@@ -2,7 +2,7 @@ import { Query } from "react-apollo";
 import { withRouter } from "next/router";
 import gql from "graphql-tag";
 import qs from "query-string";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // Queries
@@ -25,30 +25,38 @@ const Header = styled(Section)`
 `;
 const News = props => {
   const { lang } = props;
-  return (
-    <StyledNews>
-      <Query query={NEWS_QUERY} variables={{ lang: lang }}>
-        {({ loading, error, data, fetchMore }) => {
-          let page;
-          if (!loading) {
-            page = data.page.edges[0].node.news;
-          }
 
-          const { header } = page;
-          return (
-            <>
-              <HeaderImage image={header.image} />
-              <Header>
-                <h1>{header.title}</h1>
-                <p>{header.text}</p>
-                <Button primary>Go to Facebook</Button>
-              </Header>
-              <NewsComponent />
-            </>
-          );
-        }}
-      </Query>
-    </StyledNews>
+  return (
+    <Query query={NEWS_QUERY} variables={{ lang: lang }}>
+      {({ loading, error, data, fetchMore }) => {
+        let page;
+
+        if (!loading) {
+          if (data.page.edges.length > 0) {
+            page = data.page.edges[0].node.news;
+          } else {
+            return <LangNotFound page="news" />;
+          }
+        }
+
+        if (loading) return <p>Loading</p>;
+
+        return (
+          <StyledNews>
+            <HeaderImage image={page.header.image} />
+            <Header>
+              <h1>{page.header.title}</h1>
+              <p>{page.header.text}</p>
+            </Header>
+            <NewsComponent />
+            <Banner primary>
+              <h1>Title</h1>
+              <Button>CTA</Button>
+            </Banner>
+          </StyledNews>
+        );
+      }}
+    </Query>
   );
 };
 
