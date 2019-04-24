@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Input from "../Input";
-import Button from "../Button";
-import Section from "../Section";
-import Checkbox from "../Checkbox";
+import React from 'react';
+import styled from 'styled-components';
+import Input from '../Input';
+import Button from '../Button';
+import Section from '../Section';
+import Checkbox from '../Checkbox';
 const Wrapper = styled(Section)`
   > div form {
     display: grid;
@@ -45,17 +45,17 @@ const StyledForm = styled.form`
   }
 `;
 
-const MembershipForm = () => {
+const MembershipForm = ({ form }) => {
   return (
     <Wrapper>
-      <h1>Membership Application</h1>
+      <h1>{form.title}</h1>
       <StyledForm>
         <div className="hAlign">
-          <Input label="First name" />
-          <Input label="Last name" />
+          <Input label={form.labels.first_name} />
+          <Input label={form.labels.last_name} />
         </div>
         <Input
-          label="Personal Identity Number (YYYY-MM-DD-xxxx)"
+          label={form.labels.personal_number + ' (YYYY-MM-DD-xxxx)'}
           placeholder="1989-21-01-XXXX"
           pattern="\d{4}-?\d{2}-?\d{2}-?\d{4}"
           type="text"
@@ -63,48 +63,48 @@ const MembershipForm = () => {
         />
         <div className="hAlign">
           <Input
-            label="Date of birth"
-            label="Date Of Birth (YYYY-MM-DD)"
+            label={form.labels.birth_date + ' (YYYY-MM-DD)'}
             placeholder="1989-21-01"
             pattern="\d{4}-?\d{2}-?\d{2}"
             type="text"
             required
           />
           <Input
-            label="LMA (12345678-9)"
+            label={form.labels.lma + ' (12345678-9)'}
             placeholder="12345678-9"
             type="text"
             required
             pattern="\d{8}-?\d{1}"
           />
         </div>
-        <Input label="Adress" type="text" required />
+        <Input label={form.labels.address} type="text" required />
         <div className="hAlign">
-          <Input label="Post Number" type="text" required />
-          <Input label="City" type="text" required />
+          <Input label={form.labels.zipcode} type="text" required />
+          <Input label={form.labels.city} type="text" required />
         </div>
         <div className="hAlign">
-          <Input label="Nationality" type="text" required />
+          <Input label={form.labels.nationality} type="text" required />
           <Input
-            label="In Sweden From:(YYYY-MM-DD)"
+            label={form.labels.in_sweden_from + ' (YYYY-MM-DD):'}
             pattern="\d{4}-?\d{2}-?\d{2}"
             type="text"
             required
           />
         </div>
-        <Input label="Email" type="email" required />
-        <Input label="Mobile number" type="text" required />
+        <Input label={form.labels.email} type="email" required />
+        <Input label={form.labels.mobile_number} type="text" required />
         <div className="col2">
-          <Input textarea label="Education" />
-          <Input textarea label="Profession" />
-          <Input label="Mother language" type="text" required />
+          <Input textarea label={form.labels.education} />
+          <Input textarea label={form.labels.profession} />
+          <Input label={form.labels.mother_language} type="text" required />
           <div className="termsWrapper">
             <Checkbox name="tac">
-              I agree to the <a href="#">terms and conditions</a>
+              {form.terms_and_condition.i_agree_to_the}{' '}
+              <a href="#">{form.terms_and_condition.terms_and_conditions}</a>
             </Checkbox>
           </div>
           <Button primary type="submit">
-            Submit{" "}
+            {form.sign_up_button}
           </Button>
         </div>
       </StyledForm>

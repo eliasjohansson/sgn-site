@@ -1,8 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import Section from "./Section";
-import Button from "./Button";
-import Card from "./Card";
+import React from 'react';
+import styled from 'styled-components';
+import Section from './Section';
+import Button from './Button';
+import Card from './Card';
+import LinkButton from './LinkButton';
+
 const Donations = styled(Section)`
   height: 100%;
   > div {
@@ -34,35 +36,26 @@ const ContentBox = styled(Card)`
     margin-bottom: 1rem;
   }
 `;
-const Donate = () => {
+
+const Donate = ({ lang, collaborateCard, donateCard }) => {
   return (
     <Donations>
       <ContentBox>
-        <h1>Headline</h1>
-        <p>
-          Support Group Network (SGN) är en ideell förening som formats av
-          asylsökande i samarbete med det svenska samhället i syfte att hjälpa
-          andra asylsökande, flyktingar.
-        </p>
-        <Button>
-          <p>Contact us</p>
-        </Button>
+        <h1>{collaborateCard.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: collaborateCard.text }} />
+        <LinkButton primary external href={`/${lang}/collaborations`}>
+          {collaborateCard.button_label}
+        </LinkButton>
       </ContentBox>
       <ContentBox>
-        <h1>Headline</h1>
-        <p>
-          Support Group Network (SGN) är en ideell förening som formats av
-          asylsökande i samarbete med det svenska samhället i syfte att hjälpa
-          andra asylsökande, flyktingar.
-        </p>
-        <b>Swish</b>
-        <p>1232233732</p>
-        <b>Bank giro</b>
-        <p>1232233732</p>
-        <b>PayPal</b>
-        <p>1232233732</p>
-        <b>IBAN</b>
-        <p>1232233732</p>
+        <h1>{donateCard.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: donateCard.text }} />
+        {donateCard.donation_alternatives.map(alt => (
+          <>
+            <b>{alt.name}</b>
+            <p>{alt.value}</p>
+          </>
+        ))}
       </ContentBox>
     </Donations>
   );
