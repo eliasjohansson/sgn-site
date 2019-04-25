@@ -86,34 +86,34 @@ const Menu = ({ open, router, lang, languages, close, data }) => {
       <ul>
         <li>
           <Link route="home" params={{ lang: lang }}>
-            <a onClick={close}>{data.links.home || 'Home'}</a>
+            <a onClick={close}>{data ? data.links.home : 'Home'}</a>
           </Link>
         </li>
         <li>
           <Link route="branches" params={{ lang: lang }}>
-            <a onClick={close}>{data.links.locations || 'Locations'}</a>
+            <a onClick={close}>{data ? data.links.locations : 'Locations'}</a>
           </Link>
         </li>
         <li>
           <Link route="collaborations" params={{ lang: lang }}>
             <a onClick={close}>
-              {data.links.collaborations || 'Collaborations'}
+              {data ? data.links.collaborations : 'Collaborations'}
             </a>
           </Link>
         </li>
         <li>
           <Link route="donate" params={{ lang: lang }}>
-            <a onClick={close}>{data.links.donate || 'Donate'}</a>
+            <a onClick={close}>{data ? data.links.donate : 'Donate'}</a>
           </Link>
         </li>
         <li>
           <Link route="news" params={{ lang: lang }}>
-            <a onClick={close}>{data.links.news || 'News'}</a>
+            <a onClick={close}>{data ? data.links.news : 'News'}</a>
           </Link>
         </li>
         <li>
           <Link route="membership" params={{ lang: lang }}>
-            <a onClick={close}>{data.links.membership || 'Membership'}</a>
+            <a onClick={close}>{data ? data.links.membership : 'Membership'}</a>
           </Link>
         </li>
       </ul>

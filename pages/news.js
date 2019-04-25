@@ -14,6 +14,7 @@ import Section from '../components/Section';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
 import NewsComponent from '../components/NewsComponent';
+import LangNotFound from '../components/LangNotFound';
 
 const StyledNews = styled.div``;
 const Header = styled(Section)`

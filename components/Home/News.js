@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Card from "../Card";
-import Section from "../Section";
-import Button from "../Button";
-import LinkButton from "../LinkButton";
+import React from 'react';
+import styled from 'styled-components';
+import Card from '../Card';
+import Section from '../Section';
+import Button from '../Button';
+import LinkButton from '../LinkButton';
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore et dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore et dolor`;
 
@@ -79,7 +79,7 @@ const News = ({ infoBox, lang }) => {
   return (
     <StyledNews>
       <InfoCard>
-        <h1>News feed</h1>
+        <h1>{infoBox.title}</h1>
         <p>{infoBox.text}</p>
         <LinkButton primary external href={`/${lang}/news`}>
           {infoBox.button_label}

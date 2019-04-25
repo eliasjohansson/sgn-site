@@ -9,6 +9,7 @@ import MembershipForm from '../components/Forms/MembershipForm';
 import HeaderImage from '../components/HeaderImage';
 import Section from '../components/Section';
 import { Query } from 'react-apollo';
+import LangNotFound from '../components/LangNotFound';
 
 const StyledMembership = styled.div``;
 
