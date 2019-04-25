@@ -11,6 +11,7 @@ import Event from './Event';
 // Queries
 import BRANCH_QUERY from '../../graphql/branch.gql';
 import EVENTS_QUERY from '../../graphql/events.gql';
+import ContactInfo from '../ContactInfo';
 
 const StyledSelectedBranch = styled.div``;
 
@@ -84,9 +85,9 @@ const SelectedBranch = ({
           acf: { activities, events, contact_info }
         } = branch;
 
-        console.log(contact_info);
         return (
           <StyledSelectedBranch>
+            <ContactInfo name={branch.title} data={contact_info} />
             <Activities>
               <Container>
                 <h1>{activitiesTitle}</h1>

@@ -43,7 +43,7 @@ export const Post = styled(Card)`
   img {
     object-fit: cover;
     width: 35%;
-    min-height: 100%;
+    height: 100%;
   }
 
   > div {
@@ -86,31 +86,47 @@ const News = ({ infoBox, lang }) => {
         </LinkButton>
       </InfoCard>
       <Post>
-        <img src="https://via.placeholder.com/200x150" />
+        <img src="https://scontent.xx.fbcdn.net/v/t1.0-0/p180x540/58375032_1303716409802650_8860665179738734592_o.jpg?_nc_cat=111&_nc_ht=scontent.xx&oh=15d688e5e81ade5c7bf5111957eeccf1&oe=5D7190AA" />
         <div>
-          <small>2019-02-11</small>
+          <small>2019-03-20</small>
           <p>
-            {text.slice(0, 170)} ...
+            {'Det nya styrelsen som ska leda aktiviteter på Restad Gård, hoppas för dem många framgångar ✌️The new steering group that will lead activities in Restad Gård, hope for them many successes ✌️'.slice(
+              0,
+              170
+            )}{' '}
+            ...
             <a href="#">read more</a>
           </p>
         </div>
       </Post>
       <Post>
-        <img src="https://via.placeholder.com/200x150" />
+        <img src="https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/58382565_1300081406832817_485350013325541376_o.jpg?_nc_cat=107&_nc_ht=scontent.xx&oh=b338fab8290cb82b86c54cab46f1b315&oe=5D3F3508" />
         <div>
-          <small>2019-02-11</small>
+          <small>2019-03-11</small>
           <p>
-            <span>{text.slice(0, 170)} ... </span>
+            <span>
+              {'Glad Påsk till er alla vänner! Hoppas för er en trevlig helg. Happy Easter to all friends! Hope for you a nice weekend.'.slice(
+                0,
+                170
+              )}{' '}
+              ...{' '}
+            </span>
             <a href="#">read more</a>
           </p>
         </div>
       </Post>
       <Post>
-        <img src="https://via.placeholder.com/200x150" />
+        <img src="https://external.xx.fbcdn.net/safe_image.php?d=AQB5JZRmD6Co26yZ&url=https%3A%2F%2F8sidor.se%2Fwp-content%2Fuploads%2F2019%2F04%2F190412_folkvimmel.jpg&_nc_hash=AQDDnyWBoYPrsmTV" />
         <div>
-          <small>2019-02-11</small>
+          <small>2019-02-29</small>
           <p>
-            <span>{text.slice(0, 170)} ... </span>
+            <span>
+              {"A new research show that refugees are starting to think like Swedes. It's probably gonna take many years before we think just like it. But the important thing is that most people have begun to approach our ideas, says the researcher Bi Puranen to Sweden's radio.".slice(
+                0,
+                170
+              )}{' '}
+              ...{' '}
+            </span>
             <a href="#">read more</a>
           </p>
         </div>

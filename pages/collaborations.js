@@ -19,7 +19,7 @@ import LangNotFound from '../components/LangNotFound';
 const StyledCollaborations = styled.div`
   & h1 {
     margin: 0;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 `;
 const Header = styled(Section)`

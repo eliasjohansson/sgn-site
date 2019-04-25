@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Section from "./Section";
-import Container from "./Container";
-import React from "react";
-import Icon from "./Icons";
+import styled from 'styled-components';
+import Section from './Section';
+import Container from './Container';
+import React from 'react';
+import Icon from './Icons';
 
 const StyledInfoBox = styled(Section)`
   h2 {
@@ -24,8 +24,8 @@ const StyledInfoBox = styled(Section)`
   }
 `;
 const Wrapper = styled(Container)`
-width: 100%;
-column-gap: 5rem;
+  width: 100%;
+  column-gap: 5rem;
   padding-left: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -34,33 +34,32 @@ column-gap: 5rem;
   }
 `;
 
-const ContactInfo = () => {
+const ContactInfo = ({ name, data }) => {
   return (
     <>
       <StyledInfoBox>
-        <h2>Location name</h2>
+        <h2>{name}</h2>
         <Wrapper>
           <div>
-            <h3>Adress</h3>
-            <p>Kungsladugårdsvägen 5</p>
-            <p>46254 Vänersborg</p>
+            <h3>{data.address_label}</h3>
+            <p>{data.address}</p>
           </div>
           <div>
-            <h3>E-mail</h3>
-            <p>restadgard@supportgroup.se</p>
+            <h3>{data.email_label}</h3>
+            <p>{data.email}</p>
           </div>
           <div>
-            <h3>Phone</h3>
-            <p>+4676-884 80 84</p>
+            <h3>{data.phone_number_label}</h3>
+            <p>{data.phone_number}</p>
           </div>
           <div>
-            <h3>Social Media</h3>
+            <h3>{data.social_media_label}</h3>
             <a>
-            <span>
-              <Icon symbol="facebook-bg" /> 
-          
-              <p>facebook</p>
-            </span>
+              <span>
+                <Icon symbol="facebook-bg" />
+
+                <p>facebook</p>
+              </span>
             </a>
           </div>
         </Wrapper>

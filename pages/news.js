@@ -21,7 +21,8 @@ const Header = styled(Section)`
   background-color: ${({ theme }) => theme.colorWhite};
   color: ${({ theme }) => theme.colorDarkGrey};
   p {
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
+    max-width: 800px;
   }
 `;
 const News = props => {
@@ -50,10 +51,6 @@ const News = props => {
               <p>{page.header.text}</p>
             </Header>
             <NewsComponent />
-            <Banner primary>
-              <h1>Title</h1>
-              <Button>CTA</Button>
-            </Banner>
           </StyledNews>
         );
       }}
