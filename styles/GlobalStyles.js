@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 a, a:visited {
+  cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.colorPrimary}
   p { font: ${({ theme }) => theme.fontMobileP}; }

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
 import Card from "./Card";
+import data from "../FacebookMockData/data";
+import Autolinker from 'autolinker';
 const StyledNews = styled(Section)`
   > div {
     display: grid;
@@ -23,32 +25,25 @@ const StyledCard = styled(Card)`
 `;
 
 const News = () => {
+  const posts = data.data
   return (
+
     <StyledNews>
+      {posts.map(post => {
+        if (post.full_picture && post.message) {
+          if (post.message.includes('http' || 'https')) {
+            post.message = Autolinker.link(post.message);
+          }
+        return(
       <StyledCard>
-        <img src="https://via.placeholder.com/1480x880" />
+        <img src={post.full_picture} />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore
-          et dolor <a href="#">... read more </a>
+         {post.message} <a href="#">... read more </a>
         </p>
       </StyledCard>
-      <StyledCard>
-        <img src="https://via.placeholder.com/1024x600" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore
-          et dolor <a href="#">... read more </a>
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <img src="https://via.placeholder.com/480x500" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor fncjjkvbodnvkmv dknvkdsmc ckpdmc incididunt ut labore
-          et dolor <a href="#">... read more </a>
-        </p>
-      </StyledCard>
+        )
+        }
+  })}
     </StyledNews>
   );
 };

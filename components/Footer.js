@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Container from './Container';
-import Icon from './Icons';
-import { Link } from '../routes';
+import React from "react";
+import styled from "styled-components";
+import Container from "./Container";
+import Icon from "./Icons";
+import { Link } from "../routes";
 
 const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colorDarkGrey};
@@ -181,22 +181,22 @@ const Footer = ({ lang, data }) => {
           <ul>
             <li>
               <Link route="private-policy">
-                <a>{data.navigation.private_policy || 'Private Policy'}</a>
+                <a>{data.navigation.private_policy || "Private Policy"}</a>
               </Link>
             </li>
             <li>
               <Link route="cookies">
-                <a>{data.navigation.cookies || 'Cookies'}</a>
+                <a>{data.navigation.cookies || "Cookies"}</a>
               </Link>
             </li>
             <li>
               <Link route="login">
-                <a>{data.navigation.login || 'Login'}</a>
+                <a>{data.navigation.login || "Login"}</a>
               </Link>
             </li>
             <li>
               <Link route="graphic-identity">
-                <a>{data.navigation.graphic_identity || 'Graphic Identity'}</a>
+                <a>{data.navigation.graphic_identity || "Graphic Identity"}</a>
               </Link>
             </li>
           </ul>
